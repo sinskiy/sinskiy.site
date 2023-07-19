@@ -1,0 +1,55 @@
+---
+const version = "v0.2"
+const notLinksText = ["Design & Code by me", version];
+const linksText = ["GitHub repo", "Attribution"]
+const links =
+[
+    "https://github.com/Sinskiy/personal-website",
+    "https://github.com/Sinskiy/personal-website/readme.md"
+];
+---
+
+<aside class="flex column">
+    {
+        notLinksText.map((text) =>
+            <h4>{text}</h4>
+        )
+    }
+    {
+        linksText.map((text) =>
+            <a href={links[linksText.indexOf(text)]} target="_blank">
+                <h4>{text}</h4>
+            </a>
+        )
+    }
+</aside>
+<style>
+    aside {
+        gap: 2rem;
+    }
+    aside > a, aside > h4 {
+        position: relative;
+        z-index: 20;
+    }
+    a > h4 {
+        text-decoration: underline;
+    }
+
+    a > h4:hover {
+        color: white;
+    }
+
+    h4 {
+        text-align: right;
+        margin: 0;
+    }
+
+    @media (max-width: 1444px) {
+        aside {
+            margin-top: 2rem;
+            justify-content: center;
+            flex-direction: row!important;
+        }
+    }
+
+</style>

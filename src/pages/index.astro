@@ -1,0 +1,27 @@
+---
+	import HTMLHead from "../components/HTMLHead.astro"
+	import Header from "../components/Head.astro";
+	import Home from "../components/Home.astro";
+	import Projects from "../components/Projects.astro";
+	import About from "../components/About.astro";
+	import Contacts from "../components/Contacts.astro";
+	import "../styles/global.css";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<HTMLHead />
+
+  <body class="center column">
+	<div id="top"></div>
+	<Header />
+	<main>
+		<Home />
+		<Projects />
+		<About />
+		<Contacts />
+	</main>
+  </body>
+</html>
+<style>
+</style>

@@ -1,0 +1,83 @@
+---
+const medias = ["discord"];
+const mediasWithLinks = ["github", "youtube"];
+const links = ["https://github.com/Sinskiy/", "https://youtube.com/@sinskiy_/"];
+---
+
+<div id="first-row--wrapper" class="flex">
+    <div id="copy" class="flex center">
+        <h3>sinskiy@proton.me</h3>
+        <img src="copy.svg" alt="copy icon" id="copy-svg">
+    </div>
+    <nav class="flex">
+        {medias.map((media) =>
+            <img
+                src={`${media}.svg`}
+                alt={`${media} logo`}
+            >
+        )}
+
+        {mediasWithLinks
+          .map((media) =>
+            <a href={links[mediasWithLinks.indexOf(media)]} target="_blank">
+                <img src={`${media}.svg`} alt={`${media} logo`} />
+            </a>
+        )}
+    </nav>
+</div>
+
+<style>
+    #first-row--wrapper {
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+    }
+
+    h3 {
+        font-size: clamp(1rem, 5vw, 2rem)!important;
+        margin-right: 0.5rem!important;
+    }
+
+    nav {
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    a {
+        z-index: 5;
+    }
+
+    #copy {
+        z-index: 7;
+    }
+
+    #copy:hover {
+        cursor: copy;
+        filter: brightness(0.7);
+    }
+
+    #copy-svg {
+        width: 1.2rem;
+        height: 1.5rem;
+    }
+
+    @media (max-width: 800px) {
+        #first-row--wrapper {
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            flex-direction: column;
+        }
+    }
+</style>
+<script>
+    const copy = document.querySelector("#copy");
+    const textToCopy = "sinskiy@proton.me";
+    copy.addEventListener("click", copyText);
+
+    function copyText() {
+        console.log("hello, world")
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            alert("Copied!");
+        });
+    }
+</script>

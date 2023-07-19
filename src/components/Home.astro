@@ -1,0 +1,63 @@
+---
+import SectionPlaceholder from "./SectionPlaceholder.astro";
+---
+<SectionPlaceholder sectionId="home" title="hi," additionalMargin="true">
+    <h1>
+        I'm Sinskiy,<br/>
+        <span>web developer</span>
+    </h1>
+    <a href="#projects" class="button-gradient-wrapper center column">
+        <button class="h3CustomText">
+            see projects
+            <img src="arrow-down.svg" alt="Arrow down">
+        </button>
+    </a>
+    <div class="bottom">
+        <small>or scroll down</small>
+        <img src="mouse.svg" alt="mouse icon">
+    </div>
+</SectionPlaceholder>
+
+<style>
+    h1 {
+        margin: 6rem 0;
+
+        font-family: "Red Rose", sans-serif;
+        font-size: clamp(1rem, 12vw, 8rem);
+        font-weight: 700;
+        text-align: center;
+
+        word-break: break-word;
+        hyphens: auto;
+        overflow-wrap: break-word;
+    }
+
+    span {
+        background: linear-gradient(45deg,
+            var(--green) 0%,
+            var(--purple) 100%
+        );
+        filter: brightness(0.8);
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-fill-color: transparent;
+    }
+
+    a {
+        z-index: 5!important;
+    }
+
+    img {
+        max-width: 4vw;
+    }
+
+    .bottom {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        margin-top: 6rem;
+    }
+</style>

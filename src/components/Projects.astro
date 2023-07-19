@@ -1,0 +1,159 @@
+---
+import SectionPlaceholder from "./SectionPlaceholder.astro";
+// TODO: change links
+const projects = [{
+        name: "Seterra extra",
+        img: "seterra-extra-logo.svg",
+        link: "https://github.com/Sinskiy/seterraextra",
+        description: "Extension, that adds many cool features for Seterra - website for learning geography",
+    },
+    {
+        name: "Personal website",
+        img: "logo-projects.svg",
+        link: "https://github.com/Sinskiy/personal-website",
+        description: "This website"
+    }
+]
+---
+<!-- it isn't working with jusst isColumn=false.... -->
+<SectionPlaceholder sectionId="projects">
+    <div id="projects" class="flex center">
+        {projects
+            .map((project) =>
+                    <div class="project">
+                        <a href={project.link} target="_blank"></a>
+                        <div class="project-content center justifyCenter">
+                            <img src={project.img} alt={`${project.name} logo`} class="project-image" />
+                        </div>
+                        </img>
+                    </div>
+            )
+        }
+    </div>
+</SectionPlaceholder>
+
+<style>
+    #projects {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    #projects:hover > .project::after {
+        opacity: 1;
+    }
+
+    .project {
+        width: 500px;
+        aspect-ratio: 5 / 3;
+        height: auto;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        position: relative;
+    }
+
+    .project:hover::before {
+        opacity: 1;
+    }
+
+    .project::before,
+    .project::after {
+        content: "";
+
+        border-radius: inherit;
+        min-height: 100%;
+        min-width: 100%;
+
+        opacity: 0;
+
+        position: absolute;
+        left: 0px;
+        top: 0px;
+
+        transition: opacity 500ms;
+    }
+
+    .project::before {
+        background: radial-gradient(
+            800px circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.01),
+            transparent 40%
+        );
+        z-index: 3;
+    }
+
+    .project::after {
+        background: radial-gradient(
+            600px circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.2),
+            transparent 40%
+        );
+        z-index: 1;
+    }
+
+    .project > .project-content {
+        overflow: hidden;
+
+        background-color: var(--black-transparent);
+        border-radius: inherit;
+
+        inset: 2px; /* actual thing that adds border */
+
+        position: absolute;
+        z-index: 2;
+    }
+
+    .project-content > img {
+        width: 300px;
+        height: auto;
+    }
+
+    .project > a {
+        position: absolute;
+
+        z-index: 5;
+        min-width: 100%;
+        min-height: 100%;
+    }
+
+    @media (max-width: 1100px) {
+        #projects {
+            flex-direction: column;
+        }
+        .project {
+            width: clamp(100px, 70vw, 700px);
+            height: 300px;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .project-content > img {
+            width: clamp(100px, 50vw, 300px);
+        }
+    }
+
+    /* @media (max-width: 700px) {
+        .project {
+            width: 400px;
+            aspect-ratio: 5 / 3;
+        }
+        .project-content > img {
+            width: 100px;
+        }
+    } */
+
+</style>
+
+<script>
+    const projects = document.querySelector("#projects");
+    projects.addEventListener("mousemove", (e: MouseEvent) => {
+        const allProjects = document.querySelectorAll(".project");
+        allProjects.forEach((project: HTMLElement) => {
+            const rect = project.getBoundingClientRect(),
+            x = e.clientX - rect.left,
+            y = e.clientY - rect.top;
+
+            project.style.setProperty("--mouse-x", `${x}px`);
+            project.style.setProperty("--mouse-y", `${y}px`);
+        });
+    })
+</script>

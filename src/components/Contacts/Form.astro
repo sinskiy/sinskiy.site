@@ -1,0 +1,84 @@
+---
+const inputFirstRow = ["name", "email"];
+const textArea = ["message"];
+---
+
+<form id="form-wrapper" class="flex column" action="https://formsubmit.co/sinskiy@proton.me" method="POST">
+    <div id="input-first-row" class="flex">
+        {inputFirstRow
+          .map((input) =>
+            <input
+                type={ input !== "email" ? "text" : "email" }
+                name={input}
+                placeholder={`Your ${input}`}
+                id={input}
+                class="h5CustomText first-row"
+                required
+                spellcheck="false"
+            >
+        )}
+    </div>
+    {textArea
+          .map((input) =>
+            <textarea
+                name={input}
+                placeholder={`${input[0].toUpperCase() + input.substring(1)}`}
+                id={input}
+                class="h5CustomText input"
+                required
+                spellcheck="false"
+            ></textarea>
+    )}
+    <input type="hidden" name="_subject" value="New submission!"/>
+
+    <button type="submit" class="button-gradient-wrapper h3CustomText">send message</button>
+</form>
+
+<style>
+    #input-first-row {
+        gap: 1rem;
+    }
+
+    input, .input {
+        background: rgba(255, 255, 255, 0.20);
+        border-radius: 0.5rem;
+        border: none;
+
+        z-index: 5;
+
+        padding: 1rem 2rem;
+    }
+
+    .first-row {
+        width: calc(50% - 1rem);
+    }
+
+    input::placeholder, .input::placeholder {
+        color: var(--gray);
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    #message {
+        padding: 1rem 2rem 5rem 2rem;
+    }
+
+    #form-wrapper {
+        gap: 1rem;
+    }
+
+    .h3CustomText {
+        font-size: clamp(1.5rem, 5vw, 2rem)!important;
+    }
+
+    @media (max-width: 500px) {
+        #input-first-row {
+            flex-direction: column;
+        }
+        .first-row {
+            width: auto;
+        }
+    }
+</style>

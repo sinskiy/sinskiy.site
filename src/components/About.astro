@@ -1,0 +1,127 @@
+---
+import SectionPlaceholder from "./SectionPlaceholder.astro";
+---
+<SectionPlaceholder sectionId="about">
+    <div id="root-div-about">
+        <!-- i need to have all of these elements on one layer or layer lower than input to make native toggler without js -->
+        <input type="checkbox">
+        <!-- this is very awful structure but at least i have a toggle without js!!! -->
+        <div id="navigation-text" class="flex justifyCenter column">
+            <nav class="flex center">
+                <h3 id="information">information</h3>
+                <div id="toggle"></div>
+                <h3 id="story">story</h3>
+            </nav>
+            <div id="texts">
+                <p id="information-text">
+                    14 years old from Russia, who really likes reading dystopia and self-improvement books. It's hard for me to speak to strangers and I'm kinda awkward. I use calendars to schedule my day to be more productive, and usually I code or try to speak english on discord servers for learning languages
+                </p>
+                <p id="story-text">
+                    Everything I have now, every interest and hobby is basically the outcome of just a few events in my life</br></br>At age 9, I found countryballs and got involved in politics. Yeah, it sound really funny, politics at age 9, and I agree that i didn’t actually know anything about politics. But it still completely changed the direction of my life</br></br>Noone of my former acquaintances and friends were into politics, so I found new ones online. They all were much older than me. In such environment, it’s not hard to develop your own vision of life.</br></br>My core value became freedom, in every sense. The thing is, this value is absolutely violated in the place where I live now. I thought the same when I was 9, I think absolutely the same now. It’s even worse</br></br>As I switched my real life friends to internet ones, I started to spend a lot of my time on PC and smartphone, and beside politics got involved in tech. I still haven’t thought about being a developer, but I followed the latest tech news and knew a lot advanced things about PC</br></br>I got a bit derailed at age 12. I spent almost all my time on the recently released Valorant. At age 13 I created my first website as a school project, because it was the easiest project I could came up with, but I quickly forgot about web development. So I was still derailed</br></br>Everything has changed when I read Atlas Shrugged. This book, generally speaking, promotes my core values that I developed while I was interested in politics. Now I want to move from russia more than ever. The problem is that I’m from a small town and my family definitelly can’t sponsor me in moving to another country. So I need to earn money somehow. Not the easiest thing to do as underage. That’s the main reason why I spend a lot of my time making websites and learning new things!
+                </p>
+            </div>
+        </nav>
+    </nav>
+    <!-- TODO: switch to .md file -->
+</SectionPlaceholder>
+
+<style>
+    .root-div-about {
+        display: flex;
+        position: relative;
+    }
+
+    input {
+        min-width: 50%;
+        min-height: 3rem;
+
+        opacity: 0;
+        z-index: 5;
+
+        position: absolute;
+    }
+
+    nav {
+        gap: 1rem;
+    }
+
+    #toggle {
+        box-sizing: content-box;
+        width: 5rem;
+        height: 2rem;
+
+        border: solid 8px white;
+        border-radius: 10rem;
+
+        position: relative;
+    }
+
+    #toggle::before {
+        content: "";
+
+        display: flex;
+
+        border-radius: 10rem;
+
+        position: absolute;
+        left: 5px;
+        top: 0.2rem;
+
+        width: 1.5rem;
+        height: 1.5rem;
+
+        background-color: var(--green);
+
+        transition: all 0.3s ease;
+    }
+
+    input:checked + #navigation-text #toggle::before {
+        left: calc(100% - 1.5rem - 5px);
+    }
+
+    p {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: clamp(1rem, 3vw, 1.5rem);
+        font-weight: 300;
+        letter-spacing: 0.075rem;
+        line-height: 170%;
+        max-width: 50vw;
+    }
+
+    @media (max-width: 1440px) {
+        p {
+            max-width: 80vw;
+        }
+    }
+
+    @media (max-width: 750px) {
+        #toggle {
+            border: 5px solid white;
+            width: 3rem;
+            height: 1.2rem;
+        }
+        #toggle::before {
+            left: 3px;
+            top: 0.2rem;
+            width: 0.8rem;
+            height: 0.8rem;
+        }
+        input:checked + #navigation-text #toggle::before {
+            left: calc(100% - 0.8rem - 3px);
+        }
+    }
+
+    /* native css toggle no way */
+
+    input:not(:checked) + #navigation-text #information { color: var(--green) }
+    input:not(:checked) + #navigation-text #information-text { display: block; }
+
+    input:not(:checked) + #navigation-text #story { color: white }
+    input:not(:checked) + #navigation-text #story-text { display: none; }
+
+    input:checked + #navigation-text #information { color: white }
+    input:checked + #navigation-text #information-text { display: none; }
+
+    input:checked + #navigation-text #story { color: var(--green) }
+    input:checked + #navigation-text #story-text { display: block; }
+</style>

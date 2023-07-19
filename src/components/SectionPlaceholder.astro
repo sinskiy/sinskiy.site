@@ -1,0 +1,20 @@
+---
+const { sectionId, title = sectionId } = Astro.props;
+---
+<section id={sectionId}>
+    <h2 class="sectionTitle">{title}</h2>
+    <div class:list={['center', 'column']}>
+        <slot/>
+    </div>
+</section>
+
+<style>
+
+    .sectionTitle {
+        font-family: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+        color: var(--gray);
+
+        margin-left: 15vw;
+        margin-top: 4rem;
+    }
+</style>

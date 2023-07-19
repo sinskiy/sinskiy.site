@@ -1,0 +1,94 @@
+---
+---
+<header>
+    <a href="#top">
+        <img src="logo.svg" alt="logo" id="logo">
+    </a>
+    <nav>
+        <a href="#top" class="link">Home</a>
+        <a href="#projects" class="link">Projects</a>
+        <a href="#about" class="link">About</a>
+        <a href="#contacts" class="link">Contacts</a>
+    </nav>
+</header>
+
+<style>
+    header {
+        top: 2rem;
+        position: sticky; /* with `position: fixed` h2's margin isn't working */
+        z-index: 10;
+
+        background: var(--white-transparent);
+        border-radius: 10rem;
+
+        padding: 1rem 4rem;
+
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4rem;
+
+        backdrop-filter: blur(16px);
+    }
+
+    nav {
+        display: flex;
+        gap: 2rem;
+    }
+
+    a.on-top {
+        color: white;
+    }
+    a.on-top:hover {
+        color: var(--green)
+    }
+
+    /* media */
+    @media (max-width: 700px) {
+    header {
+        gap: 2rem;
+        padding: 1rem 1rem;
+    }
+    header > nav {
+        gap: 1rem;
+    }
+
+    @media (max-width: 600px) {
+        #logo {
+            max-width: 3rem;
+            max-height: auto;
+        }
+    }
+
+    @media (max-width: 370px) {
+        nav {
+            display: none;
+        }
+    }
+}
+</style>
+<script>
+    const headerStyle = document.querySelector("header").style;
+    const links = document.querySelectorAll(".link");
+    const sections = document.querySelectorAll("section");
+
+    function removeHeaderBg() {
+        if (scrollY < 150) {
+            headerStyle.background = "none";
+            headerStyle.backdropFilter = "none";
+            links.forEach((link) => link.classList.add("on-top"));
+        }
+        else {
+            headerStyle.transition = "background 0.3s";
+            headerStyle.background = "var(--white-transparent)";
+            headerStyle.backdropFilter = "blur(16px)";
+            // i use "other element" to set color to gray and color on hover to white at the same time
+            const otherElement: HTMLElement = document.querySelector("[href='#projects']");
+            links.forEach((link) => link.classList.remove("on-top"));
+        }
+    }
+
+    removeHeaderBg();
+    document.addEventListener("scroll", removeHeaderBg);
+
+</script>

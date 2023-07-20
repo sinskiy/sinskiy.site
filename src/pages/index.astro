@@ -1,18 +1,12 @@
 ---
-	import HTMLHead from "../components/HTMLHead.astro"
-	import Header from "../components/Head.astro";
-	import Home from "../components/Home.astro";
-	import Projects from "../components/Projects.astro";
-	import About from "../components/About.astro";
-	import Contacts from "../components/Contacts.astro";
-	import "../styles/global.css";
+import MainLayout from "../layouts/MainLayout.astro";
+import Header from "../components/Header.astro";
+import Home from "../components/sections/Home.astro";
+import Projects from "../components/sections/Projects.astro";
+import About from "../components/sections/About.astro";
+import Contacts from "../components/sections/Contacts.astro";
 ---
-
-<!DOCTYPE html>
-<html lang="en">
-	<HTMLHead />
-
-  <body class="center column">
+<MainLayout>
 	<div id="top"></div>
 	<Header />
 	<main>
@@ -21,7 +15,4 @@
 		<About />
 		<Contacts />
 	</main>
-  </body>
-</html>
-<style>
-</style>
+</MainLayout>

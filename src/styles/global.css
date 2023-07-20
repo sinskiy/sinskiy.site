@@ -100,8 +100,6 @@ h4 {
 button {
     background: transparent;
     border: none;
-
-    padding: 1rem clamp(0.5rem, 10vw, 6.25rem);
 }
 
 .h3CustomText, h3 {
@@ -135,6 +133,8 @@ button {
 .button-gradient-wrapper {
     position: relative;
     border-radius: 10rem;
+
+    padding: 1rem clamp(0.5rem, 10vw, 6.25rem);
 }
 
 .button-gradient-wrapper::before {

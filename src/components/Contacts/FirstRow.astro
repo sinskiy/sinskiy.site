@@ -5,10 +5,10 @@ const links = ["https://github.com/Sinskiy/", "https://youtube.com/@sinskiy_/"];
 ---
 
 <div id="first-row--wrapper" class="flex">
-    <div id="copy" class="flex center">
+    <button id="copy" class="flex center" data-message="copied!" title="Click to copy my email" aria-label="Click to copy my email">
         <h3>sinskiy@proton.me</h3>
         <img src="copy.svg" alt="copy icon" id="copy-svg">
-    </div>
+    </button>
     <nav class="flex">
         {medias.map((media) =>
             <img
@@ -74,10 +74,9 @@ const links = ["https://github.com/Sinskiy/", "https://youtube.com/@sinskiy_/"];
     const textToCopy = "sinskiy@proton.me";
     copy.addEventListener("click", copyText);
 
-    function copyText() {
-        console.log("hello, world")
+    function copyText(event) {
         navigator.clipboard.writeText(textToCopy).then(() => {
-            alert("Copied!");
+            alert(event.target.dataset.message);
         });
     }
 </script>

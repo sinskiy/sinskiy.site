@@ -101,12 +101,12 @@ button {
     background: transparent;
     border: none;
 
-    padding: 1rem clamp(1rem, 10vw, 6.25rem);
+    padding: 1rem clamp(0.5rem, 10vw, 6.25rem);
 }
 
 .h3CustomText, h3 {
     font-family: "Red Rose", sans-serif;
-    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-size: clamp(1rem, 5vw, 3rem);
 
     margin: 0;
 }
@@ -122,15 +122,13 @@ button {
 
 .link {
     color: var(--gray);
-    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-size: clamp(0.8rem, 3vw, 1.5rem);
     font-weight: 400;
 }
 
 .link:hover {
     color: white;
 }
-
-/* media */
 
 /* border gradient hack. thanks to https://stackoverflow.com/questions/51496204/border-gradient-with-border-radius */
 
@@ -162,6 +160,13 @@ button {
 
     animation: button-gradient--animation 5s infinite;
     transition: --angle 0s;
+}
+
+/* media */
+@media (max-width: 700px) {
+    .button-gradient-wrapper::before {
+        padding: 3px;
+    }
 }
 
 /* button with gradient animation */

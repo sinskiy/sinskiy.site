@@ -20,10 +20,10 @@ import SectionPlaceholder from "./SectionPlaceholder.astro";
 
 <style>
     h1 {
-        margin: 6rem 0;
+        margin: 6rem 0 3rem 0;
 
         font-family: "Red Rose", sans-serif;
-        font-size: clamp(1rem, 12vw, 8rem);
+        font-size: clamp(2rem, 13vw, 8rem);
         font-weight: 700;
         text-align: center;
 
@@ -49,15 +49,30 @@ import SectionPlaceholder from "./SectionPlaceholder.astro";
         z-index: 5!important;
     }
 
-    img {
-        max-width: 4vw;
-    }
-
     .bottom {
         display: flex;
         align-items: center;
         gap: 0.5rem;
 
-        margin-top: 6rem;
+        margin-top: 3rem;
+    }
+
+    .bottom > img {
+        max-width: 4vw;
+    }
+
+    @media (max-width: 700px) {
+        .bottom {
+            display: none;
+        }
+        h1 {
+            margin: 3rem 0 6rem 0;
+        }
+    }
+
+    @media (hover: none) {
+        .bottom > img {
+            display: none;
+        }
     }
 </style>

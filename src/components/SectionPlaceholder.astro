@@ -4,7 +4,7 @@ const { sectionId, title = sectionId } = Astro.props;
 <section id={sectionId}>
     <h2 class="sectionTitle">{title}</h2>
     <div class:list={['center', 'column']}>
-        <slot/>
+        <slot />
     </div>
 </section>
 

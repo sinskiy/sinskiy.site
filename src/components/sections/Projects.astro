@@ -1,5 +1,5 @@
 ---
-import SectionPlaceholder from "./SectionPlaceholder.astro";
+import SectionPlaceholder from "../SectionPlaceholder.astro";
 // TODO: change links
 const projects = [{
         name: "Seterra extra",
@@ -138,9 +138,9 @@ const projects = [{
 </style>
 
 <script>
-    const projects = document.querySelector("#projects");
-    projects.addEventListener("mousemove", (e: MouseEvent) => {
-        const allProjects = document.querySelectorAll(".project");
+    const projectsWrapper = document.querySelector("#projects");
+    const allProjects = document.querySelectorAll(".project");
+    projectsWrapper.addEventListener("mousemove", (e: MouseEvent) => {
         allProjects.forEach((project: HTMLElement) => {
             const rect = project.getBoundingClientRect(),
             x = e.clientX - rect.left,

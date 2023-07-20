@@ -1,14 +1,42 @@
 ---
+const hello = ["hello", "bye"];
+const navigation = [
+    {
+        name: "home",
+        label: "home page of this website",
+        anchor: "top"
+    },
+    {
+        name: "projects",
+        label: "my projects"
+    },
+    {
+        name: "about",
+        label: "section with information about me"
+    },
+    {
+        name: "contacts",
+        label: "section with my contacts"
+    }
+];
 ---
 <header>
-    <a href="#top">
-        <img src="logo.svg" alt="Go to home" id="logo" aria-label="Go to home page of this website" title="Go to home page of this website">
+    <a href="#top" aria-label="Go to home page of this website" title="Go to home page of this website">
+        <img src="logo.svg" alt="Go to home" id="logo">
     </a>
     <nav>
-        <a href="#top" class="link" aria-label="Go to home page of this website" title="Go to home page of this website">Home</a>
-        <a href="#projects" class="link" aria-label="Go to my projects" title="Go to my projects">Projects</a>
-        <a href="#about" class="link" aria-label="Go to section with infomation about me" title="Go to section with information about me">About</a>
-        <a href="#contacts" class="link"  aria-label="Go to section my contacts" title="Go to section with my contacts">Contacts</a>
+        {
+            navigation.map((link) =>
+                <a
+                    href={`#${link.anchor ?? link.name}`}
+                    class="link"
+                    aria-label={`Go to ${link.label}`}
+                    title={`Go to ${link.label}`}
+                >
+                    {link.name}
+                </a>
+            )
+        }
     </nav>
 </header>
 

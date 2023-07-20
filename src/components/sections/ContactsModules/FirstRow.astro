@@ -5,13 +5,15 @@ const links = ["https://github.com/Sinskiy/", "https://youtube.com/@sinskiy_/"];
 ---
 
 <div id="first-row--wrapper" class="flex">
-    <button id="copy" class="flex center" data-message="copied!" title="Click to copy my email" aria-label="Click to copy my email">
+    <button id="copy" class="flex center" data-copy="sinskiy@proton.me" title="Click to copy my email" aria-label="Click to copy my email">
         <h3>sinskiy@proton.me</h3>
         <img src="copy.svg" alt="copy icon" id="copy-svg">
     </button>
     <nav class="flex">
         {medias.map((media) =>
             <img
+                id={media}
+                data-copy="@sinskiy_"
                 src={`${media}.svg`}
                 alt={`${media} logo`}
             >
@@ -43,7 +45,7 @@ const links = ["https://github.com/Sinskiy/", "https://youtube.com/@sinskiy_/"];
         gap: 1.5rem;
     }
 
-    a {
+    nav > a, nav > img {
         z-index: 5;
     }
 
@@ -51,7 +53,7 @@ const links = ["https://github.com/Sinskiy/", "https://youtube.com/@sinskiy_/"];
         z-index: 7;
     }
 
-    #copy:hover {
+    #copy:hover,  #discord:hover{
         cursor: copy;
         filter: brightness(0.7);
     }
@@ -70,13 +72,14 @@ const links = ["https://github.com/Sinskiy/", "https://youtube.com/@sinskiy_/"];
     }
 </style>
 <script>
-    const copy = document.querySelector("#copy");
-    const textToCopy = "sinskiy@proton.me";
-    copy.addEventListener("click", copyText);
-
-    function copyText(event) {
-        navigator.clipboard.writeText(textToCopy).then(() => {
-            alert(event.target.dataset.message);
+    function copyText() {
+        navigator.clipboard.writeText(this.dataset.copy).then(() => {
+            alert(`Copied the text: ${this.dataset.copy}`);
         });
     }
+
+    const copy = document.querySelector("#copy");
+    const discord = document.querySelector("#discord");
+    copy.addEventListener("click", copyText);
+    discord.addEventListener("click", copyText);
 </script>

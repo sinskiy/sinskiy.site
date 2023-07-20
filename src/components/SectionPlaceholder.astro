@@ -17,4 +17,13 @@ const { sectionId, title = sectionId } = Astro.props;
         margin-left: 15vw;
         margin-top: 4rem;
     }
+
+    @media (max-width: 700px) {
+        #home > .sectionTitle {
+            margin-top: 5rem;
+        }
+        #home {
+            margin-bottom: 15rem;
+        }
+    }
 </style>

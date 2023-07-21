@@ -1,5 +1,4 @@
 ---
-const hello = ["hello", "bye"];
 const navigation = [
     {
         name: "home",
@@ -32,6 +31,7 @@ const navigation = [
                     class="link"
                     aria-label={`Go to ${link.label}`}
                     title={`Go to ${link.label}`}
+                    id={`link--${link.name}`}
                 >
                     {link.name}
                 </a>
@@ -70,18 +70,20 @@ const navigation = [
 
     /* media */
     @media (max-width: 700px) {
-    header {
-        gap: 2.5rem;
-        padding: 1rem 1rem;
-    }
-    header > nav {
-        gap: 1.5rem;
-    }
-
-    @media (max-width: 600px) {
+        header {
+            gap: 2.5rem;
+            padding: 1rem 1rem;
+        }
+        header > nav {
+            gap: 1.5rem;
+        }
         #logo {
             max-width: 2.5rem;
             max-height: auto;
+        }
+
+        #link--home {
+            display: none;
         }
     }
 
@@ -90,13 +92,12 @@ const navigation = [
             display: none;
         }
     }
-}
 </style>
 <script>
     const headerStyle = document.querySelector("header").style;
 
     function removeHeaderBg() {
-        if (scrollY < 150) {
+        if (scrollY < 10) {
             headerStyle.background = "none";
             headerStyle.backdropFilter = "none";
         }

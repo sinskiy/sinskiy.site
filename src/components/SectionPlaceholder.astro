@@ -23,7 +23,11 @@ const { sectionId, title = sectionId } = Astro.props;
             margin-top: 5rem;
         }
         #home {
-            margin-bottom: 15rem;
+            display: flex;
+            flex-direction: column;
+            min-height: 80vh;
+            justify-content: center;
+            margin-bottom: 10rem;
         }
     }
 </style>

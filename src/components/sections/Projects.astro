@@ -17,7 +17,7 @@ const projects = [{
 ---
 <!-- it isn't working with jusst isColumn=false.... -->
 <SectionPlaceholder sectionId="projects">
-    <div id="projects" class="flex center">
+    <div id="projects--wrapper" class="flex center">
         {projects
             .map((project) =>
                     <div class="project" title={project.description}>
@@ -32,14 +32,14 @@ const projects = [{
 </SectionPlaceholder>
 
 <style>
-    #projects {
+    #projects--wrapper {
         gap: 0.5rem;
         flex-wrap: wrap;
     }
 
     /* https://codepen.io/Hyperplexed/pen/MWQeYLW */
 
-    #projects:hover > .project::after {
+    #projects--wrapper:hover > .project::after {
         opacity: 1;
     }
 
@@ -117,7 +117,7 @@ const projects = [{
     }
 
     @media (max-width: 1100px) {
-        #projects {
+        #projects--wrapper {
             flex-direction: column;
         }
         .project {
@@ -140,7 +140,7 @@ const projects = [{
 </style>
 
 <script>
-    const projectsWrapper = document.querySelector("#projects");
+    const projectsWrapper = document.querySelector("#projects--wrapper");
     const allProjects = document.querySelectorAll(".project");
     projectsWrapper.addEventListener("mousemove", (e: MouseEvent) => {
         allProjects.forEach((project: HTMLElement) => {

@@ -5,8 +5,8 @@ const links = ["https://github.com/Sinskiy/", "https://youtube.com/@sinskiy_/"];
 ---
 
 <div id="first-row--wrapper" class="flex">
-    <button id="copy" class="flex center" data-copy="sinskiy@proton.me" title="Click to copy my email" aria-label="Click to copy my email">
-        <h3>sinskiy@proton.me</h3>
+    <button id="copy" class="flex center copy-text" data-copy="sinskiy@proton.me" title="Click to copy my email" aria-label="Click to copy my email">
+        sinskiy@proton.me
         <img src="copy.svg" alt="copy icon" id="copy-svg">
     </button>
     <nav class="flex">
@@ -14,6 +14,7 @@ const links = ["https://github.com/Sinskiy/", "https://youtube.com/@sinskiy_/"];
             <img
                 id={media}
                 data-copy="@sinskiy_"
+                title="Copy my Discord"
                 src={`${media}.svg`}
                 alt={`${media} logo`}
             >
@@ -21,7 +22,7 @@ const links = ["https://github.com/Sinskiy/", "https://youtube.com/@sinskiy_/"];
 
         {mediasWithLinks
           .map((media) =>
-            <a href={links[mediasWithLinks.indexOf(media)]} target="_blank">
+            <a href={links[mediasWithLinks.indexOf(media)]} target="_blank" title={`Go to my ${media[0].toUpperCase() + media.substring(1)}`}>
                 <img src={`${media}.svg`} alt={`${media} logo`} />
             </a>
         )}
@@ -35,9 +36,9 @@ const links = ["https://github.com/Sinskiy/", "https://youtube.com/@sinskiy_/"];
         margin-bottom: 2rem;
     }
 
-    h3 {
+    .copy-text {
+        gap: 0.5rem;
         font-size: clamp(1rem, 5vw, 2rem)!important;
-        margin-right: 0.5rem!important;
     }
 
     nav {
@@ -49,13 +50,16 @@ const links = ["https://github.com/Sinskiy/", "https://youtube.com/@sinskiy_/"];
         z-index: 5;
     }
 
+    #copy:hover, nav > a:hover, nav > img:hover {
+        filter: brightness(0.7);
+    }
+
     #copy {
         z-index: 7;
     }
 
-    #copy:hover,  #discord:hover{
+    #copy:hover, #discord:hover{
         cursor: copy;
-        filter: brightness(0.7);
     }
 
     #copy-svg {

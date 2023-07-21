@@ -1,6 +1,6 @@
 ---
 const title = "Sinskiy";
-const description = "Sinskiy's modern-looking personal website-portfolio with his pet projects, his story and information about him, and his social medias. Also you can email him via this website.";
+const description = "Sinskiy's (my) modern-looking personal website and portfolio with my pet projects, information about myself, and my social medias. Also you can email me via this website.";
 const url = new URL(Astro.url.pathname, Astro.site);
 const image = "https://i.ibb.co/0YKXssd/thumbnail.webp";
 ---
@@ -22,17 +22,16 @@ const image = "https://i.ibb.co/0YKXssd/thumbnail.webp";
 <meta name="description" content={description}>
 <meta name="author" content="Sinskiy">
 
-<meta property='og:type' content='website' />
-<meta property='og:url' content={url} />
-<meta property='og:title' content={title} />
-<meta property='og:description' content={description} />
-<meta property='og:image' content={image} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
 
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={image} />
 
-<meta property='twitter:card' content='summary_large_image' />
-<meta property='twitter:url' content={url} />
-<meta property='twitter:title' content={title} />
-<meta property='twitter:description' content={description} />
-<meta property='twitter:image' content={image} />
-
-<link rel='canonical' href={url} />
+<link rel="canonical" href={url} />

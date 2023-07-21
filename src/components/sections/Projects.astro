@@ -21,6 +21,12 @@ const projects = [{
         {projects
             .map((project) =>
                     <div class="project" title={project.description}>
+                        <div class="tooltips">
+                            <div class="tooltip name hover" role="tooltip">{project.name}</div>
+                            <div class="tooltip arrow">
+                                <img src="arrow_outward.svg" alt="arrow outward" role="tooltip" />
+                            </div>
+                        </div>
                         <a href={project.link} target="_blank"></a>
                         <div class="project-content center justifyCenter">
                             <img src={project.img} alt={`${project.name} logo`} class="project-image" />
@@ -48,8 +54,20 @@ const projects = [{
         aspect-ratio: 5 / 3;
         height: auto;
         background-color: var(--white-transparent);
+
         border-radius: 10px;
+
         position: relative;
+
+        overflow: hidden;
+
+        transition: transform 0.2s;
+
+        padding: 1rem 1.5rem;
+    }
+
+    .project:hover {
+        transform: translateY(-5px);
     }
 
     .project:hover::before {
@@ -91,32 +109,90 @@ const projects = [{
         z-index: 1;
     }
 
-    .project > .project-content {
-        overflow: hidden;
+    .tooltips {
+        display: flex;
+        justify-content: space-between;
 
+        width: 100%;
+    }
+
+    .tooltip {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        height: 2rem;
+        border-radius: 10rem;
+
+        color: var(--dark-gray);
+
+        z-index: 5;
+
+        padding: 0 2rem;
+
+        transition: all 0.3s;
+    }
+
+    .tooltip.name {
+        background-color: var(--green);
+        max-width: fit-content;
+    }
+
+    .tooltip.arrow {
+        display: flex;
+        height: fit-content;
+
+        background-color: var(--white-transparent);
+
+        padding: 0.625rem;
+    }
+
+    .tooltip.arrow > img {
+        width: clamp(0.5rem, 2vw, 1rem);
+        height: auto;
+    }
+
+    .project:hover .tooltip {
+        background-color: var(--green);
+    }
+
+    .project .tooltip.hover {
+        transform: translateY(-50px);
+    }
+
+    .project:hover .tooltip.hover {
+        transform: translateY(0px);
+    }
+
+    .project-content {
         background-color: var(--black-transparent);
+        overflow: hidden;
         border-radius: inherit;
 
-        inset: 2px; /* actual thing that adds border */
+        inset: 1px; /* actual thing that adds border */
 
         position: absolute;
         z-index: 2;
     }
 
     .project-content > img {
-        width: 300px;
+        width: 250px;
         height: auto;
+    }
+
+    .project:hover .project-content > img {
+        filter: blur(15px);
     }
 
     .project > a {
         position: absolute;
 
         z-index: 5;
-        min-width: 100%;
-        min-height: 100%;
+        min-width: 80%;
+        min-height: 80%;
     }
 
-    @media (max-width: 1100px) {
+    @media (max-width: 1200px) {
         #projects--wrapper {
             flex-direction: column;
         }
@@ -133,7 +209,7 @@ const projects = [{
             height: 200px;
         }
         .project-content > img {
-            width: clamp(100px, 30vw, 300px);
+            width: clamp(100px, 30vw, 200px);
         }
     }
 

@@ -20,10 +20,10 @@
     --darker-purple: #2E1032;
 
     /* gradients */
-        --background-gradient: linear-gradient(70deg,
-            var(--darker-green) 0%,
-            var(--darker-blue) 50%,
-            var(--darker-purple) 100%);
+    --background-gradient: linear-gradient(70deg,
+        var(--darker-green) 0%,
+        var(--darker-blue) 50%,
+        var(--darker-purple) 100%);
 }
 
 /* normalization */
@@ -137,8 +137,6 @@ button {
 .button-gradient-wrapper {
     position: relative;
     border-radius: 10rem;
-
-    padding: 1rem clamp(0.5rem, 10vw, 6.25rem);
 }
 
 .button-gradient-wrapper::before {

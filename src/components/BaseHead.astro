@@ -1,6 +1,8 @@
 ---
 const title = "Sinskiy";
-const description = "Sinskiy's personal website-portfolio that includes his pet projects, his story and information about him, and his social medias. Also you can email him via this website";
+const description = "Sinskiy's personal website-portfolio that includes his pet projects, his story and information about him, and his social medias. Also you can email him via this website. This personal website has nice-looking modern design and may be an example for new developers.";
+const url = new URL(Astro.url.pathname, Astro.site);
+const image = url + "/thumbnail.svg";
 ---
 <!-- boilerplate -->
 <meta charset="UTF-8">
@@ -19,3 +21,18 @@ const description = "Sinskiy's personal website-portfolio that includes his pet 
 <meta name="title" content={title}>
 <meta name="description" content={description}>
 <meta name="author" content="Sinskiy">
+
+<meta property='og:type' content='website' />
+<meta property='og:url' content={url} />
+<meta property='og:title' content={title} />
+<meta property='og:description' content={description} />
+<meta property='og:image' content={image} />
+
+
+<meta property='twitter:card' content='summary_large_image' />
+<meta property='twitter:url' content={url} />
+<meta property='twitter:title' content={title} />
+<meta property='twitter:description' content={description} />
+<meta property='twitter:image' content={image} />
+
+<link rel='canonical' href={url} />

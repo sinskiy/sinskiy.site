@@ -4,8 +4,7 @@ import SectionPlaceholder from "../SectionPlaceholder.astro";
 <SectionPlaceholder sectionId="about">
     <div id="root-div-about">
         <!-- i need to have all of these elements on one layer or layer lower than input to make native toggler without js -->
-        <label for="information-and-story">If checkbox is checked you will see my story. Otherwise you will see my information</label>
-        <input type="checkbox" name="information-and-story" id="information-and-story">
+        <input type="checkbox" name="information-and-story" aria-label="toggle">
         <!-- this is very awful structure but at least i have a toggle without js!!! -->
         <div id="navigation-text" class="flex justifyCenter column">
             <nav class="flex center">

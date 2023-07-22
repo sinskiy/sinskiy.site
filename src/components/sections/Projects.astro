@@ -21,13 +21,16 @@ const projects = [{
         {projects
             .map((project) =>
                     <div class="project" title={project.description}>
+                        <a href={project.link} target="_blank" aria-label={`Go to my project named ${project.name}. Description of this project is ${project.description}`}></a>
                         <div class="tooltips">
-                            <div class="tooltip name hover" role="tooltip">{project.name}</div>
+                            <div class="tooltips-left">
+                                <div class="tooltip name" role="tooltip">{project.name}</div>
+                                <small class="description" role="definition">{project.description}</small>
+                            </div>
                             <div class="tooltip arrow">
                                 <img src="arrow_outward.svg" alt="arrow outward" role="tooltip" />
                             </div>
                         </div>
-                        <a href={project.link} target="_blank"></a>
                         <div class="project-content center justifyCenter">
                             <img src={project.img} alt={`${project.name} logo`} class="project-image" />
                         </div>
@@ -116,26 +119,45 @@ const projects = [{
         width: 100%;
     }
 
+    .tooltips-left {
+        position: relative;
+        z-index: 5;
+    }
+
     .tooltip {
         display: flex;
         align-items: center;
-        justify-content: center;
 
         height: 2rem;
         border-radius: 10rem;
 
+        background-color: var(--white-transparent);
         color: var(--dark-gray);
 
         z-index: 5;
-
-        padding: 0 2rem;
 
         transition: all 0.3s;
     }
 
     .tooltip.name {
-        background-color: var(--green);
-        max-width: fit-content;
+        padding: 0 clamp(0rem, 5vw, 1.5rem);
+        opacity: 0;
+    }
+
+    .description {
+        color: white;
+
+        position: absolute;
+        z-index: 3;
+
+        opacity: 0;
+
+        transition: opacity 0.3s;
+
+        width: 200%;
+        height: fit-content;
+
+        margin-top: 1rem;
     }
 
     .tooltip.arrow {
@@ -152,16 +174,20 @@ const projects = [{
         height: auto;
     }
 
-    .project:hover .tooltip {
+    .project:nth-child(odd):hover .tooltip {
         background-color: var(--green);
     }
 
-    .project .tooltip.hover {
-        transform: translateY(-50px);
+    .project:nth-child(even):hover .tooltip {
+        background-color: var(--purple);
     }
 
-    .project:hover .tooltip.hover {
-        transform: translateY(0px);
+    .project:hover .tooltip.name {
+        opacity: 1;
+    }
+
+    .project:hover .description {
+        opacity: 0.8;
     }
 
     .project-content {
@@ -181,15 +207,17 @@ const projects = [{
     }
 
     .project:hover .project-content > img {
-        filter: blur(15px);
+        filter: blur(15px) opacity(0.5);
     }
 
     .project > a {
         position: absolute;
+        top: 0;
+        left: 0;
 
         z-index: 5;
-        min-width: 80%;
-        min-height: 80%;
+        min-width: 100%;
+        min-height: 100%;
     }
 
     @media (max-width: 1200px) {
@@ -210,6 +238,28 @@ const projects = [{
         }
         .project-content > img {
             width: clamp(100px, 30vw, 200px);
+        }
+    }
+
+    @media (hover: none) {
+        .project:nth-child(odd) .tooltip {
+            background-color: var(--green);
+        }
+
+        .project:nth-child(even) .tooltip {
+            background-color: var(--purple);
+        }
+
+        .project .project-content > img {
+            filter: blur(10px);
+        }
+
+        .project .tooltip.name {
+            opacity: 1;
+        }
+
+        .project .description {
+            opacity: 0.8;
         }
     }
 

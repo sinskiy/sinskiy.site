@@ -54,6 +54,8 @@ const navigation = [
         justify-content: center;
         align-items: center;
         gap: 4rem;
+
+        animation: on-load-header 2s;
     }
 
     nav {
@@ -72,7 +74,6 @@ const navigation = [
     @media (max-width: 700px) {
         header {
             gap: 2.5rem;
-            padding: 1rem 1rem;
         }
         header > nav {
             gap: 1.5rem;
@@ -87,9 +88,24 @@ const navigation = [
         }
     }
 
-    @media (max-width: 370px) {
+    @media (max-width: 450px) {
+        header {
+            padding: 1rem 2rem;
+        }
+    }
+
+    @media (max-width: 350px) {
         nav {
             display: none;
+        }
+    }
+
+    @keyframes on-load-header {
+        from {
+            transform: translateY(-1000px);
+        }
+        to {
+            transform: translateY(0);
         }
     }
 </style>

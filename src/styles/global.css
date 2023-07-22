@@ -40,6 +40,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    animation: on-load 3s;
 }
 
 a {
@@ -58,7 +60,6 @@ a {
 body {
     background:
         var(--background-gradient);
-    animation: gradient-animation 5s infinite;
 }
 
 /* flex */
@@ -87,8 +88,8 @@ small {
     color: var(--gray);
 }
 
-small, .tooltip {
-    font-size: clamp(1rem, 5vw, 1.5rem);
+small, .tooltip, .description {
+    font-size: clamp(0.5rem, 5vw, 1.5rem);
 }
 
 
@@ -141,36 +142,50 @@ button {
 .button-gradient-wrapper {
     position: relative;
     border-radius: 10rem;
+    background-color: var(--darker-blue);
 }
 
-.button-gradient-wrapper::before {
+.button-gradient-wrapper::before, .button-gradient-wrapper::after {
     --angle: 0deg;
     content: "";
     position: absolute;
-
-
     inset: 0;
-    padding: 5px;
 
     border-radius: 10rem;
 
     background: conic-gradient(from var(--angle), var(--green) 0%, var(--purple) 100%);
-    -webkit-mask:
-       linear-gradient(#fff 0 0) content-box,
-       linear-gradient(#fff 0 0);
-            mask:
-       linear-gradient(#fff 0 0) content-box,
-       linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-            mask-composite: exclude;
 
     animation: button-gradient--animation 5s infinite;
     transition: --angle 0s;
 }
 
+.button-gradient-wrapper::before {
+    -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+         mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+         mask-composite: exclude;
+    padding: 5px;
+}
+
+.button-gradient-wrapper::after {
+    opacity: 0;
+    filter: blur(50px);
+    z-index: -1;
+
+    transition: opacity 0.3s ease-in;
+}
+
+.button-gradient-wrapper:hover::after {
+    opacity: 0.7;
+}
+
 /* media */
 @media (max-width: 700px) {
-    .button-gradient-wrapper::before {
+    .button-gradient-wrapper::before, .button-gradient-wrapper::after {
         padding: 3px;
     }
 }
@@ -182,5 +197,14 @@ button {
     }
     to {
         --angle: 360deg;
+    }
+}
+
+@keyframes on-load {
+    from {
+        filter: opacity(0);
+    }
+    to {
+        filter: opacity(1);
     }
 }

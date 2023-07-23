@@ -45,7 +45,7 @@ const links = ["https://github.com/Sinskiy/", "https://youtube.com/@sinskiy_/"];
         background-color: var(--green);
         filter: opacity(0);
         width: fit-content!important;
-        z-index: -1;
+        z-index: 10;
     }
 
     #discord-tooltip {
@@ -96,10 +96,14 @@ const links = ["https://github.com/Sinskiy/", "https://youtube.com/@sinskiy_/"];
         let tooltip = document.getElementById(`${this.id}-tooltip`);
         tooltip.innerText = `Copied text: ${this.dataset.copy}`;
         navigator.clipboard.writeText(this.dataset.copy);
+        tooltip.style.display = "flex";
         tooltip.style.filter = "opacity(1)";
         setTimeout(() => {
-            tooltip.style.filter = "opacity(0)"
+            tooltip.style.filter = "opacity(0)";
         }, 2000);
+        setTimeout(() => {
+            tooltip.style.display = "none";
+        }, 2500)
     }
 
     const copy = document.querySelector("#copy-email-button");

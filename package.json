@@ -1,7 +1,7 @@
 {
   "name": "sinskiy",
   "type": "module",
-  "version": "v1.4-beta",
+  "version": "v1.4",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

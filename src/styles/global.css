@@ -104,6 +104,26 @@ h4 {
     font-weight: 400;
 }
 
+/* tooltip */
+.tooltip {
+    display: flex;
+    align-items: center;
+
+    height: 2rem;
+    border-radius: 10rem;
+
+    background-color: var(--white-transparent);
+    color: var(--dark-gray);
+
+    z-index: 5;
+
+    transition: all 0.3s;
+}
+
+.tooltip.name {
+    padding: 0 clamp(0rem, 5vw, 1.5rem);
+}
+
 /* button */
 button {
     background: transparent;
@@ -200,6 +220,7 @@ button {
     }
 }
 
+/* load animation */
 @keyframes on-load {
     from {
         filter: opacity(0);

@@ -124,26 +124,6 @@ const projects = [{
         z-index: 5;
     }
 
-    .tooltip {
-        display: flex;
-        align-items: center;
-
-        height: 2rem;
-        border-radius: 10rem;
-
-        background-color: var(--white-transparent);
-        color: var(--dark-gray);
-
-        z-index: 5;
-
-        transition: all 0.3s;
-    }
-
-    .tooltip.name {
-        padding: 0 clamp(0rem, 5vw, 1.5rem);
-        opacity: 0;
-    }
-
     .description {
         color: white;
 
@@ -158,6 +138,10 @@ const projects = [{
         height: fit-content;
 
         margin-top: 1rem;
+    }
+
+    .tooltip.name {
+        opacity: 0;
     }
 
     .tooltip.arrow {

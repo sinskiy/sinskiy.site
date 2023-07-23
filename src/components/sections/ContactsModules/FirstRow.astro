@@ -5,12 +5,14 @@ const links = ["https://github.com/Sinskiy/", "https://youtube.com/@sinskiy_/"];
 ---
 
 <div id="first-row--wrapper" class="flex">
-    <button id="copy" class="flex center copy-text" data-copy="sinskiy@proton.me" title="Click to copy my email" aria-label="Click to copy my email">
+    <div id="copy-email-button-tooltip" class="tooltip name"></div>
+    <button id="copy-email-button" class="flex center copy-text" data-copy="sinskiy@proton.me" title="Click to copy my email" aria-label="Click to copy my email">
         sinskiy@proton.me
         <img src="copy.svg" alt="copy icon" id="copy-svg">
     </button>
     <nav class="flex">
         {medias.map((media) =>
+            <div id="discord-tooltip" class="tooltip name"></div>
             <img
                 id={media}
                 data-copy="@sinskiy_"
@@ -36,6 +38,20 @@ const links = ["https://github.com/Sinskiy/", "https://youtube.com/@sinskiy_/"];
         margin-bottom: 2rem;
     }
 
+    .tooltip.name {
+        position: absolute;
+        top: 20px;
+
+        background-color: var(--green);
+        filter: opacity(0);
+        width: fit-content!important;
+        z-index: -1;
+    }
+
+    #discord-tooltip {
+        right: 20px;
+    }
+
     .copy-text {
         gap: 0.5rem;
         font-size: clamp(1rem, 5vw, 2rem)!important;
@@ -50,15 +66,15 @@ const links = ["https://github.com/Sinskiy/", "https://youtube.com/@sinskiy_/"];
         z-index: 5;
     }
 
-    #copy:hover, nav > a:hover, nav > img:hover {
+    #copy-email-button:hover, nav > a:hover, nav > img:hover {
         filter: brightness(0.7);
     }
 
-    #copy {
+    #copy-email-button {
         z-index: 7;
     }
 
-    #copy:hover, #discord:hover{
+    #copy-email-button:hover, #discord:hover{
         cursor: copy;
     }
 
@@ -77,12 +93,16 @@ const links = ["https://github.com/Sinskiy/", "https://youtube.com/@sinskiy_/"];
 </style>
 <script>
     function copyText() {
-        navigator.clipboard.writeText(this.dataset.copy).then(() => {
-            alert(`Copied the text: ${this.dataset.copy}`);
-        });
+        let tooltip = document.getElementById(`${this.id}-tooltip`);
+        tooltip.innerText = `Copied text: ${this.dataset.copy}`;
+        navigator.clipboard.writeText(this.dataset.copy);
+        tooltip.style.filter = "opacity(1)";
+        setTimeout(() => {
+            tooltip.style.filter = "opacity(0)"
+        }, 2000);
     }
 
-    const copy = document.querySelector("#copy");
+    const copy = document.querySelector("#copy-email-button");
     const discord = document.querySelector("#discord");
     copy.addEventListener("click", copyText);
     discord.addEventListener("click", copyText);

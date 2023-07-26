@@ -39,13 +39,17 @@ const links = ["https://github.com/Sinskiy/", "https://youtube.com/@sinskiy_/"];
     }
 
     .tooltip.name {
-        position: absolute;
-        top: 20px;
+        position: fixed;
+        bottom: 20px;
 
         background-color: var(--green);
         filter: opacity(0);
         width: fit-content!important;
         z-index: 10;
+    }
+
+    #copy-email-button-tooltip {
+        left: 20px;
     }
 
     #discord-tooltip {

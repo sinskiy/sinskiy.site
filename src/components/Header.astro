@@ -47,6 +47,7 @@ const navigation = [
         z-index: 10;
 
         border-radius: 10rem;
+        border: 1px var(--white-transparent) solid;
 
         padding: 1rem 4rem;
 
@@ -54,6 +55,8 @@ const navigation = [
         justify-content: center;
         align-items: center;
         gap: 4rem;
+
+        backdrop-filter: blur(16px);
 
         animation: on-load-header 2s;
     }
@@ -109,22 +112,3 @@ const navigation = [
         }
     }
 </style>
-<script>
-    const headerStyle = document.querySelector("header").style;
-
-    function removeHeaderBg() {
-        if (scrollY < 10) {
-            headerStyle.background = "none";
-            headerStyle.backdropFilter = "none";
-        }
-        else {
-            headerStyle.transition = "background 0.3s";
-            headerStyle.background = "var(--white-transparent)";
-            headerStyle.backdropFilter = "blur(16px)";
-        }
-    }
-
-    removeHeaderBg();
-    document.addEventListener("scroll", removeHeaderBg);
-
-</script>

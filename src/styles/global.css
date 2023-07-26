@@ -16,14 +16,13 @@
     --black-transparent: rgb(0 0 0 / 0.5);
     --black-more-transparent: rgb(0 0 0 / 0.1);
 
-    --darker-green: #10321C;
-    --darker-blue: #232831;
-    --darker-purple: #2E1032;
+    --darker-green: #0E351C;
+    --darker-blue: #292F44B0;
+    --darker-purple: #37173D;
 
     /* gradients */
     --background-gradient: linear-gradient(70deg,
         var(--darker-green) 0%,
-        var(--darker-blue) 50%,
         var(--darker-purple) 100%);
 }
 

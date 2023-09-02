@@ -13,18 +13,21 @@ const links = ["https://github.com/Sinskiy/", "https://youtube.com/@sinskiy_/"];
     <nav class="flex">
         {medias.map((media) =>
             <div id="discord-tooltip" class="tooltip name"></div>
-            <img
+            <button
                 id={media}
                 data-copy="@sinskiy_"
-                title="Copy my Discord"
-                src={`${media}.svg`}
-                alt={`${media} logo`}
+                title="Click to copy my Discord"
             >
+                <img
+                    src={`${media}.svg`}
+                    alt={`${media} logo`}
+                >
+            </button>
         )}
 
         {mediasWithLinks
           .map((media) =>
-            <a href={links[mediasWithLinks.indexOf(media)]} target="_blank" title={`Go to my ${media[0].toUpperCase() + media.substring(1)}`}>
+            <a href={links[mediasWithLinks.indexOf(media)]} target="_blank" title={`Click to go to my ${media[0].toUpperCase() + media.substring(1)}`}>
                 <img src={`${media}.svg`} alt={`${media} logo`} />
             </a>
         )}
@@ -70,11 +73,11 @@ const links = ["https://github.com/Sinskiy/", "https://youtube.com/@sinskiy_/"];
         z-index: 5;
     }
 
-    #copy-email-button:hover, nav > a:hover, nav > img:hover {
+    #copy-email-button:hover, a:hover, #discord:hover {
         filter: brightness(0.7);
     }
 
-    #copy-email-button {
+    #copy-email-button, #discord {
         z-index: 7;
     }
 

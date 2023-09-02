@@ -1,7 +1,7 @@
 ---
-const { name, img, link, description } = Astro.props;
+const { name, img, link, description, class: className } = Astro.props;
 ---
-<a href={link} target="_blank" class="project" title={description}>
+<a href={link} target="_blank" class={className} title={description}>
     <div class="tooltips">
         <div class="tooltips-left">
             <div class="tooltip name" role="tooltip">{name}</div>
@@ -17,70 +17,11 @@ const { name, img, link, description } = Astro.props;
 </a>
 
 <style>
-    .project {
-        width: 500px;
-        aspect-ratio: 5 / 3;
-        height: auto;
-        background-color: var(--white-transparent);
 
-        border-radius: 10px;
+    /* https://codepen.io/Hyperplexed/pen/MWQeYLW */
 
-        position: relative;
-
-        overflow: hidden;
-
-        transition: transform 0.2s;
-
-        padding: 1rem 1.5rem;
-    }
-
-    .project:hover {
-        transform: translateY(-5px);
-    }
-
-    .project:hover::before {
+    #projects--wrapper:hover > .project::after {
         opacity: 1;
-    }
-
-    .project::before,
-    .project::after {
-        content: "";
-
-        border-radius: inherit;
-        min-height: 100%;
-        min-width: 100%;
-
-        opacity: 0;
-
-        position: absolute;
-        left: 0px;
-        top: 0px;
-
-        transition: opacity 500ms;
-    }
-
-    .project::before {
-        background: radial-gradient(
-            800px circle at var(--mouse-x) var(--mouse-y),
-            rgb(255 255 255 / 0.01),
-            transparent 40%
-        );
-        z-index: 3;
-    }
-
-    .project::after {
-        background: radial-gradient(
-            600px circle at var(--mouse-x) var(--mouse-y),
-            rgb(255 255 255 / 0.2),
-            transparent 40%
-        );
-        z-index: 1;
-    }
-
-    .project a:focus {
-        width: max-width;
-        height: max-width;
-        border: 5px solid white;
     }
 
     .tooltips {
@@ -127,6 +68,61 @@ const { name, img, link, description } = Astro.props;
     .tooltip.arrow > img {
         width: clamp(0.5rem, 2vw, 1rem);
         height: auto;
+    }
+
+    .project {
+        width: 500px;
+        aspect-ratio: 5 / 3;
+        height: auto;
+        background-color: var(--white-transparent);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.2s;
+        padding: 1rem 1.5rem;
+        position: relative;
+    }
+
+    .project:hover {
+        transform: translateY(-5px);
+    }
+
+    .project:hover::before {
+        opacity: var(--project-opacity);
+    }
+
+    .project::before,
+    .project::after {
+        content: "";
+
+        border-radius: inherit;
+        min-height: 100%;
+        min-width: 100%;
+
+        opacity: 0;
+
+        position: absolute;
+        left: 0px;
+        top: 0px;
+
+        transition: opacity 500ms;
+    }
+
+    .project::before {
+        background: radial-gradient(
+            800px circle at var(--mouse-x) var(--mouse-y),
+            rgb(255 255 255 / 0.01),
+            transparent 40%
+        );
+        z-index: 3;
+    }
+
+    .project::after {
+        background: radial-gradient(
+            600px circle at var(--mouse-x) var(--mouse-y),
+            rgb(255 255 255 / 0.2),
+            transparent 40%
+        );
+        z-index: 1;
     }
 
     .project:nth-child(odd):hover .tooltip {
@@ -180,6 +176,12 @@ const { name, img, link, description } = Astro.props;
             aspect-ratio: 5 / 3;
             width: clamp(100px, 70vw, 700px);
             height: 300px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        #projects--wrapper {
+            flex-direction: column;
         }
     }
 

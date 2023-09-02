@@ -228,3 +228,30 @@ button {
         filter: opacity(1);
     }
 }
+
+/* fonts */
+
+/* red-rose-300 */
+@font-face {
+    font-display: swap;
+    font-family: 'Red Rose';
+    font-style: normal;
+    font-weight: 300;
+    src: url('fonts/red-rose-v20-latin-300.woff2') format('woff2');
+}
+  /* red-rose-regular */
+  @font-face {
+    font-display: swap;
+    font-family: 'Red Rose';
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/red-rose-v20-latin-regular.woff2') format('woff2');
+ }
+  /* red-rose-700 */
+  @font-face {
+    font-display: swap;
+    font-family: 'Redlatin  Rose';
+    font-style: normal;
+    font-weight: 700;
+    src: url('fonts/red-rose-v20-latin-700.woff2') format('woff2');
+}

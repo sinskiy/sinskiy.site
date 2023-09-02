@@ -15,13 +15,12 @@ const projects = [{
     }
 ]
 ---
-<!-- it isn't working with jusst isColumn=false.... -->
+<!-- it isn't working with just isColumn=false.... -->
 <SectionPlaceholder sectionId="projects">
     <div id="projects--wrapper" class="flex center">
         {projects
             .map((project) =>
-                    <div class="project" title={project.description}>
-                        <a href={project.link} target="_blank" aria-label={`Go to my project named ${project.name}. Description of this project is ${project.description}`}></a>
+                    <a href={project.link} target="_blank" class="project" title={project.description}>
                         <div class="tooltips">
                             <div class="tooltips-left">
                                 <div class="tooltip name" role="tooltip">{project.name}</div>
@@ -34,7 +33,7 @@ const projects = [{
                         <div class="project-content center justifyCenter">
                             <img src={project.img} alt={`${project.name} logo`} class="project-image" />
                         </div>
-                    </div>
+                    </a>
             )
         }
     </div>
@@ -110,6 +109,12 @@ const projects = [{
             transparent 40%
         );
         z-index: 1;
+    }
+
+    .project a:focus {
+        width: max-width;
+        height: max-width;
+        border: 5px solid white;
     }
 
     .tooltips {

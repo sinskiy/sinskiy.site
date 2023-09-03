@@ -42,8 +42,8 @@ const links = ["https://github.com/Sinskiy/", "https://youtube.com/@sinskiy_/"];
     }
 
     .tooltip.name {
-        position: fixed;
-        bottom: 20px;
+        position: absolute;
+        top: 1.5rem;
 
         background-color: var(--green);
         filter: opacity(0);
@@ -52,11 +52,11 @@ const links = ["https://github.com/Sinskiy/", "https://youtube.com/@sinskiy_/"];
     }
 
     #copy-email-button-tooltip {
-        left: 20px;
+        left: 2rem;
     }
 
     #discord-tooltip {
-        right: 20px;
+        right: 2rem;
     }
 
     .copy-text {
@@ -99,22 +99,27 @@ const links = ["https://github.com/Sinskiy/", "https://youtube.com/@sinskiy_/"];
     }
 </style>
 <script>
+    let active = false;
     function copyText() {
         let tooltip = document.getElementById(`${this.id}-tooltip`);
-        tooltip.innerText = `Copied text: ${this.dataset.copy}`;
-        navigator.clipboard.writeText(this.dataset.copy);
-        tooltip.style.display = "flex";
-        tooltip.style.filter = "opacity(1)";
-        setTimeout(() => {
-            tooltip.style.filter = "opacity(0)";
-        }, 2000);
-        setTimeout(() => {
-            tooltip.style.display = "none";
-        }, 2500)
+        if (!active) {
+            active = true;
+            tooltip.innerText = `Copied text: ${this.dataset.copy}`;
+            navigator.clipboard.writeText(this.dataset.copy);
+            tooltip.style.display = "flex";
+            tooltip.style.filter = "opacity(1)";
+            setTimeout(() => {
+                tooltip.style.filter = "opacity(0)";
+            }, 2000);
+            setTimeout(() => {
+                tooltip.style.display = "none";
+                active = false;
+            }, 2500)
+        }
     }
 
     const copy = document.querySelector("#copy-email-button");
-    const discord = document.querySelector("#discord");
+    const discord = document.querySelector("#discord") as HTMLElement;
     copy.addEventListener("click", copyText);
     discord.addEventListener("click", copyText);
 </script>

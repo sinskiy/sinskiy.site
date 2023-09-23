@@ -88,7 +88,7 @@ small {
 }
 
 small, .tooltip, .description {
-    font-size: clamp(0.5rem, 5vw, 1.5rem);
+    font-size: clamp(0.5rem, 4vw, 1.5rem);
 }
 
 
@@ -131,7 +131,7 @@ button {
 
 .h3CustomText, h3 {
     font-family: "Red Rose", sans-serif;
-    font-size: clamp(1rem, 5vw, 3rem);
+    font-size: clamp(1.5rem, 5vw, 3rem);
 
     margin: 0;
 }

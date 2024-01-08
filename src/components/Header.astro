@@ -1,0 +1,18 @@
+---
+const navList = ['hi', 'projects', 'about', 'contacts']
+---
+<header class="flex justify-center items-center gap-16 px-16 py-4 capitalize bg-black/10 max-w-fit border-white/10 border-2 rounded-full">
+  <a class="flex items-center gap-2 tracking-tighter group" href="#top" aria-labelledby="top">
+    <img id="logo-text" aria-hidden="true" src="/logo.svg" alt="my logo">
+    <span id="top" class="sr-only">go to the top of this page</span>
+  </a>
+  <nav class="flex gap-8">
+    {navList.map((navElement) =>
+      <a href={`#${navElement}`}>{navElement}</a>
+    )}
+    <a target="_blank" href="https://github.com/Sinskiy/" aria-labelledby="github">
+      <img src="/github.svg" alt="github logo">
+      <span id="github" class="sr-only">go to my github</span>
+    </a>
+  </nav>
+</header>

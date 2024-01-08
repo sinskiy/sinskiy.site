@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        "red-rose": ["Red Rose", ...defaultTheme.fontFamily.sans],
+        redRose: ["Redrose", ...defaultTheme.fontFamily.sans],
       },
       colors: {
         baba: "var(--baba)",

@@ -1,17 +1,22 @@
+/* fonts */
 @font-face {
-  font-family: "Red Rose";
-  src: url("/redrose.woff2") format("woff");
+  font-family: "Redrose";
+  src: url("/redrose-regular.woff2") format("woff");
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
-  font-family: "Red Rose";
-  src: url("/redrose.woff2") format("woff2");
+  font-family: "Redrose";
+  src: url("/redrose-bold.woff2") format("woff2");
   font-weight: 700;
   font-display: swap;
 }
+
+/* global */
 :root {
   color-scheme: dark;
+
+  /* colors */
   --baba: #bababa;
   --almost-dark: #242424;
   --toxic-green: #00ff57;
@@ -23,4 +28,13 @@
     var(--darker-green) 0%,
     var(--darker-purple) 100%
   );
+}
+/* typography */
+a:any-link {
+  font-size: 1.25rem;
+  color: var(--baba);
+  transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+a:any-link:hover {
+  color: white;
 }

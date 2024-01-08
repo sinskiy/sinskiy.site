@@ -10,6 +10,17 @@
   font-weight: 700;
   font-display: swap;
 }
-html {
+:root {
   color-scheme: dark;
+  --baba: #bababa;
+  --almost-dark: #242424;
+  --toxic-green: #00ff57;
+  --toxic-purple: #db00ff;
+  --darker-green: #0e351c;
+  --darker-purple: #37173d;
+  --body-gradient: linear-gradient(
+    70deg,
+    var(--darker-green) 0%,
+    var(--darker-purple) 100%
+  );
 }

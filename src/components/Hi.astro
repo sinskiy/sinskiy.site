@@ -1,0 +1,21 @@
+---
+import Button from "./Button.astro";
+import Section from "./Section.astro";
+---
+<Section title="hi" sectionClass="absolute top-0 min-h-svh justify-center" wrapperClass="items-center">
+  <div class="flex flex-col items-center gap-16">
+    <h1 class="leading-tight font-bold font-redRose text-center text-nowrap text-[clamp(0.5rem,9vw,8rem)]">
+      I'm Sinskiy,
+      <br />
+      <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">web developer</span>
+    </h1>
+    <Button>
+      See projects
+      <img src="/arrow-down.svg" alt="arrow down icon"/>
+    </Button>
+  </div>
+  <aside class="absolute bottom-4 flex gap-2 items-center">
+    <small>or scroll down</small>
+    <img src="/mouse.svg" alt="mouse icon">
+  </aside>
+</Section>

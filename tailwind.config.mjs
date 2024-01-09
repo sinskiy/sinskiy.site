@@ -9,7 +9,7 @@ export default {
         redRose: ["Redrose", ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        baba: "var(--baba)",
+        c: "var(--c)",
         almostBlack: "var(--almost-black)",
         primary: "hsl(var(--toxic-green) / <alpha-value>)",
         secondary: "hsl(var(--toxic-purple) / <alpha-value>)",

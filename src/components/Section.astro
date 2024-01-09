@@ -1,0 +1,9 @@
+---
+const { title, sectionClass, wrapperClass } = Astro.props
+---
+<section class={sectionClass + " px-[20%] min-w-full flex flex-col"}>
+  <h2 class="text-baba font-redRose text-3xl pl-8">{title}</h2>
+  <div class={wrapperClass + " min-w-full flex flex-col"}>
+    <slot />
+  </div>
+</section>

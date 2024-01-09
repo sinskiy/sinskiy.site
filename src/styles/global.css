@@ -12,18 +12,18 @@
 }
 :root {
   color-scheme: dark;
-  --baba: #bababa;
+  --c: #ccc;
   --almost-dark: #242424;
   --toxic-green: 140 100% 50%;
   --toxic-purple: 292 100% 50%;
-  --darker-green: 142 58% 13%;
-  --darker-purple: 291 45% 16%;
+  --darker-green: 142 58% 11%;
+  --darker-purple: 291 45% 13%;
   --darker-blue: 227 22% 17%;
 }
 nav > a:any-link,
 small {
   font-size: 1.25rem;
-  color: var(--baba);
+  color: var(--c);
 }
 nav > a:any-link {
   transition: filter 0.15s linear;

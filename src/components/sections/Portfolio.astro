@@ -1,0 +1,29 @@
+---
+import Project from "../Project.astro";
+import Section from "../Section.astro";
+import { getCollection } from 'astro:content';
+const allProjects = await getCollection('projects')
+---
+<Section title="portfolio" sectionClass="pt-[100svh]">
+  {allProjects.map(project =>
+    <Project project={project} />
+  )}
+</Section>
+<script>
+  const cards = document.querySelectorAll("#portfolio article > a")
+
+  function handleMouseMove({ currentTarget, clientX, clientY }: { currentTarget: HTMLElement, clientX: number, clientY: number }) {
+    if (currentTarget) {
+      const rect = currentTarget.getBoundingClientRect()
+      const x = clientX - rect.left
+      const y = clientY - rect.top
+
+      currentTarget.style.setProperty("--mouse-x",`${x}px`)
+      currentTarget.style.setProperty("--mouse-y",`${y}px`)
+    }
+  }
+
+  cards.forEach(card => {
+    card.addEventListener("mousemove", handleMouseMove);
+  })
+</script>

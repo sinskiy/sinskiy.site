@@ -1,0 +1,30 @@
+---
+const { name, url } = Astro.props;
+---
+<a class="w-[calc(50%-4rem)] h-auto aspect-[5/3] rounded-2xl group relative bg-white/10 hover:before:opacity-100 transition-transform duration-200 hover:-translate-y-1" href={`https://${url}`} target="_blank">
+  <div class="absolute top-4 right-4 bg-white/30 transition-colors duration-200 group-hover:bg-primary rounded-full p-2">
+    <img src="/arrow-outward.svg" alt="outward arrow icon">
+  </div>
+  <div class="w-[calc(100%-4px)] h-[calc(100%-4px)] flex justify-center items-center bg-almostBlack/80 rounded-[inherit] m-[2px]">
+    <img src={`/${name.replace(' ', '-')}.svg`} alt={`${name} logo`} class="w-[50%] h-auto" />
+  </div>
+</a>
+
+<style>
+  /* https://codepen.io/Hyperplexed/pen/MWQeYLW */
+  a::before {
+    background: radial-gradient(
+          500px circle at var(--mouse-x) var(--mouse-y),
+          rgb(255 255 255 / 0.06),
+          transparent 40%
+      );
+      content: "";
+      width: 100%;
+      height: 100%;
+      left: 0px;
+      top: 0px;
+      opacity: 0;
+      position: absolute;
+      transition: opacity 200ms;
+  }
+</style>

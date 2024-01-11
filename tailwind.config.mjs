@@ -10,7 +10,7 @@ export default {
       },
       colors: {
         c: "var(--c)",
-        almostBlack: "var(--almost-black)",
+        almostBlack: "rgb(var(--almost-black) / <alpha-value>)",
         primary: "hsl(var(--toxic-green) / <alpha-value>)",
         secondary: "hsl(var(--toxic-purple) / <alpha-value>)",
         primaryDarker: "hsl(var(--darker-green) / <alpha-value>)",

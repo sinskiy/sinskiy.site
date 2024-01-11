@@ -1,0 +1,7 @@
+---
+const { image, alt, url } = Astro.props
+---
+<a class="flex gap-2 underlined" target="_blank" href={`https://${url}`}>
+  <img src={image} alt={alt}>
+  {url}
+</a>

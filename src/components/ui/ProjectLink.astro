@@ -1,7 +1,7 @@
 ---
 const { image, alt, url } = Astro.props
 ---
-<a class="flex gap-2 underlined" target="_blank" href={`https://${url}`}>
-  <img src={image} alt={alt}>
+<a class="flex gap-2 underlined h-6 items-baseline" target="_blank" href={`https://${url}`}>
+  <img class="w-6 h-auto" src={image} alt={alt}>
   {url}
 </a>

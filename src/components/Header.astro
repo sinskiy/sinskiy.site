@@ -2,13 +2,13 @@
 export const navList = ['hi', 'portfolio', 'about', 'contacts']
 ---
 <header class="flex justify-center fixed items-center gap-8 px-16 py-4 capitalize backdrop-blur-md bg-black/10 max-w-fit border-white/10 border-2 rounded-full z-10">
-  <a href="#top" aria-labelledby="top">
+  <a href="#" aria-labelledby="top">
     <img id="logo-text" aria-hidden="true" src="/logo.svg" alt="my logo">
     <span id="top" class="sr-only">go to the top of this page</span>
   </a>
   <nav class="flex gap-8">
     {navList.map((navElement) =>
-      <a href={`#${navElement}`}>{navElement}</a>
+      <a href={`#${navElement === 'portfolio' ? 'projects-top' : navElement}`}>{navElement}</a>
     )}
     <a target="_blank" href="https://github.com/Sinskiy/" aria-labelledby="github">
       <img src="/github.svg" alt="github logo">

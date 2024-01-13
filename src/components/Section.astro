@@ -1,7 +1,7 @@
 ---
 const { title, sectionClass, wrapperClass } = Astro.props
 ---
-<section id={title} class:list={[sectionClass, "px-[20%] min-w-full flex flex-col mt-16"]}>
+<section id={title} class:list={[sectionClass, "px-[18%] min-w-full flex flex-col mt-16"]}>
   <h2 class="text-c font-redRose text-3xl pl-8 mb-4">{title}</h2>
   <div class:list={[wrapperClass, "min-w-full flex flex-col"]}>
     <slot />

@@ -1,3 +1,4 @@
+/* fonts */
 @font-face {
   font-family: Redrose;
   src: url(/redrose-regular.woff2) format("woff");
@@ -10,6 +11,8 @@
   font-weight: 700;
   font-display: swap;
 }
+
+/* root */
 :root {
   scroll-behavior: smooth;
   color-scheme: dark;
@@ -21,6 +24,8 @@
   --darker-purple: 291 45% 13%;
   --darker-blue: 227 22% 17%;
 }
+
+/* typography */
 header a:any-link,
 small {
   font-size: 1.25rem;
@@ -54,8 +59,37 @@ header a:any-link:hover {
 .underlined:hover {
   text-decoration: none;
 }
+
+/* reusable ui */
+.input {
+  background-color: rgb(255 255 255 / 0.1);
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  max-width: calc(50% - 0.5rem);
+}
+.border-gradient::before {
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+  inset: 0;
+  padding: 4px;
+  filter: opacity(0.5);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  background: linear-gradient(
+    to top right,
+    hsl(var(--toxic-green)),
+    hsl(var(--toxic-purple))
+  );
+}
+
+/* extendable */
 .astro {
-  background: linear-gradient(45deg, #3245ff, #b845ed);
+  background: linear-gradient(to top right, #3245ff, #b845ed);
 }
 .tailwind {
   background: #0ea5e9;

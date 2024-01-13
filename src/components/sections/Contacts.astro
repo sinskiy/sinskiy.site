@@ -21,8 +21,9 @@ import "../../styles/button.css"
   </div>
   <footer class="flex flex-col items-end text-end gap-8">
     <div class="flex gap-6 items-baseline">
-      <a class="hover:opacity-70" href="http://github.com/Sinskiy/" target="_blank">
+      <a class="hover:opacity-70" href="http://github.com/Sinskiy/" target="_blank" aria-label="go to my github">
         <img class="object-contain" src="/github.svg" alt="github icon">
+        <span class="sr-only">Sinskiy</span>
       </a>
       <button class="hover:opacity-70 hover:cursor-copy transition-opacity" data-copy aria-label="copy my discord handle">
         <img class="object-contain" src="/discord.svg" alt="discord icon">
@@ -30,11 +31,15 @@ import "../../styles/button.css"
       </button>
     </div>
     <aside class="text-2xl font-regular text-c">
-      <ul class="flex flex-col gap-4">
-        <li>Design & Code by me</li>
-        <li>1.8</li>
-        <li><a class="!text-2xl underlined visited:text-purple-400" href="https://github.com/Sinskiy/sinskiy.github.io/">Github Repo</a></li>
-      </ul>
+      <nav class="flex flex-col gap-4">
+        <p>Design & Code by me</p>
+        <p>1.8</p>
+        <p>
+          <a class="!text-2xl underlined visited:text-purple-400" href="https://github.com/Sinskiy/sinskiy.github.io/">
+            Github Repo
+          </a>
+        </p>
+      </nav>
     </aside>
   </footer>
 </Section>

@@ -42,7 +42,7 @@ header a:any-link:hover {
   filter: brightness(1.2);
 }
 .text-focus-stealer {
-  font-size: 2.25rem;
+  font-size: clamp(1rem, 5vw, 2.25rem);
   font-weight: bold;
   font-family: "Redrose", sans-serif;
 }

@@ -21,7 +21,7 @@ const { project } = Astro.props
     </p>
     <nav class="flex gap-4 flex-wrap">
       <ProjectLink url={project.data.url} image="/link.svg" alt="link icon" />
-      {project.data.github && <ProjectLink url={project.data.github} image="/github--blue.svg" alt="github icon" />}
+      {project.data.github && <ProjectLink url={`github.com/Sinskiy/${project.data.github}`} image="/github--blue.svg" alt="github icon" />}
     </nav>
   </div>
 </article>

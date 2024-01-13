@@ -2,21 +2,19 @@
 import Section from "../Section.astro";
 ---
 
-<Section title="about">
-  <div class="relative flex gap-4 text-focus-stealer items-center flex-wrap">
-    <input class="absolute min-w-full min-h-full peer opacity-0" type="checkbox" name="about" id="about">
-    <p class="text-primary peer-checked:text-white">Information</p>
-    <div aria-hidden="true" class="w-24 h-12 rounded-full border-8 border-white flex items-center px-1 peer-checked:*:translate-x-[200%]">
-      <div class="rounded-full w-6 h-6 bg-primary transition-transform"></div>
-    </div>
-    <p class="peer-checked:text-primary">Story</p>
-    <div class="min-w-full text-basic peer-checked:[&>#information]:hidden peer-checked:[&>#story]:block">
-      <p id="information" class="max-w-2xl">
-        A 15 years old from russia, who really likes reading dystopias and self-improvement books. It's hard for me to talk to strangers and I'm a bit awkward. Currently my two main goals are to be ready to work as a full stack/frontend developer and to improve my English speaking skills
-      </p>
-      <p id="story" class="max-w-4xl hidden">
-        At age 9, I found countryballs and got into "politics". Of course I actually knew nothing about politics. But it still completely changed the direction of my life<br /><br />None of my previous acquaintances and friends were involved in politics, so I found new ones online. They were much older than me. In such an environment, it’s not hard to develop your own vision of life. My core value became freedom, and I started planning to move away from russia for obvious reasons<br /><br />When I switched my real-life friends to internet ones, I started spending a lot of my time on PC and phone, and besides politics I got into tech. I still hadn’t thought about becoming a developer, but I kept up with the latest tech news and knew a lot of advanced things about PCs<br /><br />At age 13, I created my first website as a school project because it was the first project I could think of, but I quickly forgot about web development. Then I read Atlas Shrugged (because I knew I was a libertarian), started reading non-fiction financial books, then started reading non-fiction books in general, and realized that I was in full control of my future. Now I want to leave russia more than ever<br /><br />The problem is that I’m from a small town, and my family definitelly can’t sponsor me in moving to another country (and "sponsoring" goes against my core values), so I need to earn money somehow. Not the easiest task for a minor. That’s why I spend a lot of my time creating websites and learning about exciting things!
-      </p>
-    </div>
+<Section title="about" wrapperClass="relative flex !flex-row gap-4 text-focus-stealer items-center flex-wrap ml-16">
+  <input class="absolute min-w-full min-h-full peer opacity-0" type="checkbox" name="about" id="about">
+  <p class="text-primary peer-checked:text-white">Information</p>
+  <div aria-hidden="true" class="w-24 h-12 rounded-full border-8 border-white flex items-center px-1 peer-checked:*:translate-x-[200%]">
+    <div class="rounded-full w-6 h-6 bg-primary transition-transform"></div>
+  </div>
+  <p class="peer-checked:text-primary">Story</p>
+  <div class="min-w-full text-basic peer-checked:[&>#information]:hidden peer-checked:[&>#story]:block">
+    <p id="information" class="max-w-2xl">
+      A 15 years old from russia, who really likes reading dystopias and self-improvement books. It's hard for me to talk to strangers and I'm a bit awkward. Currently my two main goals are to be ready to work as a full stack/frontend developer and to improve my English speaking skills
+    </p>
+    <p id="story" class="max-w-4xl hidden">
+      At age 9, I found countryballs and got into "politics". Of course I actually knew nothing about politics. But it still completely changed the direction of my life<br /><br />None of my previous acquaintances and friends were involved in politics, so I found new ones online. They were much older than me. In such an environment, it’s not hard to develop your own vision of life. My core value became freedom, and I started planning to move away from russia for obvious reasons<br /><br />When I switched my real-life friends to internet ones, I started spending a lot of my time on PC and phone, and besides politics I got into tech. I still hadn’t thought about becoming a developer, but I kept up with the latest tech news and knew a lot of advanced things about PCs<br /><br />At age 13, I created my first website as a school project because it was the first project I could think of, but I quickly forgot about web development. Then I read Atlas Shrugged (because I knew I was a libertarian), started reading non-fiction financial books, then started reading non-fiction books in general, and realized that I was in full control of my future. Now I want to leave russia more than ever<br /><br />The problem is that I’m from a small town, and my family definitelly can’t sponsor me in moving to another country (and "sponsoring" goes against my core values), so I need to earn money somehow. Not the easiest task for a minor. That’s why I spend a lot of my time creating websites and learning about exciting things!
+    </p>
   </div>
 </Section>

@@ -17,6 +17,7 @@
   scroll-behavior: smooth;
   scroll-padding-top: 30vh;
   color-scheme: dark;
+  overflow-x: hidden;
   --c: #ccc;
   --almost-black: 24 24 24;
   --toxic-green: 140 100% 50%;
@@ -63,7 +64,7 @@ header a:any-link:hover {
 
 /* reusable ui */
 .input {
-  background-color: rgb(255 255 255 / 0.1);
+  background-color: rgb(255 255 255 / 0.15);
   border-radius: 8px;
   padding: 1rem 2rem;
   font-size: 1.5rem;

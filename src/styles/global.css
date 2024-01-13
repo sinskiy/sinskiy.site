@@ -15,6 +15,7 @@
 /* root */
 :root {
   scroll-behavior: smooth;
+  scroll-padding-top: 30vh;
   color-scheme: dark;
   --c: #ccc;
   --almost-black: 24 24 24;
@@ -75,6 +76,7 @@ header a:any-link:hover {
   border-radius: inherit;
   inset: 0;
   padding: 4px;
+  z-index: -10;
   filter: opacity(0.5);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);

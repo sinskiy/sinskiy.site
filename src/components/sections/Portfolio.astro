@@ -5,6 +5,7 @@ import { getCollection } from 'astro:content';
 const allProjects = await getCollection('projects')
 ---
 <Section title="portfolio" sectionClass="pt-[100svh]">
+  <div id="projects-top" aria-hidden></div>
   {allProjects.map(project =>
     <Project project={project} />
   )}

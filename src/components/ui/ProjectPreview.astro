@@ -1,13 +1,13 @@
 ---
 const { name, url } = Astro.props;
 ---
-<a class="w-full md:w-[calc(50%-4rem)] md:h-auto aspect-[5/3] rounded-2xl group relative bg-white/10 hover:before:opacity-100 transition-transform duration-200 hover:-translate-y-1" href={`https://${url}`} target="_blank">
+<a class="w-full xl:w-[calc(50%-4rem)] xl:h-auto aspect-[5/3] rounded-2xl group relative bg-white/10 hover:before:opacity-100 transition-transform duration-200 hover:-translate-y-1" href={`https://${url}`} target="_blank">
   <span class="sr-only">Go to {name}</span>
   <div class="absolute top-4 right-4 bg-white/30 transition-colors duration-200 group-hover:bg-primary rounded-full p-2">
     <img src="/arrow-outward.svg" alt="outward arrow icon">
   </div>
   <div class="w-[calc(100%-4px)] h-[calc(100%-4px)] flex justify-center items-center bg-almostBlack/80 rounded-[inherit] m-[2px]">
-    <img src={`/${name.replace(' ', '-')}.svg`} alt={`${name} logo`} class="w-[30%] md:w-[50%] h-auto" />
+    <img src={`/${name.replace(' ', '-')}.svg`} alt={`${name} logo`} class="w-[30%] xl:w-[50%] h-auto" />
   </div>
 </a>
 

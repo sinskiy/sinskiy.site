@@ -17,10 +17,6 @@
   position: relative;
   background-color: hsl(var(--darker-blue));
 }
-.button:focus {
-  outline: 1px solid white;
-  outline-offset: 4px;
-}
 .button::before,
 .button::after {
   --angle: 0deg;

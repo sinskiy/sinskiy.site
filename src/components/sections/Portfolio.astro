@@ -4,7 +4,7 @@ import Section from "../Section.astro";
 import { getCollection } from 'astro:content';
 const allProjects = await getCollection('projects')
 ---
-<Section title="portfolio" sectionClass="pt-[100svh]">
+<Section title="portfolio">
   <div id="projects-top" aria-hidden="true"></div>
   {allProjects.map(project =>
     <Project project={project} />

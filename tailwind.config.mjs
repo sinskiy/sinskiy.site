@@ -17,6 +17,10 @@ export default {
         secondaryDarker: "hsl(var(--darker-purple) / <alpha-value>)",
         tertiaryDarker: "hsl(var(--darker-blue) / <alpha-value>)",
       },
+      fontSize: {
+        normal: "var(--normal)",
+        smaller: "var(--smaller)",
+      },
     },
   },
   plugins: [],

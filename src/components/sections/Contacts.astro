@@ -3,8 +3,8 @@ import Section from "../Section.astro";
 import "../../styles/button.css"
 ---
 
+<div role="tooltip" class="z-20 rounded-full mx-10 bg-primary px-4 opacity-0 w-fit h-fit transition-opacity fixed bottom-8 flex text-almostBlack">No text was copied</div>
 <Section title="contacts" wrapperClass="bg-black/10 rounded-xl relative xl:!flex-row justify-between p-12 md:p-16 border-gradient">
-  <div role="tooltip" class="rounded-full translate-x-10 bg-primary px-4 mx-16 opacity-0 w-fit h-fit whitespace-nowrap transition-opacity absolute top-8 flex text-almostBlack">No text was copied</div>
   <div class="xl:w-[65%] flex flex-col gap-8">
     <button class="text-focus-stealer w-fit leading-none flex items-baseline gap-4 group hover:cursor-copy" data-copy title="copy my email">
       <p class="group-hover:opacity-70 transition-opacity">sinskiy@proton.me</p>
@@ -57,14 +57,6 @@ import "../../styles/button.css"
     tooltip.style.opacity = '1'
     const target: HTMLElement = e.currentTarget as HTMLElement
     navigator.clipboard.writeText(target.innerText)
-    if (target.innerText.includes('_')) {
-      tooltip.style.left = ''
-      tooltip.style.right = '0px'
-    }
-    else {
-      tooltip.style.right = ''
-      tooltip.style.left = '0px'
-    }
     tooltip.innerText = `Copied text: ${target.innerText}`
     opacityTimeout = setTimeout(() => {
       tooltip.style.opacity = '0'

@@ -4,7 +4,7 @@ This is my **personal website-portfolio** build with Astro, Tailwind and TypeScr
 
 # How can I access it?
 
-It's hosted on [GitHub Pages](https://pages.github.com/). Link is https://sinskiy.github.io/
+It's hosted on [Vercel](https://vercel.com/). Link is https://sinskiy.vercel.app/
 
 # Can I clone it?
 

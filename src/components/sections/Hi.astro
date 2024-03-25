@@ -1,0 +1,21 @@
+---
+import Section from "../Section.astro";
+import "../../styles/button.css"
+---
+<Section title="hi" sectionClass="min-h-svh justify-center !m-0" wrapperClass="items-center">
+  <div class="flex flex-col items-center gap-16">
+    <h1 class="leading-tight font-bold font-redRose text-center text-nowrap text-[clamp(3rem,12vw,8rem)]">
+      I'm Sinskiy,
+      <br />
+      <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">web developer</span>
+    </h1>
+    <a href="#projects-top" class="button flex items-baseline gap-4 max-w-fit px-12 md:px-24 py-4 text-[clamp(1.25rem,3vw,2.25rem)]">
+      See projects
+      <img class="w-4 md:w-auto" src="/arrow-down.svg" alt="arrow down icon"/>
+    </a>
+  </div>
+  <aside class="absolute bottom-2 flex gap-2 items-center">
+    <small>or scroll down</small>
+    <img src="/mouse.svg" alt="mouse icon">
+  </aside>
+</Section>

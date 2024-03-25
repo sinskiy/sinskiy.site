@@ -1,0 +1,8 @@
+---
+const { image, alt, url } = Astro.props
+const formattedUrl = url.split('/').at(-1)
+---
+<a class="flex gap-2 underlined h-6 items-center" target="_blank" href={`https://${formattedUrl}`}>
+  <img class="w-6 h-auto" src={image} alt={alt}>
+  {formattedUrl}
+</a>

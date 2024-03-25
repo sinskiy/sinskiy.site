@@ -1,130 +1,21 @@
 ---
-import SectionPlaceholder from "../SectionPlaceholder.astro";
+import Section from "../Section.astro";
 ---
-<SectionPlaceholder sectionId="about">
-    <div id="root-div-about">
-        <!-- i need to have all of these elements on one layer or layer lower than input to make native toggler without js -->
-        <input type="checkbox" name="information-and-story" aria-label="toggle">
-        <!-- this is very awful structure but at least i have a toggle without js!!! -->
-        <div id="navigation-text" class="flex justifyCenter column">
-            <nav class="flex center">
-                <h3 id="information">information</h3>
-                <div id="toggle"></div>
-                <h3 id="story">story</h3>
-            </nav>
-            <div id="texts">
-                <p id="information-text">
-                    A 15 years old from russia, who really likes to read dystopias and self-improvement books. It's hard for me to talk to strangers and I'm a bit awkward. I use calendars to schedule my day to be more productive, and usually I code or try to speak English on Discord servers for language learning
-                </p>
-                <p id="story-text">
-                    Everything I have now, every interests and hobbies, are basically the outcome of just a few events in my life</br></br>At the age 9, I found countryballs and got into politics. Yeah, that sounds really funny - politics at 9 years old. And I agree that i didn’t actually know anything about politics. But it still completely changed the direction of my life</br></br>None of my previous acquaintances and friends were involved in politics, so I found new ones online. They were much older than me. In such an environment, it’s not hard to develop your own vision of life</br></br>My core value became freedom, in every sense. The thing is, in the place where I live now, that value is totally violated. I thought the same way when I was 9, I think absolutely the same way now. It’s even worse</br></br>When I switched my real life friends to internet ones, I started spending a lot of my time on PC and phone, and besides politics I got into tech. I still hadn’t thought about becoming a developer, but I kept up with the latest tech news and knew a lot of advanced things about PCs</br></br>I got a bit derailed at the age 12. I spent almost all of my time on the recently released Valorant. At 13, I created my first website as a school project, because it was the easiest project I could came up with, but I quickly forgot about web development. So I was still derailed</br></br>Everything has changed when I read Atlas Shrugged. This book, generally speaking, promotes my core values that I developed while I was interested in politics. Now I want to move out of russia more than ever. The problem is that I’m from a small town, and my family definitelly can’t sponsor me in moving to another country (and that goes against my core values). So I need to earn money somehow. Not the easiest task for a minor. That’s why I spend a lot of my time creating websites and learning exciting things!
-                </p>
-            </div>
-        </nav>
-    </nav>
-</SectionPlaceholder>
 
-<style>
-    .root-div-about {
-        display: flex;
-        position: relative;
-    }
-
-    label {
-        display: none;
-    }
-
-    input {
-        min-width: 50%;
-        min-height: 3rem;
-
-        opacity: 0;
-        z-index: 5;
-
-        position: absolute;
-    }
-
-    nav {
-        gap: 1rem;
-    }
-
-    #toggle {
-        box-sizing: content-box;
-        width: 5rem;
-        height: 2rem;
-
-        border: solid 8px white;
-        border-radius: 10rem;
-
-        position: relative;
-    }
-
-    #toggle::before {
-        content: "";
-
-        display: flex;
-
-        border-radius: 10rem;
-
-        position: absolute;
-        left: 5px;
-        top: 0.2rem;
-
-        width: 1.5rem;
-        height: 1.5rem;
-
-        background-color: var(--green);
-
-        transition: all 0.3s ease;
-    }
-
-    input:checked + #navigation-text #toggle::before {
-        left: calc(100% - 1.5rem - 5px);
-    }
-
-    p {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        font-size: clamp(1rem, 3vw, 1.5rem);
-        font-weight: 300;
-        letter-spacing: 0.075rem;
-        line-height: 170%;
-        max-width: 50vw;
-    }
-
-    @media (max-width: 1440px) {
-        p {
-            max-width: 80vw;
-        }
-    }
-
-    @media (max-width: 750px) {
-        #toggle {
-            border: 5px solid white;
-            width: 3rem;
-            height: 1.2rem;
-        }
-        #toggle::before {
-            left: 3px;
-            top: 0.2rem;
-            width: 0.8rem;
-            height: 0.8rem;
-        }
-        input:checked + #navigation-text #toggle::before {
-            left: calc(100% - 0.8rem - 3px);
-        }
-    }
-
-    /* native css toggle no way */
-
-    input:not(:checked) + #navigation-text #information { color: var(--green) }
-    input:not(:checked) + #navigation-text #information-text { display: block; }
-
-    input:not(:checked) + #navigation-text #story { color: white }
-    input:not(:checked) + #navigation-text #story-text { display: none; }
-
-    input:checked + #navigation-text #information { color: white }
-    input:checked + #navigation-text #information-text { display: none; }
-
-    input:checked + #navigation-text #story { color: var(--green) }
-    input:checked + #navigation-text #story-text { display: block; }
-</style>
+<Section title="about" wrapperClass="relative flex !flex-row gap-4 text-focus-stealer items-center flex-wrap">
+  <label class="sr-only" for="toggle-about">See story</label>
+  <input class="absolute min-w-full min-h-full peer opacity-0" type="checkbox" name="about" id="toggle-about">
+  <p class="text-primary peer-checked:text-white">Information</p>
+  <div aria-hidden="true" class="w-16 md:w-24 h-8 md:h-12 rounded-full border-4 md:border-[6px] border-white flex items-center px-1 peer-checked:*:translate-x-[200%] md:peer-checked:*:translate-x-[210%]">
+    <div class="rounded-full w-4 h-4 md:w-6 md:h-6 bg-primary transition-transform"></div>
+  </div>
+  <p class="peer-checked:text-primary">Story</p>
+  <div class="z-10 text-basic peer-checked:[&>#information]:hidden peer-checked:[&>#story]:block">
+    <p id="information" class=" text-balance">
+      A 15 years old from russia, who really likes reading dystopias and self-improvement books. It's hard for me to talk to strangers and I'm a bit awkward. Currently my two main goals are to be ready to work as a full stack/frontend developer and to improve my English speaking skills
+    </p>
+    <p id="story" class="min-w-0 md:max-w-4xl hidden">
+      At age 9, I found countryballs and got into "politics". Of course I actually knew nothing about politics. But it still completely changed the direction of my life<br /><br />None of my previous acquaintances and friends were involved in politics, so I found new ones online. They were much older than me. In such an environment, it’s not hard to develop your own vision of life. My core value became freedom, and I started planning to move away from russia for obvious reasons<br /><br />When I switched my real-life friends to internet ones, I started spending a lot of my time on PC and phone, and besides politics I got into tech. I still hadn’t thought about becoming a developer, but I kept up with the latest tech news and knew a lot of advanced things about PCs<br /><br />At age 13, I created my first website as a school project because it was the first project I could think of, but I quickly forgot about web development. Then I read Atlas Shrugged (because I knew I was a libertarian), started reading non-fiction financial books, then started reading non-fiction books in general, and realized that I was in full control of my future. Now I want to leave russia more than ever<br /><br />The problem is that I’m from a small town, and my family definitelly can’t sponsor me in moving to another country (and "sponsoring" goes against my core values), so I need to earn money somehow. Not the easiest task for a minor. That’s why I spend a lot of my time creating websites and learning about exciting things!
+    </p>
+  </div>
+</Section>

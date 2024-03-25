@@ -1,114 +1,20 @@
 ---
-const navigation = [
-    {
-        name: "home",
-        label: "home page of this website",
-        anchor: "top"
-    },
-    {
-        name: "projects",
-        label: "my projects"
-    },
-    {
-        name: "about",
-        label: "section with information about me"
-    },
-    {
-        name: "contacts",
-        label: "section with my contacts"
-    }
-];
+export const navList = ['hi', 'portfolio', 'about', 'contacts']
 ---
-<header>
-    <a href="#top" aria-label="Go to home page of this website" title="Go to home page of this website">
-        <img src="logo.svg" alt="Go to home" id="logo">
+<header class="flex justify-between md:justify-center absolute md:fixed items-center gap-8 px-16 py-4 capitalize backdrop-blur-md bg-black/10 w-fit border-white/10 border-2 rounded-full z-50">
+  <a href="#top" aria-labelledby="top-label">
+    <img id="logo-text" aria-hidden="true" class="w-12 md:w-full" src="/logo.svg" alt="my logo">
+    <span id="top-label" class="sr-only">go to the top of this page</span>
+  </a>
+  <nav class="flex gap-8">
+    {navList.map((navElement) =>
+      <a class="hidden md:flex" href={`#${navElement === 'portfolio' ? 'projects-top' : navElement}`}>
+        {navElement}
+      </a>
+    )}
+    <a target="_blank" href="https://github.com/Sinskiy/" aria-labelledby="github">
+      <img src="/github.svg" alt="github logo">
+      <span id="github" class="sr-only">go to my github</span>
     </a>
-    <nav>
-        {
-            navigation.map((link) =>
-                <a
-                    href={`#${link.anchor ?? link.name}`}
-                    class="link"
-                    aria-label={`Go to ${link.label}`}
-                    title={`Go to ${link.label}`}
-                    id={`link--${link.name}`}
-                >
-                    {link.name}
-                </a>
-            )
-        }
-    </nav>
+  </nav>
 </header>
-
-<style>
-    header {
-        top: 2rem;
-        position: sticky; /* with `position: fixed` h2's margin isn't working */
-        z-index: 10;
-
-        border-radius: 10rem;
-        border: 1px var(--white-transparent) solid;
-
-        padding: 1rem 4rem;
-
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        gap: 4rem;
-
-        backdrop-filter: blur(16px);
-
-        animation: on-load-header 2s;
-    }
-
-    nav {
-        display: flex;
-        gap: 2rem;
-    }
-
-    a.on-top {
-        color: white;
-    }
-    a.on-top:hover {
-        color: var(--green)
-    }
-
-    /* media */
-    @media (max-width: 700px) {
-        header {
-            gap: 2.5rem;
-        }
-        header > nav {
-            gap: 1.5rem;
-        }
-        #logo {
-            max-width: 2.5rem;
-            max-height: auto;
-        }
-
-        #link--home {
-            display: none;
-        }
-    }
-
-    @media (max-width: 450px) {
-        header {
-            padding: 1rem 2rem;
-        }
-    }
-
-    @media (max-width: 350px) {
-        nav {
-            display: none;
-        }
-    }
-
-    @keyframes on-load-header {
-        from {
-            transform: translateY(-1000px);
-        }
-        to {
-            transform: translateY(0);
-        }
-    }
-</style>

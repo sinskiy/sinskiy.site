@@ -1,0 +1,44 @@
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes button-gradient--animation {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+.button {
+  border-radius: 9999px;
+  font-family: "Redrose", sans-serif;
+  position: relative;
+  background-color: hsl(var(--darker-blue));
+}
+.button::before,
+.button::after {
+  --angle: 0deg;
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--angle),
+    hsl(var(--toxic-green)),
+    hsl(var(--toxic-purple)),
+    hsl(var(--toxic-green))
+  );
+  animation: button-gradient--animation 5s infinite;
+  transition: --angle 0s;
+  z-index: -1;
+}
+.button::after {
+  filter: blur(32px);
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.button:hover::after {
+  opacity: 0.5;
+}

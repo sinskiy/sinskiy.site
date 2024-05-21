@@ -1,4 +1,9 @@
 ---
-const { type } = Astro.props
+const { type } = Astro.props;
 ---
-<div class:list={[type, 'capitalize bg-gradient-to-r rounded-full px-8 text-xl']}>{type}</div>
+
+<div
+  class:list={[type, "rounded-full bg-gradient-to-r px-8 text-xl capitalize"]}
+>
+  {type}
+</div>

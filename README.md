@@ -4,7 +4,7 @@ This is my **personal website-portfolio** build with Astro, Tailwind and TypeScr
 
 # How can I access it?
 
-It's hosted on [Vercel](https://vercel.com/). Link is https://sinskiy.vercel.app/
+Go to https://sinskiy.website/
 
 # Can I clone it?
 
@@ -23,7 +23,7 @@ git config --global -l
 # sample result
 v21.5.0
 10.2.5
-user.name=sinskiy_
+user.name=sinskiy
 user.email=sinskiy@proton.me
 ```
 
@@ -31,19 +31,19 @@ user.email=sinskiy@proton.me
 
 ```sh
 # terminal
-git clone https://github.com/sinskiy/sinskiy.github.io.git <your-custom-folder-name>
+git clone https://github.com/sinskiy/sinskiy.website <your-custom-folder-name>
 ```
 
 or using SSH
 
 ```sh
-git clone git@github.com:sinskiy/sinskiy.github.io.git <your-custom-folder-name>
+git clone git@github.com:sinskiy/sinskiy.website.git <your-custom-folder-name>
 ```
 
 or using GitHub CLI
 
 ```sh
-gh repo clone sinskiy/sinskiy.github.io <your-custom-folder-name>
+gh repo clone sinskiy/sinskiy.website <your-custom-folder-name>
 ```
 
 3. Open cloned repo in your preferred editor

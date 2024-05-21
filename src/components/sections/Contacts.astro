@@ -1,46 +1,99 @@
 ---
 import Section from "../Section.astro";
-import "../../styles/button.css"
+import "../../styles/button.css";
 ---
 
-<div role="tooltip" class="z-20 rounded-full mx-10 bg-primary px-4 opacity-0 w-fit h-fit transition-opacity fixed bottom-8 flex text-almostBlack">No text was copied</div>
-<Section title="contacts" wrapperClass="bg-black/10 rounded-xl relative xl:!flex-row justify-between p-12 md:p-16 border-gradient">
-  <div class="xl:w-[65%] flex flex-col gap-8">
-    <button class="text-focus-stealer w-fit leading-none flex items-baseline gap-4 group hover:cursor-copy" data-copy title="copy my email">
-      <p class="group-hover:opacity-70 transition-opacity">sinskiy@proton.me</p>
-      <svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="group-hover:fill-primary transition-[fill]" d="M8.3 17.775C7.41667 17.775 6.67083 17.4708 6.0625 16.8625C5.45417 16.2541 5.15 15.5083 5.15 14.625V3.22495C5.15 2.34162 5.45417 1.59578 6.0625 0.987451C6.67083 0.379118 7.41667 0.0749512 8.3 0.0749512H16.7C17.5833 0.0749512 18.3292 0.379118 18.9375 0.987451C19.5458 1.59578 19.85 2.34162 19.85 3.22495V14.625C19.85 15.5083 19.5458 16.2541 18.9375 16.8625C18.3292 17.4708 17.5833 17.775 16.7 17.775H8.3ZM8.3 14.625H16.7V3.22495H8.3V14.625ZM3.15 22.925C2.26667 22.925 1.52083 22.6208 0.9125 22.0125C0.304167 21.4041 0 20.6583 0 19.775V5.22495H3.15V19.775H14.7V22.925H3.15Z" fill="white"/></svg>
+<div
+  role="tooltip"
+  class="fixed bottom-8 z-20 mx-10 flex h-fit w-fit rounded-full bg-primary px-4 text-almostBlack opacity-0 transition-opacity"
+>
+  No text was copied
+</div>
+<Section
+  title="contacts"
+  wrapperClass="bg-black/10 rounded-xl relative xl:!flex-row justify-between p-12 md:p-16 border-gradient"
+>
+  <div class="flex flex-col gap-8 xl:w-[65%]">
+    <button
+      class="text-focus-stealer group flex w-fit items-baseline gap-4 leading-none hover:cursor-copy"
+      data-copy
+      title="copy my email"
+    >
+      <p class="transition-opacity group-hover:opacity-70">sinskiy@proton.me</p>
+      <svg
+        width="20"
+        height="23"
+        viewBox="0 0 20 23"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        ><path
+          class="transition-[fill] group-hover:fill-primary"
+          d="M8.3 17.775C7.41667 17.775 6.67083 17.4708 6.0625 16.8625C5.45417 16.2541 5.15 15.5083 5.15 14.625V3.22495C5.15 2.34162 5.45417 1.59578 6.0625 0.987451C6.67083 0.379118 7.41667 0.0749512 8.3 0.0749512H16.7C17.5833 0.0749512 18.3292 0.379118 18.9375 0.987451C19.5458 1.59578 19.85 2.34162 19.85 3.22495V14.625C19.85 15.5083 19.5458 16.2541 18.9375 16.8625C18.3292 17.4708 17.5833 17.775 16.7 17.775H8.3ZM8.3 14.625H16.7V3.22495H8.3V14.625ZM3.15 22.925C2.26667 22.925 1.52083 22.6208 0.9125 22.0125C0.304167 21.4041 0 20.6583 0 19.775V5.22495H3.15V19.775H14.7V22.925H3.15Z"
+          fill="white"></path></svg
+      >
     </button>
-    <form class="flex flex-col gap-4" action="https://formsubmit.co/sinskiy@proton.me" method="POST">
-      <div class="flex flex-col xl:flex-row xl:max-h-16 gap-4">
+    <form
+      class="flex flex-col gap-4"
+      action="https://formsubmit.co/sinskiy@proton.me"
+      method="POST"
+    >
+      <div class="flex flex-col gap-4 xl:max-h-16 xl:flex-row">
         <input class="input" type="text" name="name" placeholder="Your name" />
-        <input class="input" type="email" name="email" placeholder="Your email" />
+        <input
+          class="input"
+          type="email"
+          name="email"
+          placeholder="Your email"
+        />
       </div>
-      <textarea placeholder="Message" class="input resize-none min-w-full h-40"></textarea>
-      <button class="button min-w-full py-3 md:py-4 text-normal mt-4">Send message</button>
+      <textarea placeholder="Message" class="input h-40 min-w-full resize-none"
+      ></textarea>
+      <button class="button mt-4 min-w-full py-3 text-normal md:py-4"
+        >Send message</button
+      >
     </form>
   </div>
-  <footer class="flex flex-col items-end text-start md:text-end gap-8 mt-8 xl:mt-0 justify-between xl:justify-normal">
-    <div class="flex gap-6 w-full xl:w-fit justify-between items-baseline">
-      <a class="hover:opacity-70" href="http://github.com/Sinskiy/" target="_blank" title="go to my github">
-        <img class="object-contain" src="/github.svg" alt="github icon">
+  <footer
+    class="mt-8 flex flex-col items-end justify-between gap-8 text-start md:text-end xl:mt-0 xl:justify-normal"
+  >
+    <div class="flex w-full items-baseline justify-between gap-6 xl:w-fit">
+      <a
+        class="hover:opacity-70"
+        href="http://github.com/Sinskiy/"
+        target="_blank"
+        title="go to my github"
+      >
+        <img class="object-contain" src="/github.svg" alt="github icon" />
         <span class="sr-only">Sinskiy</span>
       </a>
-      <button class="hover:opacity-70 hover:cursor-copy transition-opacity" data-copy title="copy my discord handle">
-        <img class="object-contain" src="/discord.svg" alt="discord icon">
+      <button
+        class="transition-opacity hover:cursor-copy hover:opacity-70"
+        data-copy
+        title="copy my discord handle"
+      >
+        <img class="object-contain" src="/discord.svg" alt="discord icon" />
         <span class="sr-only">@sinskiy_</span>
       </button>
     </div>
-    <aside class="min-w-full text-normal font-regular text-c">
-      <nav class="flex xl:flex-col flex-wrap justify-between gap-4">
+    <aside class="font-regular min-w-full text-normal text-c">
+      <nav class="flex flex-wrap justify-between gap-4 xl:flex-col">
         <p>Design & Code by me</p>
         <p>1.8</p>
         <p>
-          <a class="!text-normal underlined visited:text-purple-400" href="https://github.com/Sinskiy/sinskiy.github.io/">
+          <a
+            class="underlined !text-normal visited:text-purple-400"
+            href="https://github.com/Sinskiy/sinskiy.github.io/"
+          >
             Github Repo
           </a>
         </p>
         <a class="mt-2" href="https://astro.build">
-          <img src="https://astro.badg.es/v2/built-with-astro/medium.svg" alt="Built with Astro" width="240" height="40">
+          <img
+            src="https://astro.badg.es/v2/built-with-astro/medium.svg"
+            alt="Built with Astro"
+            width="240"
+            height="40"
+          />
         </a>
       </nav>
     </aside>
@@ -48,18 +101,20 @@ import "../../styles/button.css"
 </Section>
 
 <script>
-  const copiable = document.querySelectorAll('[data-copy]')
-  const tooltip = document.querySelector('[role="tooltip"]') as HTMLElement
-  copiable.forEach(element => (element as HTMLElement).addEventListener('click', copy))
+  const copiable = document.querySelectorAll("[data-copy]");
+  const tooltip = document.querySelector('[role="tooltip"]') as HTMLElement;
+  copiable.forEach((element) =>
+    (element as HTMLElement).addEventListener("click", copy),
+  );
   let opacityTimeout: ReturnType<typeof setTimeout>;
   function copy(e: MouseEvent) {
-    clearTimeout(opacityTimeout)
-    tooltip.style.opacity = '1'
-    const target: HTMLElement = e.currentTarget as HTMLElement
-    navigator.clipboard.writeText(target.innerText)
-    tooltip.innerText = `Copied text: ${target.innerText}`
+    clearTimeout(opacityTimeout);
+    tooltip.style.opacity = "1";
+    const target: HTMLElement = e.currentTarget as HTMLElement;
+    navigator.clipboard.writeText(target.innerText);
+    tooltip.innerText = `Copied text: ${target.innerText}`;
     opacityTimeout = setTimeout(() => {
-      tooltip.style.opacity = '0'
+      tooltip.style.opacity = "0";
     }, 5000);
   }
 </script>

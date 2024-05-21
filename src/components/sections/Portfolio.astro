@@ -1,31 +1,30 @@
 ---
 import Project from "../Project.astro";
 import Section from "../Section.astro";
-import { getCollection } from 'astro:content';
-const allProjects = await getCollection('projects')
+import { getCollection } from "astro:content";
+const allProjects = await getCollection("projects");
 ---
+
 <Section title="portfolio">
   <div id="projects-top" aria-hidden="true"></div>
-  {allProjects.map(project =>
-    <Project project={project} />
-  )}
+  {allProjects.map((project) => <Project project={project} />)}
 </Section>
 <script>
-  const cards = document.querySelectorAll("#portfolio article > a")
+  const cards = document.querySelectorAll("#portfolio article > a");
 
   function handleMouseMove(e: MouseEvent): void {
-    const currentTarget: HTMLElement = e.currentTarget as HTMLElement
+    const currentTarget: HTMLElement = e.currentTarget as HTMLElement;
     if (e.currentTarget) {
-      const rect = currentTarget.getBoundingClientRect()
-      const x = e.clientX - rect.left
-      const y = e.clientY - rect.top
+      const rect = currentTarget.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
 
-      currentTarget.style.setProperty("--mouse-x",`${x}px`)
-      currentTarget.style.setProperty("--mouse-y",`${y}px`)
+      currentTarget.style.setProperty("--mouse-x", `${x}px`);
+      currentTarget.style.setProperty("--mouse-y", `${y}px`);
     }
   }
 
-  cards.forEach(card => {
+  cards.forEach((card) => {
     (card as HTMLElement).onmousemove = (e: MouseEvent) => handleMouseMove(e);
-  })
+  });
 </script>

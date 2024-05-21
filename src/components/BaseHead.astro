@@ -7,21 +7,34 @@ interface Props {
 
 const { title, description, image } = Astro.props;
 ---
-<meta charset="UTF-8">
+
+<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="generator" content={Astro.generator}>
+<meta name="generator" content={Astro.generator} />
 
 <!-- Icon -->
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
 <!-- Fonts -->
-<link rel="preload" href="/redrose-regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/redrose-bold.woff2" as="font" type="font/woff2" crossorigin>
+<link
+  rel="preload"
+  href="/redrose-regular.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href="/redrose-bold.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
 
 <!-- General Meta Tags -->
 <title>{title}</title>
-<meta name="title" property="og:title" content={title}>
-<meta name="description" property="og:description" content={description}>
+<meta name="title" property="og:title" content={title} />
+<meta name="description" property="og:description" content={description} />
 
 <!-- Social cards -->
 <meta property="twitter:card" content="summary_large_image" />

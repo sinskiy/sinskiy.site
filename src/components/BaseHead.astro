@@ -1,37 +1,24 @@
 ---
-const title = "Sinskiy";
-const description = "Sinskiy's (my) modern-looking personal website and portfolio with my pet projects, information about myself, and my social medias. Also you can email me via this website.";
-const url = new URL(Astro.url.pathname, Astro.site);
-const image = "https://i.ibb.co/0YKXssd/thumbnail.webp";
+const { title, description, image } = Astro.props;
 ---
-<!-- boilerplate -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="generator" content={Astro.generator}>
 
-<!-- icon -->
+<!-- Icon -->
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-<!-- fonts -->
-<link rel="preconnect" href="https://fonts.bunny.net">
-<link href="https://fonts.bunny.net/css?family=red-rose:300,400,700" rel="stylesheet" />
+<!-- Fonts -->
+<link rel="preload" href="/redrose-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/redrose-bold.woff2" as="font" type="font/woff2" crossorigin>
 
 <!-- General Meta Tags -->
 <title>{title}</title>
-<meta name="title" content={title}>
-<meta name="description" content={description}>
-<meta name="author" content="Sinskiy">
+<meta name="title" property="og:title" content={title}>
+<meta name="description" property="og:description" content={description}>
 
-<meta property="og:type" content="website" />
-<meta property="og:url" content={url} />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<meta property="og:image" content={image} />
-
+<!-- Social cards -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={image} />
-
-<link rel="canonical" href={url} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:image" content={new URL(image, Astro.url)} />

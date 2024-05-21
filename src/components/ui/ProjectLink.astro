@@ -1,13 +1,19 @@
 ---
+interface Props {
+  image: string;
+  alt: string;
+  url: string;
+}
+
 const { image, alt, url } = Astro.props;
-const formattedUrl = url.split("/").at(-1);
+const relativePartOfURL = url.split("/").at(-1);
 ---
 
 <a
   class="underlined flex h-6 items-center gap-2"
   target="_blank"
-  href={`https://${formattedUrl}`}
+  href={`https://${url}`}
 >
   <img class="h-auto w-6" src={image} alt={alt} />
-  {formattedUrl}
+  {relativePartOfURL}
 </a>

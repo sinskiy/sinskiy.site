@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 const version = "1.7";
 const notLinksText = ["Design & Code by me", version];
 const linksText = ["GitHub repo", "Attribution"];
@@ -18,7 +20,8 @@ const links = [
     ))
   }
   <a class="astroBadge justifyCenter flex" href="https://astro.build">
-    <img
+    <Image
+      loading="eager"
       src="https://astro.badg.es/v2/built-with-astro/medium.svg"
       alt="Built with Astro"
       width="240"

@@ -14,6 +14,6 @@ const relativePartOfURL = url.split("/").at(-1);
   target="_blank"
   href={`https://${url}`}
 >
-  <img class="h-auto w-6" src={image} alt={alt} />
+  <img loading="lazy" class="h-auto w-6" src={image} alt={alt} />
   {relativePartOfURL}
 </a>

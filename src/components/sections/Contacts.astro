@@ -1,6 +1,7 @@
 ---
 import Section from "../Section.astro";
 import "../../styles/button.css";
+import { Image } from "astro:assets";
 ---
 
 <div
@@ -88,7 +89,8 @@ import "../../styles/button.css";
           </a>
         </p>
         <a class="mt-2" href="https://astro.build">
-          <img
+          <Image
+            loading="eager"
             src="https://astro.badg.es/v2/built-with-astro/medium.svg"
             alt="Built with Astro"
             width="240"

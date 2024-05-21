@@ -1,19 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
 import About from "../components/sections/About.astro";
 import Contacts from "../components/sections/Contacts.astro";
 import Hi from "../components/sections/Hi.astro";
 import Portfolio from "../components/sections/Portfolio.astro";
-import '../styles/global.css'
 ---
 
-<Layout bodyClass="bg-gradient-to-r from-primaryDarker to-secondaryDarker flex flex-col items-center py-8">
-	<Header />
-	<main>
-		<Hi />
-		<Portfolio />
-		<About />
-		<Contacts />
-	</main>
+<Layout>
+  <Hi />
+  <Portfolio />
+  <About />
+  <Contacts />
 </Layout>

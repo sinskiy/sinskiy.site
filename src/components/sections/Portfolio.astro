@@ -5,8 +5,8 @@ import { getCollection } from "astro:content";
 const allProjects = await getCollection("projects");
 ---
 
-<Section title="portfolio">
-  <div id="projects-top" aria-hidden="true"></div>
+<Section title="portfolio" wrapperClass="flex flex-col gap-24 md:gap-4">
+  <div id="projects-top" aria-hidden="true" class="sr-only"></div>
   {allProjects.map((project) => <Project project={project} />)}
 </Section>
 <script>

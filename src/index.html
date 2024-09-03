@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinskiy</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Neucha&family=Square+Peg&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">
+            <p class="red logo__letter">S</p>
+            <p class="orange logo__letter">i</p>
+            <p class="yellow logo__letter">n</p>
+            <p class="green logo__letter">s</p>
+            <p class="blue logo__letter">k</p>
+            <p class="purple logo__letter">i</p>
+            <p class="pink logo__letter">y</p>
+        </a>
+        <nav class="nav">
+            <a href="#" class="nav__text">Обо мне</p>
+            <a href="#portfolio__link" class="nav__text">Портфолио</a>
+            <a href="#order__link" class="nav__text">Заказать</a>
+            <a href="#contacts__link" class="nav__text">Контакты</a>
+        </nav>
+    </header>
+    <main>
+        <!-- mainInfo -->
+        <section aria-labelledby="mainInfo__text" class="mainInfo">
+            <h1>Вкратце: Качественные Сайты<br> от X.000₽...</h1>
+            <div class="mainInfo__details">
+                <h2 id="mainInfo__text" class="tertiary">Подробнее:<br>Создание сайта по очень дешёвым ценам, в краткие сроки, с бесплатными поправками и уважением к клиентам!</h2>
+                <div class="buttons">
+                    <a href="#order__link"><button class="order__button"> Заказать</button></a>
+                    <a href="#contacts__link"><button class="contacts__button">Контакты</button></a>
+                </div>
+            </div>
+        </section>
+        <!-- portfolio -->
+        <section aria-labelledby="portfolio__text" class="portfolio">
+            <a class="anchor" id="portfolio__link"></a>
+            <h2 id="portfolio__text" class="portfolio__text sectionHeader">Портфолио</h2>
+            <div class="portfolio__cards">
+                <div class="portfolio__cards__card gymnasium section__wrap">
+                    <img src="images/12thgymnasium.jpg" alt="12thgymnasium" class="portfolio__card__img">
+                    <div class="portfolio__cards__card__text">
+                        <h4><a href="http://12thgymnasium.atwebpages.com" target="_blank">12thgymnazium</a></h4>
+                        <p class="paragraph">Школьный проект, сделанный 18 февраля 2023 года. Использованные технологии: HTML, CSS, JavaScript, Wordpress</p>
+                    </div>
+                </div>
+                <div class="portfolio__cards__card getmap section__wrap">
+                    <img src="images/getmap.jpg" alt="GetMap" class="portfolio__card__img">
+                    <div class="portfolio__cards__card__text">
+                        <h4>GetMap</h4>
+                        <p class="paragraph gray">Coming soon...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- order -->
+        <section aria-labelledby="order__text" class="order">
+            <a class="anchor" id="order__link"></a>
+            <h2 id="order__text" class="sectionHeader">Заказать</h2>
+            <div class="order__info section__wrap">
+                <nav>
+                    <p class="paragraph order__info__link" data-active="yes" onclick="orderClick(this)">Всё включено</p>
+                    <p> · </p>
+                    <p class="paragraph order__info__link" data-active="" onclick="orderClick(this)">Дизайн</p>
+                    <p> · </p>
+                    <p class="paragraph order__info__link" data-active="" onclick="orderClick(this)">Сайт</p>
+                </nav>
+                <div class="justContainer">
+                    <div class="order__info__flexContainer">
+                        <div class="pages">
+                            <p class="paragraph">Кол-во страниц</p>
+                            <input type="text" placeholder="1">
+                        </div>
+                        <h2>X.000₽</h2>
+                    </div>
+                    <div class="buttons">
+                        <button class="order__button">Заказать</button>
+                        <a href="#contacts__link"><button class="contacts__button">Контакты</button></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- contacts -->
+        <section aria-labelledby="contacts__text" class="contacts">
+            <a class="anchor" id="contacts__link"></a>
+            <h2 id="contacts__text" class="sectionHeader">Контакты</h2>
+                <div class="section__contacts">
+                <div class="section__contacts__mails section__wrap">
+                    <h2>Почты</h2>
+                    <h4>sinskiy@duck.com</h4>
+                    <h4>dimasinskiy@gmail.com</h4>
+                    <h4>sinskiytemporary@gmail.com</h4>
+                </div>
+                <div class="section__contacts__social section__wrap">
+                    <h2>Социальные сети</h2>
+                    <div class="section__contacts__social__media">
+                        <img src="images/github.svg" alt="github">
+                        <h4><a href="https://github.com/Sinskiy" target="_blank">Sinskiy</a></h4>
+                    </div>
+                    <div class="section__contacts__social__media">
+                        <img src="images/vk.svg" alt="vk">
+                        <h4><a href="https://vk.com/doesntmatterwhoiam" target="_blank">@doesntmatterwhoiam</a></h4>
+                    </div>
+                    <div class="section__contacts__social__media">
+                        <img src="images/youtube.svg" alt="youtube">
+                        <h4><a href="https://www.youtube.com/@sinskiy_" target="_blank">@sinskiy_</a></h4>
+                    </div>
+                    <div class="section__contacts__social__media">
+                        <img src="images/tg.svg" alt="telegram">
+                        <h4><a href="https://t.me/sinskiy" target="_blank">@sinskiy</a></h4>
+                    </div>
+                    <div class="section__contacts__social__media">
+                        <img src="images/discord.svg" alt="discord">
+                        <h4><a href="discord.gg/355RruUu" target="_blank">Sinskiy#4802</a></h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+<script src="js/script.js"></script>
+</html>

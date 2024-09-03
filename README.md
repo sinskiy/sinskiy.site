@@ -1,0 +1,1 @@
+this website is an unsuccessful project of my new website. just while i was working on it i realized that this style is too hard to mantain with vanilla css and js. i need to use something specific for svgs and cartoon style. altho not sure if there are such library/framework etc.

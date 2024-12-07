@@ -48,17 +48,19 @@ body {
   color: rgb(var(--foreground));
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1.25rem;
 }
 
 label,
 button,
-h2 {
+h3 {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
 }
 
 label {
-  font-weight: 500;
+  font-size: 2rem;
+  font-weight: 600;
   --default-label-color: rgb(var(--foreground));
   color: var(--default-label-color);
 }

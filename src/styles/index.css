@@ -7,6 +7,7 @@
   --primary: 73 104 0;
   --on-primary: 255 255 255;
 
+  --rounded-lg: 16px;
   --rounded-full: 9999px;
 }
 
@@ -24,6 +25,7 @@
 
 * {
   margin: 0;
+  padding: 0;
 }
 
 *,
@@ -51,20 +53,31 @@ h2 {
     "Liberation Mono", "Courier New", monospace;
 }
 
-svg,
-circle {
-  fill: rgb(var(--primary));
-}
-
 label {
   font-weight: 500;
   --default-label-color: rgb(var(--foreground));
   color: var(--default-label-color);
 }
 
+ul[role="list"] {
+  list-style: none;
+}
+
+svg,
+circle {
+  fill: rgb(var(--primary));
+}
+
+a {
+  color: rgb(var(--primary));
+}
+a:hover {
+  text-decoration: none;
+}
+
 .text {
   color: rgb(var(--foreground));
-  line-height: 1.5;
-  letter-spacing: 1.25px;
+  line-height: 1.7;
+  letter-spacing: 0.05rem;
   max-width: 65ch;
 }

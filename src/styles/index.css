@@ -7,6 +7,8 @@
   --primary: 73 104 0;
   --on-primary: 255 255 255;
 
+  --shadow: rgb(0 0 0 / 0.2);
+
   --rounded-lg: 16px;
   --rounded-full: 9999px;
 }
@@ -20,6 +22,8 @@
     --outline: 141 147 126;
     --primary: 156 217 0;
     --on-primary: 36 54 0;
+
+    --shadow: rgb(0 0 0 / 0.5);
   }
 }
 

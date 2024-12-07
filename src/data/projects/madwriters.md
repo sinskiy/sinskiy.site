@@ -1,6 +1,6 @@
 ---
 title: "Blog"
-tags: ["Astro", "tailwindcss"]
+tags: ["Astro", "Tailwind"]
 href: "https://madwriters.sinskiy.website"
 github: "https://github.com/sinskiy/blog"
 src: "/madwriters.svg"

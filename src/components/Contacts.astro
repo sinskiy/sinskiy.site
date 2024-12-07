@@ -1,0 +1,167 @@
+<div class="contacts-row-wrapper">
+  <button id="copy-email" data-copiable aria-label="sinskiy@proton.me">
+    <div class="tooltip">You havent't copied anything</div>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="32"
+      width="32"
+      viewBox="0 -960 960 960"
+      ><path
+        d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"
+      ></path></svg
+    >
+    <div class="scrolling-text-wrapper">
+      <p
+        class="scrolling-text"
+        style="--width: 450px; --quantity: 3; --animeTime: 10s;"
+      >
+        <span style="--index: 1">sinskiy@proton.me</span>
+        <span style="--index: 2">sinskiy@proton.me</span>
+        <span style="--index: 3">sinskiy@proton.me</span>
+      </p>
+    </div>
+  </button>
+  <a href="https://github.com/sinskiy" aria-label="GitHub account">
+    <svg
+      width="32"
+      height="32"
+      viewBox="0 0 98 96"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"
+      ></path>
+    </svg>
+  </a>
+  <button data-copiable aria-label="@sinskiy_" id="copy-discord">
+    <div class="tooltip">You havent't copied anything</div>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="32"
+      height="32"
+      viewBox="0 0 127.14 96.36"
+    >
+      <path
+        d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"
+      ></path>
+    </svg>
+  </button>
+</div>
+
+<style>
+  [data-copiable] {
+    position: relative;
+  }
+  .tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 0.5rem);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.25rem 1rem;
+    background-color: rgb(var(--primary));
+    color: rgb(var(--on-primary));
+    border-radius: var(--rounded-full);
+  }
+  .tooltip.show {
+    display: block;
+  }
+
+  .contacts-row-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  #copy-email {
+    position: relative;
+    cursor: copy;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: auto 1fr;
+    transition: opacity 100ms;
+  }
+  #copy-email > svg {
+    fill: rgb(var(--foreground));
+    transition: fill 100ms;
+  }
+  #copy-email:hover > svg {
+    fill: rgb(var(--primary));
+  }
+  #copy-email:hover > .scrolling-text-wrapper {
+    opacity: 0.5;
+  }
+
+  .scrolling-text-wrapper {
+    font-size: 2.5rem;
+    font-weight: 600;
+    font-family: var(--monospace);
+    font-style: italic;
+    overflow: hidden;
+  }
+
+  .scrolling-text {
+    position: relative;
+    min-width: calc(var(--width) * var(--quantity));
+    min-height: 1lh;
+  }
+
+  .scrolling-text > span {
+    position: absolute;
+    width: var(--width);
+    inset-inline-start: 100%;
+    animation: scroll var(--animeTime) linear infinite;
+    animation-delay: calc(
+      var(--animeTime) / var(--quantity) * (var(--index) - 1) - var(--animeTime)
+    );
+    color: rgb(var(--foreground));
+    overflow: hidden;
+  }
+  .scrolling-text:hover span {
+    animation-play-state: paused;
+  }
+
+  #copy-discord {
+    transition: opacity 100ms;
+  }
+  #copy-discord:hover {
+    opacity: 0.5;
+  }
+
+  @keyframes scroll {
+    100% {
+      inset-inline-start: calc(0px - var(--width));
+    }
+  }
+</style>
+
+<script>
+  const copiable = document.querySelectorAll("[data-copiable]");
+  for (const copy of copiable) {
+    if (copy instanceof HTMLButtonElement) {
+      copy.addEventListener("click", handleCopy);
+
+      function handleCopy() {
+        const text = copy.ariaLabel;
+
+        if (text) {
+          navigator.clipboard.writeText(text);
+          showTooltip(text);
+        }
+      }
+    }
+
+    function showTooltip(text: string) {
+      const tooltip = document.querySelector(".tooltip");
+      if (tooltip instanceof HTMLElement) {
+        tooltip.classList.add("show");
+        tooltip.textContent = `Copied ${text}`;
+        setTimeout(() => {
+          tooltip.classList.remove("show");
+        }, 1000);
+      }
+    }
+  }
+</script>

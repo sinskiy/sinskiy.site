@@ -4,7 +4,7 @@ import Switch from "./Switch.astro";
 
 <main>
   <section>
-    <h2>about</h2>
+    <h2>About</h2>
     <Switch
       id="about-type"
       first={{ label: "information" }}
@@ -58,7 +58,7 @@ import Switch from "./Switch.astro";
     </Switch>
   </section>
   <section>
-    <h2>projects</h2>
+    <h2>Projects</h2>
   </section>
 </main>
 
@@ -66,12 +66,19 @@ import Switch from "./Switch.astro";
   main {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
   }
 
-  .section {
+  section {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
+  }
+
+  h2 {
+    color: rgb(var(--foreground-variant) / 0.9);
+    font-size: 2rem;
+    font-family: monospace;
+    font-weight: 600;
   }
 </style>

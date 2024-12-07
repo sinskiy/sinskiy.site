@@ -1,3 +1,4 @@
+/* variables */
 :root {
   --background: 248 251 231;
   --surface: 236 240 220;
@@ -11,6 +12,11 @@
 
   --rounded-lg: 16px;
   --rounded-full: 9999px;
+
+  --sans-serif: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --monospace: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -27,6 +33,7 @@
   }
 }
 
+/* reset */
 * {
   margin: 0;
   padding: 0;
@@ -38,6 +45,24 @@
   box-sizing: border-box;
 }
 
+ul[role="list"] {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+img,
+svg {
+  flex-shrink: 0;
+}
+
+button {
+  font: inherit;
+}
+
 html {
   color-scheme: light dark;
   accent-color: rgb(var(--primary));
@@ -46,16 +71,14 @@ html {
 body {
   background-color: rgb(var(--background));
   color: rgb(var(--foreground));
-  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: var(--sans-serif);
   font-size: 1.25rem;
 }
 
 label,
 button,
 h3 {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+  font-family: var(--monospace);
 }
 
 label {
@@ -65,13 +88,14 @@ label {
   color: var(--default-label-color);
 }
 
-ul[role="list"] {
-  list-style: none;
-}
-
 svg,
 circle {
   fill: rgb(var(--primary));
+}
+
+button {
+  background-color: transparent;
+  border: none;
 }
 
 a {

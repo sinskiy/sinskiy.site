@@ -13,7 +13,7 @@ const projects = await getCollection("projects");
           aria-label={`visit ${data.title} demo`}
           class="image-wrapper"
         >
-          <img src={data.src} alt="" class="image" />
+          <img loading="eager" src={data.src} alt="" class="image" />
           <div class="glow" />
         </a>
         <div class="info">

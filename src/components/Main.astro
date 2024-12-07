@@ -1,0 +1,77 @@
+---
+import Switch from "./Switch.astro";
+---
+
+<main>
+  <section>
+    <h2>about</h2>
+    <Switch
+      id="about-type"
+      first={{ label: "information" }}
+      second={{ label: "story" }}
+    >
+      <p slot="first">
+        A 16 years old from russia, who really likes reading dystopias and
+        self-improvement books. It's hard for me to talk to strangers and I'm a
+        bit awkward. Currently my two main goals are to be ready to work as a
+        full stack/frontend developer and to improve my English speaking skills
+      </p>
+      <Fragment slot="second">
+        <p>
+          At age 9, I found countryballs and got into "politics". Of course I
+          actually knew nothing about politics. But it still completely changed
+          the direction of my life
+        </p>
+        <p>
+          None of my previous acquaintances and friends were involved in
+          politics, so I found new ones online. They were much older than me. In
+          such an environment, it’s not hard to develop your own vision of life.
+          My core value became freedom, and I started planning to move away from
+          russia for obvious reasons
+        </p>
+        <p>
+          When I switched my real-life friends to internet ones, I started
+          spending a lot of my time on PC and phone, and besides politics I got
+          into tech. I still hadn’t thought about becoming a developer, but I
+          kept up with the latest tech news and knew a lot of advanced things
+          about PCs
+        </p>
+        <p>
+          At age 13, I created my first website as a school project because it
+          was the first project I could think of, but I quickly forgot about web
+          development. Then I read Atlas Shrugged (because I knew I was a
+          libertarian), then started reading non-fiction books in general, and
+          realized that I was in full control of my future. Now I want to leave
+          russia more than ever
+        </p>
+        <p>
+          The problem is that I’m from a small town, and my family definitelly
+          can’t sponsor me in moving to another country (and "sponsoring" goes
+          against my core values), so I need to earn money somehow. Not the
+          easiest task for a minor
+        </p>
+        <p>
+          Besides money, web development brings me joy. That’s why I spend a lot
+          of my time creating websites and learning about exciting things!
+        </p></Fragment
+      >
+    </Switch>
+  </section>
+  <section>
+    <h2>projects</h2>
+  </section>
+</main>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+</style>

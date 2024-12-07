@@ -1,0 +1,112 @@
+---
+interface Variant {
+  label: string;
+}
+
+interface Props {
+  id: string;
+  first: Variant
+  second: Variant
+}
+
+const { id, first, second } = Astro.props;
+---
+<div class="switch-wrapper">
+  <input
+    type="checkbox"
+    class="switch-checkbox"
+    name={id}
+    id={id}
+  />
+  <label for={id}>{first.label}</label>
+  <div class="switch">
+    <div class="circle"></div>
+  </div>
+  <label for={id}>{second.label}</label>
+  <div class="text">
+    <div>
+      <slot name="first" />
+    </div>
+    <div>
+      <slot name="second" />
+    </div>
+  </div>
+</div>
+
+<style>
+  .switch-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .switch-checkbox {
+    position: absolute;
+    inset: 0;
+    /* approx. */
+    height: 1.5lh;
+    opacity: 0;
+    z-index: 10;
+  }
+
+  .switch-checkbox:focus-visible ~ .switch {
+    outline-color: rgb(var(--primary));
+  }
+
+  .switch {
+    --width: 3rem;
+    --padding: 0.25rem;
+    padding: var(--padding);
+    width: var(--width);
+    outline: 3px solid rgb(var(--outline));
+    border-radius: var(--rounded-full);
+  }
+
+  .switch-wrapper > .switch-checkbox ~ label:nth-of-type(1) {
+    color: rgb(var(--primary));
+  }
+  .switch-wrapper > .switch-checkbox:checked ~ label:nth-of-type(1) {
+    color: var(--default-label-color);
+  }
+  .switch-wrapper > .switch-checkbox:checked ~ label:nth-of-type(2) {
+    color: rgb(var(--primary));
+  }
+
+  .switch > .circle {
+    --size: 0.75rem;
+    width: var(--circle-width, var(--size));
+    height: var(--size);
+    background-color: rgb(var(--primary));
+    border-radius: var(--rounded-full);
+    transition:
+      transform 100ms,
+      width 100ms;
+  }
+  .switch-checkbox:active ~ .switch > .circle {
+    --circle-width: 1rem;
+  }
+  .switch-checkbox:checked ~ .switch > .circle {
+    transform: translateX(calc(var(--width) - 100% - var(--padding) * 2));
+  }
+
+  .switch-wrapper > .text > :nth-child(2) {
+    display: none;
+  }
+  .switch-wrapper > .switch-checkbox:checked ~ .text > :nth-child(1) {
+    display: none;
+  }
+  .switch-wrapper > .switch-checkbox:checked ~ .text > :nth-child(2) {
+    display: flex;
+  }
+
+  .switch-wrapper > .text {
+    min-width: 100%;
+  }
+  .switch-wrapper > .text > div {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+</style>

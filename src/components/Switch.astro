@@ -19,11 +19,11 @@ const { id, first, second } = Astro.props;
     <div class="circle"></div>
   </div>
   <label for={id}>{second.label}</label>
-  <div class="text">
-    <div>
+  <div class="text-wrapper">
+    <div class="text">
       <slot name="first" />
     </div>
-    <div>
+    <div class="text">
       <slot name="second" />
     </div>
   </div>
@@ -87,20 +87,20 @@ const { id, first, second } = Astro.props;
     transform: translateX(calc(var(--width) - 100% - var(--padding) * 2));
   }
 
-  .switch-wrapper > .text > :nth-child(2) {
+  .switch-wrapper > .text-wrapper > :nth-child(2) {
     display: none;
   }
-  .switch-wrapper > .switch-checkbox:checked ~ .text > :nth-child(1) {
+  .switch-wrapper > .switch-checkbox:checked ~ .text-wrapper > :nth-child(1) {
     display: none;
   }
-  .switch-wrapper > .switch-checkbox:checked ~ .text > :nth-child(2) {
+  .switch-wrapper > .switch-checkbox:checked ~ .text-wrapper > :nth-child(2) {
     display: flex;
   }
 
-  .switch-wrapper > .text {
+  .text-wrapper {
     min-width: 100%;
   }
-  .switch-wrapper > .text > div {
+  .text {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;

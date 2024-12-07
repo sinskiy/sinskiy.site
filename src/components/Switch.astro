@@ -42,7 +42,7 @@ const { id, first, second } = Astro.props;
     position: absolute;
     inset: 0;
     /* approx. */
-    height: 1.5lh;
+    height: 2.25rem;
     opacity: 0;
     z-index: 10;
   }
@@ -52,11 +52,11 @@ const { id, first, second } = Astro.props;
   }
 
   .switch {
-    --width: 3rem;
+    --width: 4rem;
     --padding: 0.25rem;
     padding: var(--padding);
     width: var(--width);
-    outline: 3px solid rgb(var(--outline));
+    outline: 5px solid rgb(var(--outline));
     border-radius: var(--rounded-full);
   }
 
@@ -71,7 +71,7 @@ const { id, first, second } = Astro.props;
   }
 
   .switch > .circle {
-    --size: 0.75rem;
+    --size: 1rem;
     width: var(--circle-width, var(--size));
     height: var(--size);
     background-color: rgb(var(--primary));
@@ -81,7 +81,7 @@ const { id, first, second } = Astro.props;
       width 100ms;
   }
   .switch-checkbox:active ~ .switch > .circle {
-    --circle-width: 1rem;
+    --circle-width: 1.25rem;
   }
   .switch-checkbox:checked ~ .switch > .circle {
     transform: translateX(calc(var(--width) - 100% - var(--padding) * 2));

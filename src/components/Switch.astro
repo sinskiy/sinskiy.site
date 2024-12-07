@@ -5,19 +5,15 @@ interface Variant {
 
 interface Props {
   id: string;
-  first: Variant
-  second: Variant
+  first: Variant;
+  second: Variant;
 }
 
 const { id, first, second } = Astro.props;
 ---
+
 <div class="switch-wrapper">
-  <input
-    type="checkbox"
-    class="switch-checkbox"
-    name={id}
-    id={id}
-  />
+  <input type="checkbox" class="switch-checkbox" name={id} id={id} />
   <label for={id}>{first.label}</label>
   <div class="switch">
     <div class="circle"></div>

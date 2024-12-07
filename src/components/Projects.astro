@@ -14,6 +14,7 @@ const projects = await getCollection("projects");
           class="image-wrapper"
         >
           <img src={data.src} alt="" class="image" />
+          <div class="glow" />
         </a>
         <div class="info">
           <h3>{data.title}</h3>
@@ -136,13 +137,14 @@ const projects = await getCollection("projects");
 
   .image-wrapper {
     flex: 1;
-    border-radius: var(--rounded-lg);
-    background-color: rgb(var(--surface));
+    position: relative;
     min-width: 200px;
     aspect-ratio: 5 / 3;
+    background-color: rgb(var(--surface));
+    border-radius: var(--rounded-lg);
+    box-shadow: 0 0 5px var(--shadow);
     display: grid;
     place-items: center;
-    box-shadow: 0 0 5px var(--shadow);
 
     transition:
       transform 100ms ease-out,
@@ -150,26 +152,36 @@ const projects = await getCollection("projects");
     transform-style: preserve-3d;
     transform: perspective(1500px)
       scale3d(var(--scale), var(--scale), var(--scale))
-      rotate3d(var(--rotateY), var(--rotateX), 0, var(--distance))
-      translateZ(-16px);
+      rotate3d(var(--rotateY), var(--rotateX), 0, var(--distance));
   }
   .image-wrapper:hover {
     box-shadow: 0 5px 20px 5px var(--shadow);
   }
 
   .image {
-    transform: translateZ(48px);
-    filter: drop-shadow(0 0 8px var(--shadow));
+    transform: translateZ(32px);
+  }
+
+  .glow {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+      circle at var(--x) var(--y),
+      rgb(255 255 255 / 0.03),
+      rgb(0 0 0 / 0.01)
+    );
   }
 </style>
 
 <script>
   const cards = document.querySelectorAll(".image-wrapper");
   let bounds: DOMRect;
+  let currentCard: HTMLElement;
 
   for (const card of cards) {
     if (card instanceof HTMLAnchorElement) {
       card.addEventListener("mouseenter", () => {
+        currentCard = card;
         bounds = card.getBoundingClientRect();
         document.addEventListener("mousemove", rotateElement);
       });
@@ -182,17 +194,18 @@ const projects = await getCollection("projects");
   }
 
   function setDefaultRotation(e: MouseEvent) {
-    const card = e.currentTarget as HTMLLIElement;
+    const card = e.currentTarget as HTMLElement;
     card.style.setProperty("--rotateX", "0");
     card.style.setProperty("--rotateY", "0");
     card.style.setProperty("--distance", "0deg");
     card.style.setProperty("--scale", "1");
+
+    const glow = card.querySelector(".glow") as HTMLElement;
+    glow.style.setProperty("--x", "random");
+    glow.style.setProperty("--y", "random");
   }
 
   function rotateElement(e: MouseEvent) {
-    const card = e.target;
-    if (!(card instanceof HTMLElement)) return;
-
     const x = e.clientX - bounds.x;
     const y = e.clientY - bounds.y;
 
@@ -201,9 +214,15 @@ const projects = await getCollection("projects");
 
     const distance = Math.sqrt(centerX ** 2 + centerY ** 2);
 
-    card.style.setProperty("--rotateX", String(centerX / 100));
-    card.style.setProperty("--rotateY", String(-centerY / 100));
-    card.style.setProperty("--distance", Math.log(distance) * 2 + "deg");
-    card.style.setProperty("--scale", String(1.1));
+    currentCard.style.setProperty("--rotateX", String(centerX / 100));
+    currentCard.style.setProperty("--rotateY", String(-centerY / 100));
+    currentCard.style.setProperty("--distance", Math.log(distance) * 2 + "deg");
+    currentCard.style.setProperty("--scale", String(1.07));
+
+    const glow = currentCard.querySelector(".glow");
+    if (!(glow instanceof HTMLElement)) return;
+
+    glow.style.setProperty("--x", `${centerX * 2 + bounds.width / 2}px`);
+    glow.style.setProperty("--y", `${centerY * 2 + bounds.height / 2}px`);
   }
 </script>

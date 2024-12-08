@@ -1,0 +1,70 @@
+---
+import Dark from "./icons/Dark.astro";
+import Light from "./icons/Light.astro";
+---
+
+<div id="theme-wrapper">
+  <input
+    type="checkbox"
+    name="theme"
+    id="theme"
+    aria-label="toggle dark theme"
+  />
+  <Dark />
+  <Light />
+</div>
+
+<style>
+  #theme-wrapper {
+    position: relative;
+  }
+
+  #theme {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    z-index: 20;
+  }
+
+  :global(.hide) {
+    display: none;
+  }
+</style>
+
+<script>
+  const theme = document.querySelector("#theme");
+  if (theme instanceof HTMLInputElement) {
+    const themeInput = theme;
+    const dark = document.querySelector(".dark-svg");
+    const light = document.querySelector(".light-svg");
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      changeTheme(savedTheme);
+    }
+
+    theme.addEventListener("change", handleThemeChange);
+
+    function handleThemeChange() {
+      changeTheme(themeInput.checked === true ? "dark" : "light");
+    }
+
+    function changeTheme(theme: "dark" | string) {
+      if (theme === "dark") {
+        localStorage.setItem("theme", "dark");
+
+        document.documentElement.classList.add("dark");
+
+        dark?.classList.add("hide");
+        light?.classList.remove("hide");
+      } else {
+        localStorage.setItem("theme", "light");
+
+        document.documentElement.classList.remove("dark");
+
+        dark?.classList.remove("hide");
+        light?.classList.add("hide");
+      }
+    }
+  }
+</script>

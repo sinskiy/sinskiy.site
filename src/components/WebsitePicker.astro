@@ -59,10 +59,14 @@ const websites = ["www", "multipedia", "chat", "madwriters", "nota"];
     visibility: hidden;
     z-index: 2;
     opacity: 0;
-    transition: opacity 300ms;
+    transform: scale(0.8);
+    transition:
+      opacity 300ms,
+      transform 200ms;
   }
   #links-checkbox:checked ~ #websites {
     visibility: visible;
+    transform: scale(1);
     opacity: 1;
   }
 
@@ -90,7 +94,7 @@ const websites = ["www", "multipedia", "chat", "madwriters", "nota"];
     text-decoration: none;
     font-weight: 600;
     font-family: var(--monospace);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 
     display: flex;
     gap: 0.75rem;

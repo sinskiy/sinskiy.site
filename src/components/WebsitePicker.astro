@@ -46,6 +46,10 @@ const headerLinks = ["www", "multipedia", "chat", "madwriters", "nota"];
     width: 0;
   }
 
+  #links-checkbox:focus-visible + #logo-text {
+    outline: 1px solid white;
+  }
+
   #links-checkbox:checked ~ #header-links {
     visibility: visible;
     opacity: 1;

@@ -1,6 +1,12 @@
-import { defineDb } from 'astro:db';
+import { column, defineDb, defineTable } from "astro:db";
 
-// https://astro.build/db/config
+const Thought = defineTable({
+  columns: {
+    username: column.text(),
+    message: column.text(),
+  },
+});
+
 export default defineDb({
-  tables: {}
+  tables: { Thought },
 });

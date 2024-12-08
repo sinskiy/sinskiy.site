@@ -1,29 +1,30 @@
 ---
 import Dropdown from "./icons/Dropdown.astro";
 
-const headerLinks = ["www", "multipedia", "chat", "madwriters", "nota"];
+const websites = ["www", "multipedia", "chat", "madwriters", "nota"];
 ---
 
-<div id="logo">
+<div id="logo-wrapper">
   <input
     type="checkbox"
     name="links-checkbox"
     id="links-checkbox"
     aria-label="show my websites picker"
   />
-  <div id="logo-text">
+  <a id="logo" href="/">
+    <img id="logo-img" src="/sinskiy.svg" alt="" width="48" />
     <label for="links-checkbox"
       >www.
       <Dropdown />
     </label>
     <p>sinskiy.website</p>
-  </div>
-  <ul id="header-links" role="list">
+  </a>
+  <ul id="websites" role="list">
     {
-      headerLinks.map((link, i) => (
+      websites.map((link, i) => (
         <li>
           <a
-            class="header-link"
+            class="link"
             aria-disabled={i === 0}
             href={`https://${link}.sinskiy.website`}
             aria-label={`go to ${link}`}
@@ -37,7 +38,7 @@ const headerLinks = ["www", "multipedia", "chat", "madwriters", "nota"];
 </div>
 
 <style>
-  #logo {
+  #logo-wrapper {
     position: relative;
   }
 
@@ -46,16 +47,7 @@ const headerLinks = ["www", "multipedia", "chat", "madwriters", "nota"];
     width: 0;
   }
 
-  #links-checkbox:focus-visible + #logo-text {
-    outline: 1px solid white;
-  }
-
-  #links-checkbox:checked ~ #header-links {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  #header-links {
+  #websites {
     position: absolute;
     min-width: 12rem;
     padding: 0.5rem;
@@ -69,8 +61,12 @@ const headerLinks = ["www", "multipedia", "chat", "madwriters", "nota"];
     opacity: 0;
     transition: opacity 300ms;
   }
+  #links-checkbox:checked ~ #websites {
+    visibility: visible;
+    opacity: 1;
+  }
 
-  .header-link {
+  .link {
     padding: 0.5rem 0;
     padding-left: 2rem;
     display: grid;
@@ -80,52 +76,60 @@ const headerLinks = ["www", "multipedia", "chat", "madwriters", "nota"];
     color: rgb(var(--foreground));
     transition: background-color 100ms;
   }
-  .header-link:hover {
+  .link:hover {
     background-color: rgb(var(--foreground) / 0.1);
   }
-  .header-link[aria-disabled="true"] {
+  .link[aria-disabled="true"] {
     background-color: rgb(var(--foreground) / 0.1);
     pointer-events: none;
     opacity: 0.5;
   }
 
-  #logo-text {
+  #logo {
+    color: rgb(var(--foreground));
+    text-decoration: none;
+    font-weight: 600;
+    font-family: var(--monospace);
+    font-size: 1.5rem;
+
     display: flex;
+    gap: 0.75rem;
     align-items: center;
   }
+  @media (max-width: 500px) {
+    #logo {
+      font-size: 1rem;
+    }
 
-  #logo-text label {
+    #logo-img {
+      display: none;
+    }
+  }
+  #links-checkbox:focus-visible + #logo {
+    outline: 1px solid white;
+  }
+
+  #logo label {
     background-color: rgb(var(--surface));
     padding: 0.25rem 0;
     padding-left: 0.75rem;
-    margin-right: 0.5rem;
     border-radius: var(--rounded-base);
     display: flex;
     align-items: center;
   }
-  #logo-text label :global(svg) {
+
+  #logo :global(svg) {
     fill: rgb(var(--foreground));
     transition: transform 200ms;
   }
-  #links-checkbox:checked + #logo-text :global(svg) {
+  #links-checkbox:checked + #logo :global(svg) {
     transform: rotate(-180deg);
-  }
-
-  #logo-text {
-    font-weight: 600;
-    font-family: var(--monospace);
-    font-size: 1.5rem;
-  }
-  @media (max-width: 400px) {
-    #logo-text {
-      font-size: 1rem;
-    }
   }
 </style>
 
 <script>
   const linksCheckbox = document.querySelector("#links-checkbox");
-  const logo = document.querySelector("#logo");
+  const logo = document.querySelector("#logo-wrapper");
   if (
     linksCheckbox instanceof HTMLInputElement &&
     logo instanceof HTMLElement

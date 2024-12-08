@@ -87,11 +87,6 @@ body {
   background-color: rgb(var(--primary) / 0.4);
 }
 
-input,
-label {
-  cursor: pointer;
-}
-
 label {
   --default-label-color: rgb(var(--foreground));
   color: var(--default-label-color);

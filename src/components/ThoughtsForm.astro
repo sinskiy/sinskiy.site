@@ -1,11 +1,18 @@
-<form>
+---
+import { actions } from "astro:actions";
+
+const result = Astro.getActionResult(actions.postThought);
+---
+
+<form method="POST" action={actions.postThought}>
+  {result && typeof result.error === "object" && <p>{result.error.message}</p>}
   <div class="input-field">
     <label for="username">username</label>
-    <input type="text" name="username" id="username" />
+    <input type="text" name="username" id="username" required />
   </div>
   <div class="input-field">
     <label for="message">message</label>
-    <textarea name="username" id="username" rows="5"></textarea>
+    <textarea name="message" id="message" rows="5" required></textarea>
   </div>
   <button type="submit">post</button>
 </form>
@@ -59,3 +66,9 @@
     resize: vertical;
   }
 </style>
+
+<script is:inline define:vars={{ result }}>
+  if (result && !result.error) {
+    window.location = "/";
+  }
+</script>

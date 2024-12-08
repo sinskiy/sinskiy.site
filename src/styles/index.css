@@ -73,7 +73,6 @@ body {
   background-color: rgb(var(--background));
   color: rgb(var(--foreground));
   font-family: var(--sans-serif);
-  font-size: 1.25rem;
 }
 
 label,
@@ -83,10 +82,15 @@ h3 {
 }
 
 label {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 600;
   --default-label-color: rgb(var(--foreground));
   color: var(--default-label-color);
+}
+@media (max-width: 400px) {
+  label {
+    font-size: 1.25rem;
+  }
 }
 
 svg,

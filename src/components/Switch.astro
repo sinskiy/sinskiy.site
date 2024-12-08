@@ -52,11 +52,11 @@ const { id, first, second } = Astro.props;
   }
 
   .switch {
-    --width: 4rem;
+    --width: 3rem;
     --padding: 0.25rem;
     padding: var(--padding);
     width: var(--width);
-    outline: 5px solid rgb(var(--foreground-variant));
+    outline: 3px solid rgb(var(--foreground-variant));
     border-radius: var(--rounded-full);
   }
 
@@ -71,7 +71,7 @@ const { id, first, second } = Astro.props;
   }
 
   .switch > .circle {
-    --size: 1rem;
+    --size: 0.75rem;
     width: var(--circle-width, var(--size));
     height: var(--size);
     background-color: rgb(var(--primary));

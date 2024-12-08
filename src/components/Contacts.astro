@@ -10,7 +10,7 @@ import GitHub from "./icons/GitHub.astro";
     <div class="scrolling-text-wrapper">
       <p
         class="scrolling-text"
-        style="--width: 410px; --quantity: 3; --animeTime: 20s;"
+        style="--width: 200px; --quantity: 3; --animeTime: 25s;"
       >
         <span style="--index: 1">sinskiy@proton.me</span>
         <span style="--index: 2">sinskiy@proton.me</span>
@@ -20,7 +20,7 @@ import GitHub from "./icons/GitHub.astro";
     <div class="tooltip">You havent't copied anything</div>
   </button>
   <a href="https://github.com/sinskiy" aria-label="GitHub account">
-    <GitHub />
+    <GitHub size={30} />
   </a>
   <button data-copiable aria-label="@sinskiy_" id="copy-discord">
     <Discord />
@@ -50,15 +50,16 @@ import GitHub from "./icons/GitHub.astro";
   .contacts-row-wrapper {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   #copy-email {
+    flex: 1;
     position: relative;
     display: grid;
+    align-items: center;
     gap: 1rem;
     grid-template-columns: auto 1fr;
-    transition: opacity 100ms;
   }
   #copy-email > :global(svg) {
     fill: rgb(var(--foreground));
@@ -72,11 +73,13 @@ import GitHub from "./icons/GitHub.astro";
   }
 
   .scrolling-text-wrapper {
-    font-size: 2.5rem;
+    width: 100%;
+    font-size: 1.5rem;
     font-weight: 600;
     font-family: var(--monospace);
     font-style: italic;
     overflow: hidden;
+    transition: opacity 100ms;
   }
 
   .scrolling-text {

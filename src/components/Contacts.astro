@@ -5,7 +5,7 @@ import GitHub from "./icons/GitHub.astro";
 ---
 
 <div class="contacts-row-wrapper">
-  <button id="copy-email" data-copiable aria-label="sinskiy@proton.me">
+  <button id="copy-email" data-copiable="sinskiy@proton.me">
     <Copy />
     <div class="scrolling-text-wrapper">
       <p
@@ -27,7 +27,7 @@ import GitHub from "./icons/GitHub.astro";
     <GitHub size={30} />
   </a>
   <button
-    data-copiable
+    data-copiable="@sinskiy_"
     aria-label="@sinskiy_"
     id="copy-discord"
     class="animated-hover"
@@ -127,8 +127,9 @@ import GitHub from "./icons/GitHub.astro";
     if (copy instanceof HTMLButtonElement) {
       copy.addEventListener("click", handleCopy);
 
+      const copyButton = copy;
       function handleCopy() {
-        const text = copy.ariaLabel;
+        const text = copyButton.dataset.copiable;
 
         if (text) {
           navigator.clipboard.writeText(text);

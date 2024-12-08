@@ -7,7 +7,11 @@ import WebsitePicker from "./WebsitePicker.astro";
 <header>
   <WebsitePicker />
   <nav>
-    <a href="https://github.com/sinskiy" aria-label="GitHub account">
+    <a
+      class="animated-hover"
+      href="https://github.com/sinskiy"
+      aria-label="GitHub account"
+    >
       <GitHub />
     </a>
     <Theme />
@@ -23,6 +27,5 @@ import WebsitePicker from "./WebsitePicker.astro";
 
   nav {
     display: flex;
-    gap: 0.75rem;
   }
 </style>

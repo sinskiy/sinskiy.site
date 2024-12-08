@@ -143,17 +143,17 @@ const websites = ["www", "multipedia", "chat", "madwriters", "nota"];
 
     function handleChange(e: Event) {
       if (linksInput.checked) {
-        document.addEventListener("click", handleClick);
+        document.addEventListener("click", closeIfOutside);
       }
     }
 
-    function handleClick(e: MouseEvent) {
+    function closeIfOutside(e: MouseEvent) {
       if (
         e.target instanceof Node &&
         !(logo as HTMLElement).contains(e.target)
       ) {
         linksInput.checked = false;
-        document.removeEventListener("click", handleClick);
+        document.removeEventListener("click", closeIfOutside);
       }
     }
   }

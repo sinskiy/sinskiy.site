@@ -26,6 +26,10 @@ import Light from "./icons/Light.astro";
     z-index: 20;
   }
 
+  #theme:focus-visible ~ :global(svg) {
+    outline: 1px solid white;
+  }
+
   :global(.hide) {
     display: none;
   }

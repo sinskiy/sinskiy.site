@@ -10,6 +10,7 @@
 
   --shadow: rgb(0 0 0 / 0.2);
 
+  --rounded-base: 8px;
   --rounded-lg: 16px;
   --rounded-full: 9999px;
 

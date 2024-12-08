@@ -1,0 +1,144 @@
+---
+import Dropdown from "./icons/Dropdown.astro";
+
+const headerLinks = ["www", "multipedia", "chat", "madwriters", "nota"];
+---
+
+<div id="logo">
+  <input
+    type="checkbox"
+    name="links-checkbox"
+    id="links-checkbox"
+    aria-label="show my websites picker"
+  />
+  <div id="logo-text">
+    <label for="links-checkbox"
+      >www.
+      <Dropdown />
+    </label>
+    <p>sinskiy.website</p>
+  </div>
+  <ul id="header-links" role="list">
+    {
+      headerLinks.map((link, i) => (
+        <li>
+          <a
+            class="header-link"
+            aria-disabled={i === 0}
+            href={`https://${link}.sinskiy.website`}
+          >
+            {link}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  #logo {
+    position: relative;
+  }
+
+  #links-checkbox {
+    position: absolute;
+    width: 0;
+  }
+
+  #links-checkbox:checked ~ #header-links {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  #header-links {
+    position: absolute;
+    min-width: 12rem;
+    padding: 0.5rem;
+    background-color: rgb(var(--surface));
+    border-radius: var(--rounded-base);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    visibility: hidden;
+    z-index: 20;
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+
+  .header-link {
+    padding: 0.5rem 0;
+    padding-left: 2rem;
+    display: grid;
+    align-content: center;
+    border-radius: var(--rounded-base);
+    text-decoration: none;
+    color: rgb(var(--foreground));
+    font-size: 1rem;
+    transition: background-color 100ms;
+  }
+  .header-link:hover {
+    background-color: rgb(var(--foreground) / 0.1);
+  }
+  .header-link[aria-disabled="true"] {
+    background-color: rgb(var(--foreground) / 0.1);
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  #logo-text {
+    display: flex;
+    align-items: center;
+  }
+
+  #logo-text label {
+    background-color: rgb(var(--surface));
+    padding: 0.25rem 0;
+    padding-left: 0.75rem;
+    margin-right: 0.5rem;
+    border-radius: var(--rounded-base);
+    display: flex;
+    align-items: end;
+  }
+  #logo-text label :global(svg) {
+    fill: rgb(var(--foreground));
+    transition: transform 200ms;
+  }
+  #links-checkbox:checked + #logo-text :global(svg) {
+    transform: rotate(-180deg);
+  }
+
+  #logo-text,
+  #logo-text label {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: var(--sans-serif);
+  }
+</style>
+
+<script>
+  const linksCheckbox = document.querySelector("#links-checkbox");
+  const logo = document.querySelector("#logo");
+  if (
+    linksCheckbox instanceof HTMLInputElement &&
+    logo instanceof HTMLElement
+  ) {
+    const linksInput = linksCheckbox as HTMLInputElement;
+    linksCheckbox.addEventListener("change", handleChange);
+
+    function handleChange(e: Event) {
+      if (linksInput.checked) {
+        document.addEventListener("click", handleClick);
+      }
+    }
+
+    function handleClick(e: MouseEvent) {
+      if (
+        e.target instanceof Node &&
+        !(logo as HTMLElement).contains(e.target)
+      ) {
+        linksInput.checked = false;
+        document.removeEventListener("click", handleClick);
+      }
+    }
+  }
+</script>

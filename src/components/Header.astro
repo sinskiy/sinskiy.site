@@ -1,9 +1,10 @@
 ---
 import GitHub from "./icons/GitHub.astro";
+import WebsitePicker from "./WebsitePicker.astro";
 ---
 
 <header>
-  <p id="logo">www.sinskiy.website</p>
+  <WebsitePicker />
   <nav>
     <a href="https://github.com/sinskiy" aria-label="GitHub account">
       <GitHub />
@@ -12,11 +13,6 @@ import GitHub from "./icons/GitHub.astro";
 </header>
 
 <style>
-  #logo {
-    font-size: 1.5rem;
-    font-weight: 600;
-  }
-
   header {
     display: flex;
     align-items: center;

@@ -1,5 +1,6 @@
 ---
 import GitHub from "./icons/GitHub.astro";
+import Theme from "./Theme.astro";
 import WebsitePicker from "./WebsitePicker.astro";
 ---
 
@@ -9,6 +10,7 @@ import WebsitePicker from "./WebsitePicker.astro";
     <a href="https://github.com/sinskiy" aria-label="GitHub account">
       <GitHub />
     </a>
+    <Theme />
   </nav>
 </header>
 
@@ -17,5 +19,10 @@ import WebsitePicker from "./WebsitePicker.astro";
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  nav {
+    display: flex;
+    gap: 0.75rem;
   }
 </style>

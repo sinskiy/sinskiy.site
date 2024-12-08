@@ -20,18 +20,16 @@
     "Liberation Mono", "Courier New", monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: 17 21 9;
-    --surface: 29 33 21;
-    --foreground: 225 228 209;
-    --foreground-variant: 196 201 178;
-    --outline: 141 147 126;
-    --primary: 156 217 0;
-    --on-primary: 36 54 0;
+.dark {
+  --background: 17 21 9;
+  --surface: 29 33 21;
+  --foreground: 225 228 209;
+  --foreground-variant: 196 201 178;
+  --outline: 141 147 126;
+  --primary: 156 217 0;
+  --on-primary: 36 54 0;
 
-    --shadow: rgb(0 0 0 / 0.5);
-  }
+  --shadow: rgb(0 0 0 / 0.5);
 }
 
 /* reset */

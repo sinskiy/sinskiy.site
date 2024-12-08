@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import Link from "./icons/Link.astro";
 import GitHub from "./icons/GitHub.astro";
+import { Image } from "astro:assets";
 
 const projects = await getCollection("projects");
 ---
@@ -15,7 +16,7 @@ const projects = await getCollection("projects");
           aria-label={`visit ${data.title} demo`}
           class="image-wrapper"
         >
-          <img loading="lazy" src={data.src} alt="" class="image" />
+          <Image src={data.src} alt="" class="image" />
           <div class="glow" />
         </a>
         <div class="info">
@@ -39,7 +40,7 @@ const projects = await getCollection("projects");
             </a>
             <a
               href={data.github}
-              aria-label={`visit ${data.title} source code (${data.href})`}
+              aria-label={`visit ${data.title} source code (${data.github})`}
               class="link"
             >
               <GitHub size={20} />
@@ -56,11 +57,11 @@ const projects = await getCollection("projects");
   .projects {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 1rem;
   }
   .project {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     flex-wrap: wrap;
   }
 
@@ -117,7 +118,6 @@ const projects = await getCollection("projects");
   .links {
     display: flex;
     gap: 1rem;
-    align-items: center;
     flex-wrap: wrap;
   }
 
@@ -158,7 +158,7 @@ const projects = await getCollection("projects");
     inset: 0;
     background-image: radial-gradient(
       circle at var(--x) var(--y),
-      rgb(255 255 255 / 0.03),
+      var(--glow),
       rgb(0 0 0 / 0.01)
     );
   }

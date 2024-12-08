@@ -9,6 +9,7 @@
   --on-primary: 255 255 255;
 
   --shadow: rgb(0 0 0 / 0.2);
+  --glow: rgb(255 255 255 / 0.4);
 
   --rounded-base: 8px;
   --rounded-lg: 16px;
@@ -30,6 +31,7 @@
   --on-primary: 36 54 0;
 
   --shadow: rgb(0 0 0 / 0.5);
+  --glow: rgb(255 255 255 / 0.03);
 }
 
 /* reset */
@@ -42,13 +44,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-}
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    transition: none !important;
-  }
 }
 
 ul[role="list"] {
@@ -92,8 +87,7 @@ label {
   color: var(--default-label-color);
 }
 
-svg,
-circle {
+svg {
   fill: rgb(var(--primary));
 }
 

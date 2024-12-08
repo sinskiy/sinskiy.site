@@ -9,7 +9,7 @@ import GitHub from "./icons/GitHub.astro";
     <Copy />
     <div class="scrolling-text-wrapper">
       <p
-        class="scrolling-text"
+        class="scrolling-text focus-text"
         style="--width: 250px; --quantity: 3; --animeTime: 25s;"
       >
         <span style="--index: 1">sinskiy@proton.me</span>
@@ -83,9 +83,6 @@ import GitHub from "./icons/GitHub.astro";
 
   .scrolling-text-wrapper {
     width: 100%;
-    font-size: 1.5rem;
-    font-weight: 600;
-    font-family: var(--monospace);
     font-style: italic;
     overflow: hidden;
     transition: opacity 100ms;

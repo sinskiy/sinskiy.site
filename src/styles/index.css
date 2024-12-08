@@ -43,6 +43,13 @@
 *::after {
   box-sizing: border-box;
 }
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}
 
 ul[role="list"] {
   list-style: none;
@@ -71,6 +78,10 @@ body {
   background-color: rgb(var(--background));
   color: rgb(var(--foreground));
   font-family: var(--sans-serif);
+}
+
+::selection {
+  background-color: rgb(var(--primary) / 0.4);
 }
 
 input,

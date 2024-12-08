@@ -65,7 +65,10 @@ svg {
   flex-shrink: 0;
 }
 
+input,
+textarea,
 button {
+  color: inherit;
   font: inherit;
 }
 
@@ -89,22 +92,9 @@ label {
   cursor: pointer;
 }
 
-label,
-button,
-h3 {
-  font-family: var(--monospace);
-}
-
 label {
-  font-size: 1.75rem;
-  font-weight: 600;
   --default-label-color: rgb(var(--foreground));
   color: var(--default-label-color);
-}
-@media (max-width: 400px) {
-  label {
-    font-size: 1.25rem;
-  }
 }
 
 svg,
@@ -115,6 +105,7 @@ circle {
 button {
   background-color: transparent;
   border: none;
+  width: fit-content;
 }
 
 a {
@@ -146,6 +137,17 @@ a:hover {
 .animated-hover:hover::before {
   transform: scale(0.95) translate(var(--x), var(--y));
   z-index: -10;
+}
+
+.focus-text {
+  font-family: var(--monospace);
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+@media (max-width: 400px) {
+  .focus-text {
+    font-size: 1.25rem;
+  }
 }
 
 .text {

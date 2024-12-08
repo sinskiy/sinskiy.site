@@ -14,11 +14,11 @@ const { id, first, second } = Astro.props;
 
 <div class="switch-wrapper">
   <input type="checkbox" class="switch-checkbox" name={id} id={id} />
-  <label for={id}>{first.label}</label>
+  <label for={id} class="focus-text">{first.label}</label>
   <div class="switch">
     <div class="circle"></div>
   </div>
-  <label for={id}>{second.label}</label>
+  <label for={id} class="focus-text">{second.label}</label>
   <div class="text-wrapper">
     <div class="text">
       <slot name="first" />

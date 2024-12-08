@@ -1,0 +1,61 @@
+<form>
+  <div class="input-field">
+    <label for="username">username</label>
+    <input type="text" name="username" id="username" />
+  </div>
+  <div class="input-field">
+    <label for="message">message</label>
+    <textarea name="username" id="username" rows="5"></textarea>
+  </div>
+  <button type="submit">post</button>
+</form>
+
+<style>
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  button {
+    background-color: rgb(var(--primary));
+    color: rgb(var(--on-primary));
+    padding: 0.5rem 3rem;
+    border-radius: var(--rounded-full);
+    font-weight: 500;
+    transition:
+      opacity 100ms,
+      transform 150ms;
+  }
+  button:hover {
+    opacity: 0.5;
+  }
+  button:active {
+    transform: scale(0.95);
+  }
+
+  .input-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  label {
+    font-weight: 500;
+    color: rgb(var(--foreground-variant));
+  }
+
+  input[type="text"],
+  textarea {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    outline: 1px solid rgb(var(--outline));
+    background-color: transparent;
+    font-size: 1.5rem;
+    border-radius: var(--rounded-lg);
+  }
+
+  textarea {
+    resize: vertical;
+  }
+</style>

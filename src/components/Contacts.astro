@@ -10,7 +10,7 @@ import GitHub from "./icons/GitHub.astro";
     <div class="scrolling-text-wrapper">
       <p
         class="scrolling-text"
-        style="--width: 200px; --quantity: 3; --animeTime: 25s;"
+        style="--width: 250px; --quantity: 3; --animeTime: 25s;"
       >
         <span style="--index: 1">sinskiy@proton.me</span>
         <span style="--index: 2">sinskiy@proton.me</span>
@@ -98,6 +98,11 @@ import GitHub from "./icons/GitHub.astro";
     );
     color: rgb(var(--foreground));
     overflow: hidden;
+  }
+  @media (prefers-reduced-motion: reduce), (update: slow) {
+    .scrolling-text > span {
+      animation-play-state: paused;
+    }
   }
   .scrolling-text:hover span {
     animation-play-state: paused;

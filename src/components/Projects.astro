@@ -31,7 +31,7 @@ const projects = await getCollection("projects");
           <nav class="links">
             <a
               href={data.href}
-              aria-label={`visit ${data.title} demo`}
+              aria-label={`visit ${data.title} (${data.href}) demo`}
               class="link"
             >
               <Link />
@@ -39,7 +39,7 @@ const projects = await getCollection("projects");
             </a>
             <a
               href={data.github}
-              aria-label={`visit ${data.title} source code`}
+              aria-label={`visit ${data.title} source code (${data.href})`}
               class="link"
             >
               <GitHub size={20} />

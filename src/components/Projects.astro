@@ -15,7 +15,7 @@ const projects = await getCollection("projects");
           aria-label={`visit ${data.title} demo`}
           class="image-wrapper"
         >
-          <img loading="eager" src={data.src} alt="" class="image" />
+          <img loading="lazy" src={data.src} alt="" class="image" />
           <div class="glow" />
         </a>
         <div class="info">
@@ -81,6 +81,11 @@ const projects = await getCollection("projects");
     font-size: 2rem;
     font-weight: 600;
   }
+  @media (max-width: 400px) {
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
 
   .tags {
     display: flex;
@@ -93,7 +98,7 @@ const projects = await getCollection("projects");
     background-color: rgb(var(--surface));
     border-radius: var(--rounded-full);
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 0.875rem;
   }
 
   .Astro {
@@ -119,11 +124,6 @@ const projects = await getCollection("projects");
   .link {
     display: flex;
     gap: 0.25rem;
-  }
-  @media (max-width: 400px) {
-    .link {
-      font-size: 0.875rem;
-    }
   }
 
   .image-wrapper {

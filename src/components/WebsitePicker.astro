@@ -26,6 +26,7 @@ const headerLinks = ["www", "multipedia", "chat", "madwriters", "nota"];
             class="header-link"
             aria-disabled={i === 0}
             href={`https://${link}.sinskiy.website`}
+            aria-label={`go to ${link}`}
           >
             {link}
           </a>
@@ -73,7 +74,6 @@ const headerLinks = ["www", "multipedia", "chat", "madwriters", "nota"];
     border-radius: var(--rounded-base);
     text-decoration: none;
     color: rgb(var(--foreground));
-    font-size: 1rem;
     transition: background-color 100ms;
   }
   .header-link:hover {
@@ -97,7 +97,7 @@ const headerLinks = ["www", "multipedia", "chat", "madwriters", "nota"];
     margin-right: 0.5rem;
     border-radius: var(--rounded-base);
     display: flex;
-    align-items: end;
+    align-items: center;
   }
   #logo-text label :global(svg) {
     fill: rgb(var(--foreground));
@@ -107,11 +107,19 @@ const headerLinks = ["www", "multipedia", "chat", "madwriters", "nota"];
     transform: rotate(-180deg);
   }
 
-  #logo-text,
-  #logo-text label {
-    font-size: 1.5rem;
+  #logo-text {
     font-weight: 600;
     font-family: var(--sans-serif);
+  }
+  #logo-text,
+  label {
+    font-size: 1.5rem;
+  }
+  @media (max-width: 400px) {
+    #logo-text,
+    label {
+      font-size: 1rem;
+    }
   }
 </style>
 

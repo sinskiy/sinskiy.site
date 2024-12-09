@@ -1,0 +1,100 @@
+---
+import type { CollectionEntry } from "astro:content";
+import GitHub from "./icons/GitHub.astro";
+import Link from "./icons/Link.astro";
+
+interface Props extends CollectionEntry<"projects"> {}
+
+const { data, body } = Astro.props;
+---
+
+<div class="info">
+  <div class="header">
+    <h3>{data.title}</h3>
+    <ul role="list" class="tags">
+      {data.tags.map((tag) => <li class:list={[tag, "tag"]}>{tag}</li>)}
+    </ul>
+  </div>
+  <p class="text">{body}</p>
+  <nav class="links">
+    <a
+      href={data.href}
+      aria-label={`visit ${data.title} (${data.href}) demo`}
+      class="link"
+    >
+      <Link />
+      {data.href.replace("https://", "")}
+    </a>
+    <a
+      href={data.github}
+      aria-label={`visit ${data.title} source code (${data.github})`}
+      class="link"
+    >
+      <GitHub size={20} />
+      {data.github.replace("https://github.com/", "")}
+    </a>
+  </nav>
+</div>
+
+<style>
+  .info {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  @media (max-width: 400px) {
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .tags {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .tag {
+    width: fit-content;
+    padding: 0.25rem 1rem;
+    background-color: rgb(var(--surface));
+    border-radius: var(--rounded-full);
+    font-weight: 500;
+    font-size: 0.875rem;
+  }
+
+  .Astro {
+    background-image: linear-gradient(
+      to top right,
+      rgb(19, 33, 172),
+      rgb(136, 26, 189)
+    );
+    color: white;
+  }
+  .Tailwind {
+    background-color: #38bdf8;
+    color: black;
+  }
+
+  .links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .link {
+    display: flex;
+    gap: 0.25rem;
+  }
+</style>

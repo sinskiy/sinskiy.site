@@ -1,0 +1,15 @@
+<script is:inline>
+  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+  const savedSystemTheme = localStorage.getItem("system-theme");
+
+  if (systemTheme !== savedSystemTheme) {
+    localStorage.setItem("system-theme", systemTheme);
+    localStorage.setItem("theme", systemTheme);
+    document.documentElement.classList.add(systemTheme);
+  } else {
+    const savedTheme = localStorage.getItem("theme");
+    document.documentElement.classList.add(savedTheme);
+  }
+</script>

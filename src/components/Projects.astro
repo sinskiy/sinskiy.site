@@ -1,53 +1,18 @@
 ---
 import { getCollection } from "astro:content";
-import Link from "./icons/Link.astro";
-import GitHub from "./icons/GitHub.astro";
-import { Image } from "astro:assets";
+import HandleCardHover from "./scripts/HandleCardHover.astro";
+import Card from "./Card.astro";
+import ProjectInfo from "./ProjectInfo.astro";
 
 const projects = await getCollection("projects");
 ---
 
 <ul role="list" class="projects">
   {
-    projects.map(({ data, body }) => (
+    projects.map((project) => (
       <li class="project">
-        <a
-          href={data.href}
-          aria-label={`visit ${data.title} demo`}
-          class="image-wrapper"
-        >
-          <Image src={data.src} alt="" class="image" />
-          <div class="glow" />
-        </a>
-        <div class="info">
-          <div class="header">
-            <h3>{data.title}</h3>
-            <ul role="list" class="tags">
-              {data.tags.map((tag) => (
-                <li class:list={[tag, "tag"]}>{tag}</li>
-              ))}
-            </ul>
-          </div>
-          <p class="text">{body}</p>
-          <nav class="links">
-            <a
-              href={data.href}
-              aria-label={`visit ${data.title} (${data.href}) demo`}
-              class="link"
-            >
-              <Link />
-              {data.href.replace("https://", "")}
-            </a>
-            <a
-              href={data.github}
-              aria-label={`visit ${data.title} source code (${data.github})`}
-              class="link"
-            >
-              <GitHub size={20} />
-              {data.github.replace("https://github.com/", "")}
-            </a>
-          </nav>
-        </div>
+        <Card {...project.data} />
+        <ProjectInfo {...project} />
       </li>
     ))
   }
@@ -64,156 +29,6 @@ const projects = await getCollection("projects");
     gap: 1rem;
     flex-wrap: wrap;
   }
-
-  .info {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .header {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  h3 {
-    font-size: 2rem;
-    font-weight: 600;
-  }
-  @media (max-width: 400px) {
-    h3 {
-      font-size: 1.5rem;
-    }
-  }
-
-  .tags {
-    display: flex;
-    gap: 0.25rem;
-  }
-
-  .tag {
-    width: fit-content;
-    padding: 0.25rem 1rem;
-    background-color: rgb(var(--surface));
-    border-radius: var(--rounded-full);
-    font-weight: 500;
-    font-size: 0.875rem;
-  }
-
-  .Astro {
-    background-image: linear-gradient(
-      to top right,
-      rgb(19, 33, 172),
-      rgb(136, 26, 189)
-    );
-    color: white;
-  }
-  .Tailwind {
-    background-color: #38bdf8;
-    color: black;
-  }
-
-  .links {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .link {
-    display: flex;
-    gap: 0.25rem;
-  }
-
-  .image-wrapper {
-    flex: 1;
-    position: relative;
-    min-width: 200px;
-    aspect-ratio: 5 / 3;
-    background-color: rgb(var(--surface));
-    border-radius: var(--rounded-lg);
-    box-shadow: 0 0 5px var(--shadow);
-    display: grid;
-    place-items: center;
-
-    transition:
-      transform 100ms ease-out,
-      box-shadow 150ms ease-out;
-    transform-style: preserve-3d;
-    transform: perspective(1500px)
-      scale3d(var(--scale), var(--scale), var(--scale))
-      rotate3d(var(--rotateY), var(--rotateX), 0, var(--distance));
-  }
-  .image-wrapper:hover {
-    box-shadow: 0 5px 20px 5px var(--shadow);
-  }
-
-  .image {
-    transform: translateZ(32px);
-  }
-
-  .glow {
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(
-      circle at var(--x) var(--y),
-      var(--glow),
-      rgb(0 0 0 / 0.01)
-    );
-  }
 </style>
 
-<script>
-  const cards = document.querySelectorAll(".image-wrapper");
-  let bounds: DOMRect;
-  let currentCard: HTMLElement;
-
-  for (const card of cards) {
-    if (card instanceof HTMLAnchorElement) {
-      card.addEventListener("mouseenter", () => {
-        currentCard = card;
-        bounds = card.getBoundingClientRect();
-        document.addEventListener("mousemove", rotateElement);
-      });
-
-      card.addEventListener("mouseleave", (e) => {
-        document.removeEventListener("mousemove", rotateElement);
-        setDefaultRotation(e);
-      });
-    }
-  }
-
-  function setDefaultRotation(e: MouseEvent) {
-    const card = e.currentTarget as HTMLElement;
-    card.style.setProperty("--rotateX", "0");
-    card.style.setProperty("--rotateY", "0");
-    card.style.setProperty("--distance", "0deg");
-    card.style.setProperty("--scale", "1");
-
-    const glow = card.querySelector(".glow") as HTMLElement;
-    glow.style.setProperty("--x", "random");
-    glow.style.setProperty("--y", "random");
-  }
-
-  function rotateElement(e: MouseEvent) {
-    const x = e.clientX - bounds.x;
-    const y = e.clientY - bounds.y;
-
-    const centerX = x - bounds.width / 2;
-    const centerY = y - bounds.height / 2;
-
-    const distance = Math.sqrt(centerX ** 2 + centerY ** 2);
-
-    currentCard.style.setProperty("--rotateX", String(centerX / 100));
-    currentCard.style.setProperty("--rotateY", String(-centerY / 100));
-    currentCard.style.setProperty("--distance", Math.log(distance) * 2 + "deg");
-    currentCard.style.setProperty("--scale", String(1.07));
-
-    const glow = currentCard.querySelector(".glow");
-    if (!(glow instanceof HTMLElement)) return;
-
-    glow.style.setProperty("--x", `${centerX * 2 + bounds.width / 2}px`);
-    glow.style.setProperty("--y", `${centerY * 2 + bounds.height / 2}px`);
-  }
-</script>
+<HandleCardHover />

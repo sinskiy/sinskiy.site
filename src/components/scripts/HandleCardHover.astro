@@ -1,0 +1,53 @@
+<script>
+  const cards = document.querySelectorAll(".image-wrapper");
+  let bounds: DOMRect;
+  let currentCard: HTMLElement;
+
+  for (const card of cards) {
+    if (card instanceof HTMLAnchorElement) {
+      card.addEventListener("mouseenter", () => {
+        currentCard = card;
+        bounds = card.getBoundingClientRect();
+        document.addEventListener("mousemove", rotateElement);
+      });
+
+      card.addEventListener("mouseleave", (e) => {
+        document.removeEventListener("mousemove", rotateElement);
+        setDefaultRotation(e);
+      });
+    }
+  }
+
+  function setDefaultRotation(e: MouseEvent) {
+    const card = e.currentTarget as HTMLElement;
+    card.style.setProperty("--rotateX", "0");
+    card.style.setProperty("--rotateY", "0");
+    card.style.setProperty("--distance", "0deg");
+    card.style.setProperty("--scale", "1");
+
+    const glow = card.querySelector(".glow") as HTMLElement;
+    glow.style.setProperty("--x", "random");
+    glow.style.setProperty("--y", "random");
+  }
+
+  function rotateElement(e: MouseEvent) {
+    const x = e.clientX - bounds.x;
+    const y = e.clientY - bounds.y;
+
+    const centerX = x - bounds.width / 2;
+    const centerY = y - bounds.height / 2;
+
+    const distance = Math.sqrt(centerX ** 2 + centerY ** 2);
+
+    currentCard.style.setProperty("--rotateX", String(centerX / 100));
+    currentCard.style.setProperty("--rotateY", String(-centerY / 100));
+    currentCard.style.setProperty("--distance", Math.log(distance) * 2 + "deg");
+    currentCard.style.setProperty("--scale", String(1.07));
+
+    const glow = currentCard.querySelector(".glow");
+    if (!(glow instanceof HTMLElement)) return;
+
+    glow.style.setProperty("--x", `${centerX * 2 + bounds.width / 2}px`);
+    glow.style.setProperty("--y", `${centerY * 2 + bounds.height / 2}px`);
+  }
+</script>

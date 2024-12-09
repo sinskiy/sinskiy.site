@@ -1,0 +1,25 @@
+---
+const title = "sinskiy";
+const description = "Personal website-portfolio built with Astro";
+const image = "/thumbnail.svg";
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Icon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<!-- General Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta property="og:title" content={title} />
+<meta name="description" content={description} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, Astro.url)} />
+
+<!-- Social cards -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />

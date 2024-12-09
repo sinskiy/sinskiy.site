@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+type Project = CollectionEntry<"projects">["data"];
+
+interface Props extends Project {}
+const { href, title, src } = Astro.props;
+---
+
+<a href={href} aria-label={`visit ${title} demo`} class="image-wrapper">
+  <Image src={src} alt="" class="image" />
+  <div class="glow"></div>
+</a>
+
+<style>
+  .image-wrapper {
+    flex: 1;
+    position: relative;
+    min-width: 200px;
+    aspect-ratio: 5 / 3;
+    background-color: rgb(var(--surface));
+    border-radius: var(--rounded-lg);
+    box-shadow: 0 0 5px var(--shadow);
+    display: grid;
+    place-items: center;
+
+    transition:
+      transform 100ms ease-out,
+      box-shadow 150ms ease-out;
+    transform-style: preserve-3d;
+    transform: perspective(1500px)
+      scale3d(var(--scale), var(--scale), var(--scale))
+      rotate3d(var(--rotateY), var(--rotateX), 0, var(--distance));
+  }
+  .image-wrapper:hover {
+    box-shadow: 0 5px 20px 5px var(--shadow);
+  }
+
+  .image {
+    transform: translateZ(32px);
+  }
+
+  .glow {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+      circle at var(--x) var(--y),
+      var(--glow),
+      rgb(0 0 0 / 0.01)
+    );
+  }
+</style>

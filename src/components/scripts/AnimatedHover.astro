@@ -1,0 +1,33 @@
+<script>
+  const animatedHover = document.querySelectorAll(".animated-hover");
+  for (const element of animatedHover) {
+    if (element instanceof HTMLElement) {
+      const htmlElement = element;
+      let bounds: DOMRect;
+      element.addEventListener("mouseenter", handleEnter);
+
+      function handleEnter() {
+        bounds = htmlElement.getBoundingClientRect();
+        htmlElement.addEventListener("mousemove", handleMove);
+      }
+
+      function handleMove(e: MouseEvent) {
+        const middleX = htmlElement.offsetWidth / 2;
+        const middleY = htmlElement.offsetHeight / 2;
+
+        const x = e.clientX - bounds.left;
+        const y = e.clientY - bounds.top;
+
+        const centerX = x - middleX;
+        const centerY = y - middleY;
+
+        const distanceX = (centerX / htmlElement.offsetWidth) * 100;
+        const distanceY = (centerY / htmlElement.offsetHeight) * 100;
+
+        const COEFFICIENT = 1.5;
+        htmlElement.style.setProperty("--x", distanceX / COEFFICIENT + "%");
+        htmlElement.style.setProperty("--y", distanceY / COEFFICIENT + "%");
+      }
+    }
+  }
+</script>

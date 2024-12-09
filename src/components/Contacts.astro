@@ -1,11 +1,13 @@
 ---
+import Copiable from "./Copiable.astro";
 import Copy from "./icons/Copy.astro";
 import Discord from "./icons/Discord.astro";
 import GitHub from "./icons/GitHub.astro";
+import HandleCopiable from "./scripts/HandleCopiable.astro";
 ---
 
 <div class="contacts-row-wrapper">
-  <button id="copy-email" data-copiable="sinskiy@proton.me">
+  <Copiable id="copy-email" text="sinskiy@proton.me">
     <Copy />
     <div class="scrolling-text-wrapper">
       <p
@@ -17,8 +19,7 @@ import GitHub from "./icons/GitHub.astro";
         <span style="--index: 3">sinskiy@proton.me</span>
       </p>
     </div>
-    <div class="tooltip">You havent't copied anything</div>
-  </button>
+  </Copiable>
   <a
     class="animated-hover"
     href="https://github.com/sinskiy"
@@ -26,36 +27,17 @@ import GitHub from "./icons/GitHub.astro";
   >
     <GitHub size={30} />
   </a>
-  <button
-    data-copiable="@sinskiy_"
+  <Copiable
     aria-label="@sinskiy_"
     id="copy-discord"
     class="animated-hover"
+    text="@sinskiy_"
   >
     <Discord />
-    <div class="tooltip">You havent't copied anything</div>
-  </button>
+  </Copiable>
 </div>
 
 <style>
-  [data-copiable] {
-    cursor: copy;
-  }
-  .tooltip {
-    display: none;
-    position: absolute;
-    bottom: calc(100% + 0.5rem);
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 0.25rem 1rem;
-    background-color: rgb(var(--primary));
-    color: rgb(var(--on-primary));
-    border-radius: var(--rounded-full);
-  }
-  .tooltip.show {
-    display: block;
-  }
-
   .contacts-row-wrapper {
     display: flex;
   }
@@ -67,8 +49,8 @@ import GitHub from "./icons/GitHub.astro";
     align-items: center;
     gap: 1rem;
     grid-template-columns: auto 1fr;
-    margin-right: 1rem;
   }
+
   #copy-email > :global(svg) {
     fill: rgb(var(--foreground));
     transition: fill 100ms;
@@ -76,15 +58,15 @@ import GitHub from "./icons/GitHub.astro";
   #copy-email:hover > :global(svg) {
     fill: rgb(var(--primary));
   }
-  #copy-email:hover > .scrolling-text-wrapper {
-    opacity: 0.5;
-  }
 
   .scrolling-text-wrapper {
     width: 100%;
     font-style: italic;
     overflow: hidden;
     transition: opacity 100ms;
+  }
+  #copy-email:hover > .scrolling-text-wrapper {
+    opacity: 0.5;
   }
 
   .scrolling-text {
@@ -120,32 +102,4 @@ import GitHub from "./icons/GitHub.astro";
   }
 </style>
 
-<script>
-  const copiable = document.querySelectorAll("[data-copiable]");
-  for (const copy of copiable) {
-    if (copy instanceof HTMLButtonElement) {
-      copy.addEventListener("click", handleCopy);
-
-      const copyButton = copy;
-      function handleCopy() {
-        const text = copyButton.dataset.copiable;
-
-        if (text) {
-          navigator.clipboard.writeText(text);
-          showTooltip(text);
-        }
-      }
-    }
-
-    function showTooltip(text: string) {
-      const tooltip = document.querySelector(".tooltip");
-      if (tooltip instanceof HTMLElement) {
-        tooltip.classList.add("show");
-        tooltip.textContent = `Copied ${text}`;
-        setTimeout(() => {
-          tooltip.classList.remove("show");
-        }, 2000);
-      }
-    }
-  }
-</script>
+<HandleCopiable />

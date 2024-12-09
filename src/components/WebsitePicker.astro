@@ -18,7 +18,7 @@ const websites = ["www", "multipedia", "chat", "madwriters", "nota"];
       >www.
       <Dropdown />
     </label>
-    <p>sinskiy.website</p>
+    <p id="current-website">sinskiy.website</p>
   </a>
   <ul id="websites" role="list">
     {
@@ -129,6 +129,12 @@ const websites = ["www", "multipedia", "chat", "madwriters", "nota"];
   }
   #links-checkbox:checked + #logo > #dropdown-trigger :global(svg) {
     transform: rotate(-180deg);
+  }
+
+  @media (max-width: 500px) {
+    #current-website {
+      display: none;
+    }
   }
 </style>
 

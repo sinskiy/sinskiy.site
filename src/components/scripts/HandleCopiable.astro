@@ -1,0 +1,29 @@
+<script>
+  const copiable = document.querySelectorAll("[data-copiable]");
+  for (const copy of copiable) {
+    if (copy instanceof HTMLButtonElement) {
+      copy.addEventListener("click", handleCopy);
+
+      const copyButton = copy;
+      function handleCopy() {
+        const text = copyButton.dataset.copiable;
+
+        if (text) {
+          navigator.clipboard.writeText(text);
+          showTooltip(text);
+        }
+      }
+    }
+
+    function showTooltip(text: string) {
+      const tooltip = document.querySelector(".tooltip");
+      if (tooltip instanceof HTMLElement) {
+        tooltip.classList.add("show");
+        tooltip.textContent = `Copied ${text}`;
+        setTimeout(() => {
+          tooltip.classList.remove("show");
+        }, 2000);
+      }
+    }
+  }
+</script>

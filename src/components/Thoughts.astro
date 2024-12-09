@@ -1,8 +1,10 @@
 ---
 import { Thought } from "astro:db";
 import { db } from "astro:db";
+import markdownit from "markdown-it";
 
 const thoughts = (await db.select().from(Thought)).reverse();
+const md = markdownit({ linkify: true });
 ---
 
 {
@@ -14,7 +16,10 @@ const thoughts = (await db.select().from(Thought)).reverse();
           <time datetime={thought.date.toISOString()}>
             {thought.date.toLocaleDateString("en-CA")}
           </time>
-          <p class="text">{thought.message}</p>
+          <div
+            class="text"
+            set:html={md.render(thought.message).replace("<h1>", "<p>")}
+          />
         </li>
       ))}
     </ul>

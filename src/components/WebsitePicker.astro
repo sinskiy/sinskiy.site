@@ -1,5 +1,6 @@
 ---
 import Dropdown from "./icons/Dropdown.astro";
+import Sinskiy from "./icons/Sinskiy.astro";
 
 const websites = ["www", "multipedia", "chat", "madwriters", "nota"];
 ---
@@ -12,8 +13,8 @@ const websites = ["www", "multipedia", "chat", "madwriters", "nota"];
     aria-label="show my websites picker"
   />
   <a id="logo" href="/">
-    <img id="logo-img" src="/sinskiy.svg" alt="" width="48" />
-    <label for="links-checkbox"
+    <Sinskiy />
+    <label for="links-checkbox" id="dropdown-trigger"
       >www.
       <Dropdown />
     </label>
@@ -122,11 +123,11 @@ const websites = ["www", "multipedia", "chat", "madwriters", "nota"];
     align-items: center;
   }
 
-  #logo :global(svg) {
+  #dropdown-trigger :global(svg) {
     fill: rgb(var(--foreground));
     transition: transform 200ms;
   }
-  #links-checkbox:checked + #logo :global(svg) {
+  #links-checkbox:checked + #logo > #dropdown-trigger :global(svg) {
     transform: rotate(-180deg);
   }
 </style>

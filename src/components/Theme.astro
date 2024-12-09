@@ -1,6 +1,5 @@
 ---
-import Dark from "./icons/Dark.astro";
-import Light from "./icons/Light.astro";
+import ThemeIcon from "./icons/ThemeIcon.astro";
 ---
 
 <div id="theme-wrapper" class="animated-hover">
@@ -10,8 +9,7 @@ import Light from "./icons/Light.astro";
     id="theme"
     aria-label="toggle dark theme"
   />
-  <Dark />
-  <Light />
+  <ThemeIcon />
 </div>
 
 <style>
@@ -30,8 +28,23 @@ import Light from "./icons/Light.astro";
     outline: 1px solid white;
   }
 
-  :global(.hide) {
-    display: none;
+  #theme ~ :global(svg) {
+    path {
+      transform-origin: center;
+      transition: transform 500ms cubic-bezier(0, 0, 0.15, 1.25);
+    }
+    circle {
+      transition: transform calc(500ms / 1.5) cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+
+  #theme:checked ~ :global(svg) {
+    path {
+      transform: rotate(180deg);
+    }
+    circle {
+      transform: translate3d(15%, 0, 0);
+    }
   }
 </style>
 
@@ -39,8 +52,6 @@ import Light from "./icons/Light.astro";
   const theme = document.querySelector("#theme");
   if (theme instanceof HTMLInputElement) {
     const themeInput = theme;
-    const dark = document.querySelector(".dark-svg");
-    const light = document.querySelector(".light-svg");
 
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
@@ -58,16 +69,10 @@ import Light from "./icons/Light.astro";
         localStorage.setItem("theme", "dark");
 
         document.documentElement.classList.add("dark");
-
-        dark?.classList.add("hide");
-        light?.classList.remove("hide");
       } else {
         localStorage.setItem("theme", "light");
 
         document.documentElement.classList.remove("dark");
-
-        dark?.classList.remove("hide");
-        light?.classList.add("hide");
       }
     }
   }

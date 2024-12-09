@@ -13,10 +13,13 @@ const md = markdownit({ linkify: true });
     <ul class="thoughts" role="list">
       {thoughts.map((thought) => (
         <li class="thought">
-          <adress class="author">{thought.username}</adress>
-          <time datetime={thought.date.toISOString()}>
-            {formatRelative(thought.date, new Date())}
-          </time>
+          <div class="header">
+            {" "}
+            <adress class="author">{thought.username}</adress>
+            <time class="time" datetime={thought.date.toISOString()}>
+              {formatRelative(thought.date, new Date())}
+            </time>
+          </div>
           <div
             class="text"
             set:html={md.render(thought.message).replace("<h1>", "<p>")}
@@ -48,8 +51,19 @@ const md = markdownit({ linkify: true });
     overflow-wrap: break-word;
   }
 
+  .header {
+    display: flex;
+    gap: 0.5rem;
+    align-items: end;
+  }
+
   .author {
     color: rgb(var(--foreground-variant));
     font-weight: 500;
+  }
+
+  .time {
+    color: rgb(var(--foreground-variant) / 0.8);
+    font-size: 0.875rem;
   }
 </style>

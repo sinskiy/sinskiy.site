@@ -11,6 +11,9 @@ const thoughts = (await db.select().from(Thought)).reverse();
       {thoughts.map((thought) => (
         <li class="thought">
           <adress class="author">{thought.username}</adress>
+          <time datetime={thought.date.toISOString()}>
+            {thought.date.toLocaleDateString("en-CA")}
+          </time>
           <p class="text">{thought.message}</p>
         </li>
       ))}
@@ -41,6 +44,5 @@ const thoughts = (await db.select().from(Thought)).reverse();
   .author {
     color: rgb(var(--foreground-variant));
     font-weight: 500;
-    font-size: 0.875rem;
   }
 </style>

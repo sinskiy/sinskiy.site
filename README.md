@@ -4,7 +4,7 @@ This is my **personal portfolio website** built with Astro, Astro DB, Turso and 
 
 # How can I access it?
 
-It is deployed to Vercel on https://www.sinskiy.website/
+It is deployed on Vercel at https://www.sinskiy.website/
 
 # Can I clone it?
 

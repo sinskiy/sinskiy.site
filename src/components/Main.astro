@@ -68,7 +68,7 @@ import Thoughts from "./Thoughts.astro";
     <h2>projects</h2>
     <Projects />
   </section>
-  <section style="--order: 3;">
+  <section>
     <h2>contacts</h2>
     <Contacts />
   </section>
@@ -98,17 +98,17 @@ import Thoughts from "./Thoughts.astro";
     font-weight: 500;
   }
 
-  section,
-  hgroup {
+  section[style],
+  hgroup[style] {
     opacity: 0;
   }
-  .show {
+  .show[style] {
     opacity: 1;
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    section,
-    hgroup {
+    section[style],
+    hgroup[style] {
       transition: opacity 500ms;
       transition-delay: calc(200ms * var(--order));
     }

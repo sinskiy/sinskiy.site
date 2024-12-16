@@ -16,10 +16,22 @@
     }
 
     function showTooltip(text: string) {
-      const tooltip = document.querySelector(".tooltip");
+      const tooltip = copy.querySelector(".tooltip");
       if (tooltip instanceof HTMLElement) {
         tooltip.classList.add("show");
         tooltip.textContent = `Copied ${text}`;
+        tooltip.style.right = "none";
+        tooltip.style.left = "none";
+
+        const rect = tooltip.getBoundingClientRect();
+        const xEnd = rect.x + rect.width;
+        if (xEnd > window.innerWidth) {
+          console.log(xEnd + 20 - window.innerWidth);
+          tooltip.style.right = `${xEnd - window.innerWidth}px`;
+        } else if (rect.x < 0) {
+          tooltip.style.left = `${rect.x * -1}px`;
+        }
+
         setTimeout(() => {
           tooltip.classList.remove("show");
         }, 2000);

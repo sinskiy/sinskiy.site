@@ -63,3 +63,5 @@ Theme toggle: https://toggles.dev/
 
 - https://www.youtube.com/watch?v=Z-3tPXf9a7M
 - https://codepen.io/markmiro/pen/wbqMPa
+
+Scrolling text: https://codepen.io/salraza1993/pen/XWLzxWv

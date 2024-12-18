@@ -1,7 +1,7 @@
 ---
 title: "most-popular-words"
 tags: ["Next.js", "Tailwind", "PostgreSQL"]
-href: "https://wprds.sinskiy.website"
+href: "https://words.sinskiy.website"
 github: "https://github.com/sinskiy/words"
 src: "../../../public/words.svg"
 ---

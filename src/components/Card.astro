@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
+import OutwardArrow from "../components/icons/OutwardArrow.astro";
 
 type Project = CollectionEntry<"projects">["data"];
 
@@ -10,9 +11,13 @@ const { href, title, src } = Astro.props;
 
 <a
   href={href}
+  target="_blank"
   aria-label={`visit ${title} demo`}
-  class:list={["image-wrapper", src.src.includes("png") && "png"]}
+  class="image-wrapper"
 >
+  <div class="arrow-wrapper">
+    <OutwardArrow />
+  </div>
   <Image src={src} alt="" class="image" />
   <div class="glow"></div>
 </a>
@@ -50,6 +55,28 @@ const { href, title, src } = Astro.props;
   .image {
     height: min-content;
     transform: translateZ(32px);
+  }
+
+  .arrow-wrapper {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    background-color: rgb(var(--surface-high));
+    border-radius: var(--rounded-full);
+    display: grid;
+    place-items: center;
+  }
+  .arrow-wrapper > :global(svg) {
+    fill: rgb(var(--foreground-variant));
+  }
+
+  .image-wrapper:hover .arrow-wrapper {
+    background-color: rgb(var(--primary));
+  }
+  .image-wrapper:hover .arrow-wrapper > :global(svg) {
+    fill: rgb(var(--on-primary));
   }
 
   .glow {

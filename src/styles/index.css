@@ -2,6 +2,7 @@
 :root {
   --background: 248 251 231;
   --surface: 236 240 220;
+  --surface-high: 230 234 214;
   --foreground: 25 29 17;
   --foreground-variant: 67 73 55;
   --outline: 116 121 101;
@@ -24,6 +25,7 @@
 .dark {
   --background: 17 21 9;
   --surface: 29 33 21;
+  --surface-high: 39 44 31;
   --foreground: 225 228 209;
   --foreground-variant: 196 201 178;
   --outline: 141 147 126;

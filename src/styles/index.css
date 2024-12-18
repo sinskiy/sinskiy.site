@@ -53,6 +53,7 @@ ul[role="list"] {
 img {
   display: block;
   max-width: 100%;
+  object-fit: cover;
 }
 
 img,
@@ -145,4 +146,7 @@ a:hover {
   line-height: 1.7;
   letter-spacing: 0.05rem;
   max-width: 65ch;
+}
+.text ul {
+  margin-left: 2rem;
 }

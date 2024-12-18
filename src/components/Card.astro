@@ -8,7 +8,11 @@ interface Props extends Project {}
 const { href, title, src } = Astro.props;
 ---
 
-<a href={href} aria-label={`visit ${title} demo`} class="image-wrapper">
+<a
+  href={href}
+  aria-label={`visit ${title} demo`}
+  class:list={["image-wrapper", src.src.includes("png") && "png"]}
+>
   <Image src={src} alt="" class="image" />
   <div class="glow"></div>
 </a>
@@ -36,8 +40,15 @@ const { href, title, src } = Astro.props;
   .image-wrapper:hover {
     box-shadow: 0 5px 20px 5px var(--shadow);
   }
+  .png {
+    height: min-content;
+  }
+  .png .image {
+    border-radius: inherit;
+  }
 
   .image {
+    height: min-content;
     transform: translateZ(32px);
   }
 

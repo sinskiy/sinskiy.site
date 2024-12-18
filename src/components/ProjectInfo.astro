@@ -79,37 +79,19 @@ const { Content } = await render(project);
     font-size: 0.875rem;
   }
 
+  .React,
+  .Strapi,
+  .Next\.js,
+  .Express,
+  .PostgreSQL,
   .Astro {
-    background-image: linear-gradient(
-      to top right,
-      rgb(19, 33, 172),
-      rgb(136, 26, 189)
-    );
-    color: white;
+    background-color: rgb(var(--primary));
+    color: rgb(var(--on-primary));
   }
-  .Tailwind {
-    background-color: #38bdf8;
-    color: black;
-  }
-  .React {
-    background-color: rgb(88 196 220);
-    color: rgb(64 71 86);
-  }
-  .React.Query {
-    background-image: linear-gradient(to right, #ef4444, #f59e0b);
-    color: white;
-  }
-  .Strapi {
-    background-color: #4945ff;
-    color: white;
-  }
+  .React.Query,
   .React.Router {
-    background-color: #ff707c;
-    color: black;
-  }
-  .PostgreSQL {
-    background-color: #699eca;
-    color: black;
+    background-color: rgb(var(--surface));
+    color: rgb(var(--foreground));
   }
 
   .links {

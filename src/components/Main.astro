@@ -6,11 +6,11 @@ import Thoughts from "./Thoughts.astro";
 ---
 
 <main>
-  <hgroup style="--order: 0;">
+  <hgroup style="--order: 1;">
     <h1>Dima Sinskiy</h1>
     <h2>web developer</h2>
   </hgroup>
-  <section style="--order: 1;">
+  <section style="--order: 2;">
     <h2>about</h2>
     <Switch
       id="about-type"
@@ -61,7 +61,7 @@ import Thoughts from "./Thoughts.astro";
       >
     </Switch>
   </section>
-  <section style="--order: 2;">
+  <section style="--order: 3;">
     <h2>projects</h2>
     <Projects />
   </section>
@@ -98,31 +98,22 @@ import Thoughts from "./Thoughts.astro";
   section[style],
   hgroup[style] {
     opacity: 0;
+    animation: none;
   }
-  .show[style] {
-    opacity: 1;
-  }
-
   @media (prefers-reduced-motion: no-preference) {
     section[style],
     hgroup[style] {
-      transition: opacity 500ms;
-      transition-delay: calc(200ms * var(--order));
+      animation: 500ms show forwards;
+      animation-delay: calc(var(--order) * 200ms);
+    }
+  }
+
+  @keyframes show {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
     }
   }
 </style>
-
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
-    });
-  });
-
-  const animatedElements = document.querySelectorAll(
-    "main > section, main > hgroup"
-  );
-  animatedElements.forEach((element) => observer.observe(element));
-</script>

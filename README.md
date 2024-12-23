@@ -1,6 +1,6 @@
 # What is this?
 
-This is my **personal portfolio website** built with Astro, Astro DB, Turso and TypeScript. It includes pet projects and details about me. You can also find links to my social media profiles
+This is my **personal website-portfolio** built with Astro, Astro DB, Turso and TypeScript. It includes pet projects and details about me. You can also find links to my social media profiles
 
 # How can I access it?
 
@@ -53,7 +53,7 @@ gh repo clone sinskiy/sinskiy.website <your-custom-folder-name>
 - [Astro](https://docs.astro.build/)
 - [TypeScript](https://www.typescriptlang.org/docs/)
 
-You can just write basic CSS without Tailwind. You can also ditch TypeScript, if you change `"astro/tsconfigs/strict"` to `"astro/tsconfigs/base"` in `tsconfig.json`
+You can use JavaScript if you change `"astro/tsconfigs/strict"` to `"astro/tsconfigs/base"` in `tsconfig.json`
 
 # Attribution
 

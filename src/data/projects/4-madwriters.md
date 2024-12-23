@@ -6,4 +6,4 @@ github: "https://github.com/sinskiy/madwriters.sinskiy.website"
 src: "../../../public/madwriters.svg"
 ---
 
-A blog website that I share with my friend
+A blog website I share with my friend

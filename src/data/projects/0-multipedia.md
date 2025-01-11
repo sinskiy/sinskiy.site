@@ -1,6 +1,6 @@
 ---
 title: "multipedia"
-tags: ["React", "wouter", "React Query", "tui-editor", "Strapi"]
+tags: ["React", "wouter", "React Query", "Strapi"]
 href: "https://multipedia.sinskiy.website"
 github: "https://github.com/sinskiy/multipedia"
 src: "../../../public/multipedia.svg"

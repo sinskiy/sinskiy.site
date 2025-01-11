@@ -7,7 +7,7 @@ tags:
     "testing-library",
     "Vitest/Jest",
     "Express",
-    "ws",
+    "Socket.io",
     "Prisma",
     "PostgreSQL",
     "supertest",

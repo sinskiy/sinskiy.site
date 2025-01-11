@@ -4,9 +4,10 @@ tags:
   [
     "React",
     "React Router",
-    "testing-library",
+    "Testing Library",
     "Vitest/Jest",
     "Express",
+    "Passport.js",
     "Socket.io",
     "Prisma",
     "PostgreSQL",

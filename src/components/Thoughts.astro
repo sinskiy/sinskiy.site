@@ -14,10 +14,12 @@ const md = markdownit({ linkify: true });
       {thoughts.map((thought) => (
         <li class="thought">
           <div class="header">
-            <adress class="author">{thought.username}</adress>
-            <time class="time" datetime={thought.date.toISOString()}>
-              {formatRelative(thought.date, new Date())}
-            </time>
+            <address class="author">{thought.username}</address>
+            <p>
+              <time class="time" datetime={thought.date.toISOString()}>
+                {formatRelative(thought.date, new Date())}
+              </time>
+            </p>
           </div>
           <div
             class="text"
@@ -51,7 +53,6 @@ const md = markdownit({ linkify: true });
   }
 
   .header {
-    min-width: 100%;
     display: flex;
     gap: 0.5rem;
     align-items: end;
@@ -60,6 +61,7 @@ const md = markdownit({ linkify: true });
 
   .author {
     color: rgb(var(--foreground-variant));
+    font-style: normal;
     font-weight: 600;
   }
 

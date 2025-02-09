@@ -9,11 +9,11 @@ const result = Astro.getActionResult(actions.postThought);
   {result && typeof result.error === "object" && <p>{result.error.message}</p>}
   <div class="input-field">
     <label for="username">username</label>
-    <input type="text" name="username" id="username" required />
+    <input type="text" name="username" id="username" maxlength="100" required />
   </div>
   <div class="input-field">
     <label for="message">message</label>
-    <textarea name="message" id="message" rows="5" required></textarea>
+    <textarea name="message" id="message" rows="5"  maxlength="1000" required></textarea>
     <p class="description">tip: use markdown</p>
   </div>
   <button type="submit">post</button>

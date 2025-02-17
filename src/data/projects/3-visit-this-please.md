@@ -17,7 +17,7 @@ tags:
     "supertest",
   ]
 href: "https://visit-this-please.sinskiy.website"
-github: "https://github.com/sinskiy/visit-this-please"
+github: "https://github.com/fluqont/visit-this-please"
 src: "../../../public/visit-this-please.svg"
 ---
 

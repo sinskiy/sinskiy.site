@@ -7,16 +7,16 @@ import HandleCopiable from "./scripts/HandleCopiable.astro";
 ---
 
 <div class="contacts-row-wrapper">
-  <Copiable id="copy-email" text="sinskiy@proton.me">
+  <Copiable id="copy-email" text="fluqont@gmail.com">
     <Copy />
     <div class="scrolling-text-wrapper">
       <p
         class="scrolling-text focus-text"
-        style="--width: 250px; --quantity: 3; --animeTime: 25s;"
+        style="--width: 300px; --quantity: 3; --animeTime: 25s;"
       >
-        <span style="--index: 1">sinskiy@proton.me</span>
-        <span style="--index: 2">sinskiy@proton.me</span>
-        <span style="--index: 3">sinskiy@proton.me</span>
+        <span style="--index: 1">fluqont@gmail.com</span>
+        <span style="--index: 2">fluqont@gmail.com</span>
+        <span style="--index: 3">fluqont@gmail.com</span>
       </p>
     </div>
   </Copiable>
@@ -28,10 +28,10 @@ import HandleCopiable from "./scripts/HandleCopiable.astro";
     <GitHub size={30} />
   </a>
   <Copiable
-    aria-label="@sinskiy_"
+    aria-label="@fluqont"
     id="copy-discord"
     class="animated-hover"
-    text="@sinskiy_"
+    text="@fluqont"
   >
     <Discord />
   </Copiable>
@@ -78,7 +78,7 @@ import HandleCopiable from "./scripts/HandleCopiable.astro";
   .scrolling-text > span {
     position: absolute;
     width: var(--width);
-    inset-inline-start: 100%;
+    inset-inline-start: 80%;
     animation: scroll var(--animeTime) linear infinite;
     animation-delay: calc(
       var(--animeTime) / var(--quantity) * (var(--index) - 1) - var(--animeTime)

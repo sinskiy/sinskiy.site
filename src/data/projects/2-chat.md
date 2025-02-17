@@ -14,7 +14,7 @@ tags:
     "supertest",
   ]
 href: "https://chat.sinskiy.website"
-github: "https://github.com/sinskiy/chat"
+github: "https://github.com/fluqont/chat"
 src: "../../../public/chat.svg"
 ---
 

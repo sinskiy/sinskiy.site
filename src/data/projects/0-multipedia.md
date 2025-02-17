@@ -2,7 +2,7 @@
 title: "multipedia"
 tags: ["React", "wouter", "React Query", "Strapi"]
 href: "https://multipedia.sinskiy.website"
-github: "https://github.com/sinskiy/multipedia"
+github: "https://github.com/fluqont/multipedia"
 src: "../../../public/multipedia.svg"
 ---
 

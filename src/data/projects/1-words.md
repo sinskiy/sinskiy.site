@@ -6,4 +6,4 @@ github: "https://github.com/fluqont/words"
 src: "../../../public/words.svg"
 ---
 
-View, define and learn words. **_Server spins up for about a minute_**
+An app for learning popular words in different languages. **_Server spins up for about a minute_**

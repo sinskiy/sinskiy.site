@@ -21,4 +21,4 @@ github: "https://github.com/fluqont/visit-this-please"
 src: "../../../public/visit-this-please.svg"
 ---
 
-An overengineered website for making others see your most and least favorite places, with a beatiful logo. **_Server spins up for about a minute_**
+An overengineered website for rating places and finding the best locations, with a beatiful logo. **_Server spins up for about a minute_**

@@ -6,7 +6,7 @@ github: "https://github.com/fluqont/multipedia"
 src: "../../../public/multipedia.svg"
 ---
 
-Wikipedia but with multiple articles per topic. Cool features:
+Blog platform with encyclopedia theme. Cool features:
 
 - OAuth (Google, GitHub, Discord), profile pictures
 - live markdown editor

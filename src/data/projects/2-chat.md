@@ -18,4 +18,4 @@ github: "https://github.com/fluqont/chat"
 src: "../../../public/chat.svg"
 ---
 
-A simple chat app with friends, groups, attachments, real time messages and statuses (online, offline). **_Server spins up for about a minute_**
+A simple chat app with groups and statuses in real time. **_Server spins up for about a minute_**

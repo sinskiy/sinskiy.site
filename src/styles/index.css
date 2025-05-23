@@ -112,14 +112,14 @@ a:hover {
 }
 
 .animated-hover {
-  padding: 1rem;
+  padding: 12px;
   position: relative;
 }
-.animated-hover > svg {
+.animated-hover svg {
   transition: fill 100ms;
 }
-.animated-hover:hover > svg {
-  fill: rgb(var(--on-primary));
+.animated-hover:hover svg {
+  color: rgb(var(--on-primary));
 }
 .animated-hover::before {
   content: "";

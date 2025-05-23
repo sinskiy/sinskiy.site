@@ -6,16 +6,20 @@ import WebsitePicker from "./WebsitePicker.astro";
 
 <header>
   <WebsitePicker />
-  <nav>
-    <a
-      class="animated-hover"
-      href="https://github.com/sinskiy/sinskiy.site"
-      aria-label="GitHub page"
-    >
-      <GitHub />
-    </a>
+  <div class="nav">
+    <nav>
+      <a href="/main">/main</a>
+      <a href="/blog">/blog</a>
+      <a
+        class="animated-hover"
+        href="https://github.com/sinskiy/sinskiy.site"
+        aria-label="GitHub page"
+      >
+        <GitHub size={20} />
+      </a>
+    </nav>
     <Theme />
-  </nav>
+  </div>
 </header>
 
 <style>
@@ -24,7 +28,14 @@ import WebsitePicker from "./WebsitePicker.astro";
     justify-content: space-between;
   }
 
-  nav {
+  a {
+    font-family: var(--monospace);
+    padding-right: 16px;
+    color: rgb(var(--foreground));
+  }
+
+  .nav, nav {
     display: flex;
+    align-items: center;
   }
 </style>

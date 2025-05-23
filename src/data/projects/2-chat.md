@@ -18,4 +18,4 @@ github: "https://github.com/sinskiy/chat"
 src: "../../../public/chat.svg"
 ---
 
-A simple chat app with groups and statuses in real time. **_Server spins up for about a minute_**
+a simple chat app with groups and statuses in real time. **_server spins up for about a minute_**

@@ -7,16 +7,16 @@ import HandleCopiable from "./scripts/HandleCopiable.astro";
 ---
 
 <div class="contacts-row-wrapper">
-  <Copiable id="copy-email" text="sinskiy@gmail.com">
+  <Copiable id="copy-email" text="dimasinskiy@gmail.com">
     <Copy />
     <div class="scrolling-text-wrapper">
       <p
         class="scrolling-text focus-text"
-        style="--width: 300px; --quantity: 3; --animeTime: 25s;"
+        style="--width: 360px; --quantity: 3; --animeTime: 25s;"
       >
-        <span style="--index: 1">sinskiy@gmail.com</span>
-        <span style="--index: 2">sinskiy@gmail.com</span>
-        <span style="--index: 3">sinskiy@gmail.com</span>
+        <span style="--index: 1">dimasinskiy@gmail.com</span>
+        <span style="--index: 2">dimasinskiy@gmail.com</span>
+        <span style="--index: 3">dimasinskiy@gmail.com</span>
       </p>
     </div>
   </Copiable>
@@ -84,6 +84,7 @@ import HandleCopiable from "./scripts/HandleCopiable.astro";
       var(--animeTime) / var(--quantity) * (var(--index) - 1) - var(--animeTime)
     );
     color: rgb(var(--foreground));
+    font-family: var(--monospace);
     overflow: hidden;
   }
   @media (prefers-reduced-motion: reduce), (update: slow) {

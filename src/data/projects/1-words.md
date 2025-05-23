@@ -6,4 +6,4 @@ github: "https://github.com/sinskiy/words"
 src: "../../../public/words.svg"
 ---
 
-An app for learning popular words in different languages. **_Server spins up for about a minute_**
+an app for learning popular words in different languages. **_server spins up for about a minute_**

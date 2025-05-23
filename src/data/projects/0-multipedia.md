@@ -6,12 +6,12 @@ github: "https://github.com/sinskiy/multipedia"
 src: "../../../public/multipedia.svg"
 ---
 
-Blog platform with encyclopedia theme. Cool features:
+blog platform with encyclopedia theme. cool features:
 
-- OAuth (Google, GitHub, Discord), profile pictures
+- oauth (Google, GitHub, Discord), profile pictures
 - live markdown editor
 - leaderboard, random article, by friends, liked articles, search articles
 - article views, likes and comments (with markdown)
 - copy articles, share drafts with friends
 
-**_Server spins up for about a minute_**
+**_server spins up for about a minute_**

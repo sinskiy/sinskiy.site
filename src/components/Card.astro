@@ -1,11 +1,16 @@
 ---
-import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
-import OutwardArrow from "../components/icons/OutwardArrow.astro";
+import OutwardArrow from "../components/icons/outward-arrow.svg";
+import { Image } from "astro:assets";
+import { ImageMetadata } from "astro";
 
 type Project = CollectionEntry<"projects">["data"];
 
-interface Props extends Project {}
+interface Props extends Project {
+  href: string;
+  title: string;
+  src: ImageMetadata;
+}
 const { href, title, src } = Astro.props;
 ---
 

@@ -33,9 +33,7 @@ import HandleCopiable from "./scripts/HandleCopiable.astro";
     class="animated-hover"
     text="@sinskiy_"
   >
-    <div class="color-primary">
       <Discord />
-    </div>
   </Copiable>
 </div>
 
@@ -51,17 +49,14 @@ import HandleCopiable from "./scripts/HandleCopiable.astro";
     align-items: center;
     gap: 1rem;
     grid-template-columns: auto 1fr;
-  }
-
-  #copy-email > :global(svg) {
-    fill: rgb(var(--foreground));
+    color: rgb(var(--foreground));
     transition: fill 100ms;
   }
-  #copy-email:hover > :global(svg) {
-    fill: rgb(var(--primary));
+  #copy-email:hover {
+    color: rgb(var(--primary));
   }
 
-  .color-primary {
+  #copy-discord {
     color: rgb(var(--primary))
   }
 

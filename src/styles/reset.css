@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ul[role="list"] {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+img,
+svg {
+  flex-shrink: 0;
+}
+
+input,
+textarea,
+button {
+  color: inherit;
+  font: inherit;
+}

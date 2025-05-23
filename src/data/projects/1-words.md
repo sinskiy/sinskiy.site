@@ -1,8 +1,8 @@
 ---
 title: "most-popular-words"
 tags: ["Next.js", "Tailwind", "PostgreSQL"]
-href: "https://words.sinskiy.website"
-github: "https://github.com/fluqont/words"
+href: "https://words.sinskiy.site"
+github: "https://github.com/sinskiy/words"
 src: "../../../public/words.svg"
 ---
 

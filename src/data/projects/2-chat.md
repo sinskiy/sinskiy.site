@@ -13,8 +13,8 @@ tags:
     "PostgreSQL",
     "supertest",
   ]
-href: "https://chat.sinskiy.website"
-github: "https://github.com/fluqont/chat"
+href: "https://chat.sinskiy.site"
+github: "https://github.com/sinskiy/chat"
 src: "../../../public/chat.svg"
 ---
 

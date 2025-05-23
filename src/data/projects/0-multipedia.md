@@ -1,8 +1,8 @@
 ---
 title: "multipedia"
 tags: ["React", "wouter", "React Query", "Strapi"]
-href: "https://multipedia.sinskiy.website"
-github: "https://github.com/fluqont/multipedia"
+href: "https://multipedia.sinskiy.site"
+github: "https://github.com/sinskiy/multipedia"
 src: "../../../public/multipedia.svg"
 ---
 

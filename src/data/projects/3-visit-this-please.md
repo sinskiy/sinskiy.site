@@ -16,8 +16,8 @@ tags:
     "Mongoose",
     "supertest",
   ]
-href: "https://visit-this-please.sinskiy.website"
-github: "https://github.com/fluqont/visit-this-please"
+href: "https://visit-this-please.sinskiy.site"
+github: "https://github.com/sinskiy/visit-this-please"
 src: "../../../public/visit-this-please.svg"
 ---
 

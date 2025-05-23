@@ -1,7 +1,7 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 
-export function sortBlogs(blogs: CollectionEntry<"blogs">[]) {
-  return blogs.sort((a, b) => {
+export function sortPosts(posts: CollectionEntry<"posts">[]) {
+  return posts.sort((a, b) => {
     if (!a.data.pubDate || !b.data.pubDate) {
       return 0;
     } else {
@@ -11,7 +11,7 @@ export function sortBlogs(blogs: CollectionEntry<"blogs">[]) {
 }
 
 export async function getAllPostsSorted() {
-  const blogs = await getCollection("blogs");
-  const sortedBlogs = sortBlogs(blogs);
-  return sortedBlogs;
+  const posts = await getCollection("posts");
+  const sortedPosts = sortPosts(posts);
+  return sortedPosts;
 }

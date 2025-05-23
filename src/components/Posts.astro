@@ -1,12 +1,12 @@
 ---
 import { formatRelative } from "date-fns";
-import { getAllPostsSorted } from "../blogs";
+import { getAllPostsSorted } from "../posts";
 import Section from "./Section.astro";
 
 const posts = await getAllPostsSorted();
 ---
 
-<Section title="blogs" style="--order: 3;">
+<Section title="posts" style="--order: 3;">
    <ul role="list" class="containers">
     {posts.length > 0 ? posts.map((post) => (
         <li class="container">

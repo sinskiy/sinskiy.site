@@ -16,10 +16,12 @@
   --rounded-lg: 16px;
   --rounded-full: 9999px;
 
-  --sans-serif: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --monospace: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+  --sans-serif:
+    ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  --monospace:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
 }
 
 .dark {
@@ -74,6 +76,7 @@ html {
   color-scheme: light dark;
   accent-color: rgb(var(--primary));
   scroll-behavior: smooth;
+  scrollbar-color: rgb(var(--primary)) rgb(var(--background));
 }
 
 body {

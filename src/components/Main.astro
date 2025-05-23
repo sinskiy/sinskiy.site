@@ -1,5 +1,4 @@
 ---
-import Switch from "./Switch.astro";
 import Projects from "./Projects.astro";
 import Contacts from "./Contacts.astro";
 import Thoughts from "./Thoughts.astro";
@@ -9,7 +8,7 @@ import OutwardArrow from "./icons/OutwardArrow.astro";
 <main>
   <hgroup style="--order: 1;">
     <h1>dima sinskiy</h1>
-    <h2>web dev</h2>
+    <h2>full-stack web developer interested in politics, philosophy and reading books<br />i'm looking for friends and job, <a href="#contacts">dm me on Discord</a></h2>
     <nav>
       <a href="https://sinskiy.github.io/resume" target="_blank"
         >resume <OutwardArrow /></a
@@ -19,53 +18,6 @@ import OutwardArrow from "./icons/OutwardArrow.astro";
       >
     </nav>
   </hgroup>
-  <section style="--order: 2;">
-    <h2>about</h2>
-    <Switch
-      id="about-type"
-      first={{ label: "information" }}
-      second={{ label: "story" }}
-    >
-      <p slot="first">
-        full-stack web developer interested in politics, philosophy and reading books. i'm looking for friends and job, <a href="#contacts">dm me on Discord</a>
-      </p>
-      <Fragment slot="second">
-        <p>
-          At the age of 9 I found countryballs and got into "politics". Of
-          course, I actually knew nothing about politics, but it still
-          completely changed the direction of my life
-        </p>
-        <p>
-          None of my previous acquaintances and friends were involved in
-          politics, so I found new ones online. They were much older than me. In
-          such an environment, it’s easy to develop your own vision of life.
-          Freedom became my core value, and I began planning to move from russia
-          for obvious reasons
-        </p>
-        <p>
-          When I switched my real-life friends to internet ones, I began
-          spending a lot of my time on PC and phone, and besides politics I got
-          into tech. I still hadn’t thought about becoming a developer, but I
-          kept up with the latest tech news and knew a lot of advanced things
-          about PCs
-        </p>
-        <p>
-          At the age of 13, I created my first website as a school project,
-          because it was the first project I could think of, but I quickly
-          forgot about web development. Then I read Atlas Shrugged (because I
-          knew I was a libertarian), then started reading non-fiction books in
-          general and realized that I am in full control of my future. Now I
-          want to leave russia more than ever
-        </p>
-        <p>
-          In the summer of 2024, I started falling in love with web development.
-          Not only does it brings me joy, but it can also earn me money to move
-          out of russia. That’s why I spend a lot of my time creating websites
-          and learning about exciting things!
-        </p></Fragment
-      >
-    </Switch>
-  </section>
   <section style="--order: 3;">
     <h2>projects</h2>
     <Projects />

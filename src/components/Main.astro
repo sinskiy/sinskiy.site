@@ -2,93 +2,32 @@
 import Projects from "./Projects.astro";
 import Contacts from "./Contacts.astro";
 import Thoughts from "./Thoughts.astro";
-import OutwardArrow from "./icons/outward-arrow.svg";
+import Section from "./Section.astro";
+import About from "./About.astro";
+import AnimatedHover from "./scripts/AnimatedHover.astro";
 ---
 
-<main>
-  <hgroup style="--order: 1;">
-    <h1>dima sinskiy</h1>
-    <h2>full-stack web developer interested in politics, philosophy and books<br />i'm looking for friends and job, <a href="#contacts">dm me on Discord</a></h2>
-    <nav>
-      <a href="/blog">blog</a>
-      <a href="https://sinskiy.github.io/resume" target="_blank"
-        >resume <OutwardArrow /></a
-      >
-    </nav>
-  </hgroup>
-  <section style="--order: 3;">
-    <h3>projects</h3>
-    <Projects />
-  </section>
-  <section id="contacts">
-    <h3>contacts</h3>
-    <Contacts />
-  </section>
-  <section>
-    <h3>thoughts?</h3>
-    <a href="/post-thought">add a thought</a>
-    <Thoughts />
-  </section>
-</main>
+<About />
+<Section title="projects" style="--order: 3;">
+  <Projects />
+</Section>
+<Section title="contacts">
+  <Contacts />
+</Section>
+<Section title="thoughts?">
+  <a href="/post-thought">add a thought</a>
+  <Thoughts />
+</Section>
 
 <style>
-  main {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-  }
-
-  hgroup {
-    margin-bottom: 2rem;
-  }
-
-  hgroup > nav {
-    margin-top: 2rem;
-    display: flex;
-    gap: 1rem;
-  }
-
-  h1 {
-    font-size: 2.25rem;
-    font-family: var(--monospace);
-    margin-bottom: 1rem;
-  }
-
-  h2 {
-    font-size: 1.25rem;
-    font-weight: 400;
-    letter-spacing: 0.025rem;
-    line-height: 1.4;
-  }
-
-  nav > a {
-    display: flex;
-    gap: 2px;
-    line-height: 1;
-    font-family: var(--monospace);
-  }
-
-  section {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  h3 {
-    color: rgb(var(--foreground) / 0.8);
-    font-size: 1rem;
-    font-family: var(--monospace);
-    font-weight: 400;
-  }
-
-  section[style],
-  hgroup[style] {
+    :global(section[style]),
+  :global(hgroup[style]) {
     opacity: 0;
     animation: none;
   }
   @media (prefers-reduced-motion: no-preference) {
-    section[style],
-    hgroup[style] {
+    :global(section[style]),
+    :global(hgroup[style]) {
       animation: 500ms show forwards;
       animation-delay: calc(var(--order) * 200ms);
     }
@@ -103,3 +42,5 @@ import OutwardArrow from "./icons/outward-arrow.svg";
     }
   }
 </style>
+
+<AnimatedHover />

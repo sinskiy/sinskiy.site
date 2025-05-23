@@ -1,0 +1,49 @@
+---
+import { render } from 'astro:content';
+import { getAllPostsSorted } from '../../blogs';
+import Layout from '../../layouts/Layout.astro';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const posts = await getAllPostsSorted();
+  return posts.map((post) => ({
+    params: { post: post.id  },
+    props: { post },
+  }));
+};
+
+const { post } = Astro.props;
+const { Content } = await render(post)
+---
+
+<Layout>
+  <div class="wrapper">
+    <a href="/blog">all posts</a>
+    <section>
+      <h1>{post.data.title}</h1>
+      <div class="text">
+        <Content />
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .wrapper {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  
+  h1 {
+    font-size: 2.25rem;
+    font-family: var(--monospace);
+    margin-bottom: 1rem;
+  }
+
+  a {
+    font-family: var(--monospace);
+  }
+</style>

@@ -2,7 +2,6 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import ThemeOnLoad from "../components/scripts/ThemeOnLoad.astro";
-import AnimatedHover from "../components/scripts/AnimatedHover.astro";
 import "../styles/index.css";
 ---
 
@@ -14,7 +13,9 @@ import "../styles/index.css";
   </head>
   <body>
     <Header />
-    <slot />
+    <main>
+      <slot />
+    </main>
   </body>
 </html>
 
@@ -27,6 +28,10 @@ import "../styles/index.css";
     flex-direction: column;
     gap: 3rem;
   }
-</style>
 
-<AnimatedHover />
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+</style>

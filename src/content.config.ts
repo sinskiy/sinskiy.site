@@ -1,3 +1,4 @@
+import { rssSchema } from "@astrojs/rss";
 import { glob } from "astro/loaders";
 import { defineCollection, z } from "astro:content";
 
@@ -13,4 +14,9 @@ const projects = defineCollection({
     }),
 });
 
-export const collections = { projects };
+const blogs = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/data/blogs" }),
+  schema: () => rssSchema,
+});
+
+export const collections = { projects, blogs };

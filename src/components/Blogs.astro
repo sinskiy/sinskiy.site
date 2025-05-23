@@ -1,0 +1,47 @@
+---
+import { formatRelative } from "date-fns";
+import { getAllPostsSorted } from "../blogs";
+import Section from "./Section.astro";
+
+const posts = await getAllPostsSorted();
+---
+
+<Section title="blogs" style="--order: 3;">
+   <ul role="list" class="containers">
+    {posts.length > 0 ? posts.map((post) => (
+        <li class="container">
+          <a href={`/posts/${post.id}`}>
+            <article>
+                <h4>{post.data.title}</h2>
+                {post.data.pubDate && <p>
+                    <time class="time" datetime={post.data.pubDate.toISOString()}>
+                        {formatRelative(post.data.pubDate, new Date()).replace(/ at.*$/g, '')}
+                    </time>
+                </p>}
+            </article>
+          </a>
+        </li>
+      )) : <p>no posts yet :c</p>
+    }
+  </ul>
+</Section>
+
+<style>
+  a {
+    text-decoration: none;
+  }
+
+  article {
+  }
+
+  h4 {
+    color: rgb(var(--foreground));
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  time {
+    font-family: var(--monospace);
+    color: rgb(var(--foreground-variant));
+  }
+</style>

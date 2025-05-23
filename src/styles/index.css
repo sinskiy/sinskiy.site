@@ -73,6 +73,7 @@ button {
 html {
   color-scheme: light dark;
   accent-color: rgb(var(--primary));
+  scroll-behavior: smooth;
 }
 
 body {

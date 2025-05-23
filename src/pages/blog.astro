@@ -4,6 +4,8 @@ import { getAllPostsSorted } from "../posts";
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
 
+export const prerender = true;
+
 const posts = await getAllPostsSorted();
 ---
 

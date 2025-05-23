@@ -2,6 +2,8 @@
 import { render } from 'astro:content';
 import { getAllPostsSorted } from '../../posts';
 import Layout from '../../layouts/Layout.astro';
+import Section from '../../components/Section.astro';
+import Thoughts from '../../components/Thoughts.astro';
 
 export const prerender = true;
 
@@ -20,12 +22,16 @@ const { Content } = await render(post)
 <Layout>
   <div class="wrapper">
     <a href="/blog">all posts</a>
-    <section>
+    <section class="post">
       <h1>{post.data.title}</h1>
       <div class="text">
         <Content />
       </div>
     </section>
+    <Section title="thoughts?">
+      <a href={`/post-thought/${post.id}`}>add a thought</a>
+      <Thoughts post={post.id} />
+    </Section>
   </div>
 </Layout>
 
@@ -45,5 +51,9 @@ const { Content } = await render(post)
 
   a {
     font-family: var(--monospace);
+  }
+
+  .post {
+    margin-bottom: 24px;
   }
 </style>

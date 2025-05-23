@@ -9,8 +9,14 @@ export const server = {
       username: z.string().max(100),
       message: z.string().max(1000),
     }),
-    handler: async ({ username, message }) => {
-      await db.insert(Thought).values({ username: username, message: message });
+    handler: async ({ username, message }, context) => {
+      await db
+        .insert(Thought)
+        .values({
+          username: username,
+          message: message,
+          post: context.params.post,
+        });
     },
   }),
 };

@@ -5,6 +5,7 @@ const Thought = defineTable({
     username: column.text(),
     message: column.text(),
     date: column.date({ default: new Date() }),
+    post: column.text({ optional: true }),
   },
 });
 

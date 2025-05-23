@@ -6,6 +6,8 @@ import AnimatedHover from "../components/scripts/AnimatedHover.astro";
 import Section from "../components/Section.astro";
 import Thoughts from "../components/Thoughts.astro";
 import Layout from "../layouts/Layout.astro";
+
+export const prerender = true;
 ---
 
 <Layout>
@@ -23,7 +25,7 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <style>
-    :global(section[style]),
+  :global(section[style]),
   :global(hgroup[style]) {
     opacity: 0;
     animation: none;

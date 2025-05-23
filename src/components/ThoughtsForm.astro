@@ -2,6 +2,7 @@
 import { actions } from "astro:actions";
 
 const result = Astro.getActionResult(actions.postThought);
+const params = Astro.params;
 ---
 
 <form method="POST" action={actions.postThought}>
@@ -74,8 +75,8 @@ const result = Astro.getActionResult(actions.postThought);
   }
 </style>
 
-<script is:inline define:vars={{ result }}>
+<script is:inline define:vars={{ result, params }}>
   if (result && !result.error) {
-    window.location = "/";
+    window.location = params.post ? `/posts/${params.post}` : "/";
   }
 </script>

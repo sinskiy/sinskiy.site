@@ -42,6 +42,7 @@ html {
   accent-color: rgb(var(--primary));
   scroll-behavior: smooth;
   scrollbar-color: rgb(var(--primary)) rgb(var(--background));
+  scrollbar-gutter: stable;
 }
 
 body {

@@ -1,8 +1,8 @@
 ---
-import { formatRelative } from "date-fns";
 import { getAllPostsSorted } from "../posts";
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
+import FormattedDate from "../components/FormattedDate.astro";
 
 export const prerender = true;
 
@@ -17,11 +17,7 @@ const posts = await getAllPostsSorted();
             <a href={`/posts/${post.id}`}>
               <article>
                   <h4>{post.data.title}</h2>
-                  {post.data.pubDate && <p>
-                      <time class="time" datetime={post.data.pubDate.toISOString()}>
-                          {formatRelative(post.data.pubDate, new Date()).replace(/ at.*$/g, '')}
-                      </time>
-                  </p>}
+                  {post.data.pubDate && <FormattedDate date={post.data.pubDate} />}
               </article>
             </a>
           </li>
@@ -36,17 +32,9 @@ const posts = await getAllPostsSorted();
     text-decoration: none;
   }
 
-  article {
-  }
-
   h4 {
     color: rgb(var(--foreground));
-    font-size: 2rem;
-    font-weight: 600;
-  }
-
-  time {
     font-family: var(--monospace);
-    color: rgb(var(--foreground-variant));
+    font-size: 2.25rem;
   }
 </style>

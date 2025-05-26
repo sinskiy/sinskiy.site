@@ -1,0 +1,23 @@
+---
+import { formatRelative } from 'date-fns'
+
+interface Props {
+    date: Date
+}
+
+const { date } = Astro.props
+---
+
+<p>
+    <time class="time" datetime={date.toISOString()}>
+        {formatRelative(date, new Date()).replace(/ at.*$/g, '')}
+    </time>
+</p>
+
+<style>
+  time {
+    color: rgb(var(--foreground-variant));
+    font-family: var(--monospace);
+    font-size: 0.875rem;
+  }
+</style>

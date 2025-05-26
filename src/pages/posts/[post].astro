@@ -61,13 +61,14 @@ const { Content } = await render(post)
   }
 
   section header {
-    margin-bottom: 16px;
+    margin-bottom: 32px;
   }
 
   .markdown {
     font-size: 1rem;
-    line-height: 1.5;
-    word-wrap: break-word;
+    max-width: 65ch;
+    line-height: 1.7;
+    overflow-wrap: break-word;
   }
 
   .markdown :global(h2),
@@ -107,7 +108,7 @@ const { Content } = await render(post)
   .markdown :global(pre),
   .markdown :global(details) {
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25em;
   }
 
   .markdown :global(ul),
@@ -125,11 +126,16 @@ const { Content } = await render(post)
 
   .markdown :global(pre) {
     border-radius: var(--rounded-base);
-    padding: 8px 24px;
+    padding: 16px 32px;
   }
 
-  .markdown :global(pre code) {
-    display: block;
-    padding: 1rem 0.5rem;
+  .markdown :global(p code) {
+    font-family: var(--monospace);
+    padding: 2px 6px;
+    margin: 1px -1px;
+    position: relative;
+    display: inline;
+    background-color: rgb(var(--surface-high));
+    border-radius: 3px;
   }
 </style>

@@ -114,22 +114,7 @@ a:hover {
   max-width: 65ch;
   overflow-wrap: break-word;
 }
-.text h1,
-.text h2,
-.text h3 {
-  margin: 24px 0;
-}
-.text h1 {
-  font-size: 2.25rem;
-  line-height: 1.1;
-}
-.text p,
-.text ol,
 .text ul {
-  margin-top: 20px;
-}
-.text ul,
-.text ol {
   padding-inline-start: 32px;
 }
 

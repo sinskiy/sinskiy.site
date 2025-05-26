@@ -2,7 +2,6 @@
 import About from "../components/About.astro";
 import Contacts from "../components/Contacts.astro";
 import Projects from "../components/Projects.astro";
-import AnimatedHover from "../components/scripts/AnimatedHover.astro";
 import Section from "../components/Section.astro";
 import Thoughts from "../components/Thoughts.astro";
 import Layout from "../layouts/Layout.astro";
@@ -12,7 +11,7 @@ export const prerender = true;
 
 <Layout>
   <About />
-  <Section title="projects" style="--order: 3;">
+  <Section title="projects" style="--order: 2;">
     <Projects />
   </Section>
   <Section title="contacts">
@@ -23,29 +22,3 @@ export const prerender = true;
     <Thoughts />
   </Section>
 </Layout>
-
-<style>
-  :global(section[style]),
-  :global(hgroup[style]) {
-    opacity: 0;
-    animation: none;
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    :global(section[style]),
-    :global(hgroup[style]) {
-      animation: 500ms show forwards;
-      animation-delay: calc(var(--order) * 200ms);
-    }
-  }
-
-  @keyframes show {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-</style>
-
-<AnimatedHover />

@@ -1,6 +1,7 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
+import AnimatedHover from "../components/scripts/AnimatedHover.astro";
 import ThemeOnLoad from "../components/scripts/ThemeOnLoad.astro";
 import "../styles/index.css";
 import "../styles/reset.css"
@@ -17,6 +18,7 @@ import "../styles/reset.css"
     <main>
       <slot />
     </main>
+    <AnimatedHover />
   </body>
 </html>
 

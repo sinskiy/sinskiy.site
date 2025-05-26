@@ -116,3 +116,25 @@ a:hover {
 .text ul {
   margin-left: 2rem;
 }
+
+section[style],
+hgroup[style] {
+  opacity: 0;
+  animation: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  section[style],
+  hgroup[style] {
+    animation: 500ms show forwards;
+    animation-delay: calc(var(--order) * 200ms);
+  }
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

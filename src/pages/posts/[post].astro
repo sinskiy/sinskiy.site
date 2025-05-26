@@ -22,13 +22,13 @@ const { Content } = await render(post)
 <Layout>
   <div class="wrapper">
     <a href="/blog">all posts</a>
-    <section class="post">
+    <section class="post" style="--order: 1">
       <h1>{post.data.title}</h1>
       <div class="text">
         <Content />
       </div>
     </section>
-    <Section title="thoughts?">
+    <Section title="thoughts?" style="--order: 2">
       <a href={`/post-thought/${post.id}`}>add a thought</a>
       <Thoughts post={post.id} />
     </Section>

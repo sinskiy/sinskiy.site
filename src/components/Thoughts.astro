@@ -4,13 +4,14 @@ import { db } from "astro:db";
 import markdownit from "markdown-it";
 import { formatRelative } from "date-fns";
 import { eq } from "astro:db";
+import { isNull } from "astro:db";
 
 interface Props {
   post?: string
 }
 
 const { post } = Astro.props
-const thoughts = post ? (await db.select().from(Thought).where(eq(Thought.post, post))).reverse() : (await db.select().from(Thought)).reverse();
+const thoughts = post ? (await db.select().from(Thought).where(eq(Thought.post, post))).reverse() : (await db.select().from(Thought).where(isNull(Thought.post))).reverse();
 const md = markdownit({ linkify: true });
 ---
 

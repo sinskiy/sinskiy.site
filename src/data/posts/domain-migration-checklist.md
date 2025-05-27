@@ -8,7 +8,7 @@ i just migrated my websites from `sinskiy.website` hosted on [reg.ru](https://re
 
 ## 0. domain propagation
 
-preferably wait for your domain to achieve the "PROPAGATED" status. on my domain registrar it's located at `Settings` -> `Main settings` -> `Status`
+preferably wait for your domain to achieve the "PROPAGATED" status. on my domain registrar it's located at `Settings` -> `Main settings` -> `Status`. if it hasn't propagated yet you can't be sure that you're doing everything correctly
 
 ## 1. ensure your site has an SSL/TLS certificate
 
@@ -48,12 +48,13 @@ once initial configuration is done, it's time to update all references to your o
    - i think you can figure out the platform-specific navigation on your own. it's all roughly at `Settings` -> `Environmental variables`
 3. update OAuth and other integrations domain references (analytics, ads, payment, emails, CDN, backups, etc.)
 4. redeploy your projects
+5. verify they work on the new domain
 
 while waiting for the new DNS records to propagate (which usually takes a few minutes), update references to the old domain within your project's codebase. a global search-and-replace worked fine for me
 
 4. update external references to your domain
 
-beyour your hosting services and code, it's better to update external locations where your old domain might be linked too. consider checking the following:
+beyond your hosting services and code, it's useful to update external locations where your old domain might be linked too. consider checking the following:
 
 - social media profiles:
   - connected links on GitHub, SoundCloud, YouTube, etc.
@@ -69,4 +70,4 @@ beyour your hosting services and code, it's better to update external locations 
 
 again, find and replace should be enough
 
-i hope this guide proves helpful your domain migration! (it certainly will for mine lol)
+i hope this guide proves helpful for your next domain migration! (it certainly will for mine lol)

@@ -4,7 +4,7 @@ This is my **personal website-portfolio** built with Astro, Astro DB, Turso and 
 
 # How can I access it?
 
-It is deployed on Vercel at https://www.sinskiy.site/
+It is deployed on Vercel at https://sinskiy.site/
 
 # Can I clone it?
 
@@ -31,7 +31,7 @@ user.email=dimasinskiy@gmail.com
 
 ```sh
 # terminal
-git clone https://github.com/sinskiy/sinskiy.wesitebsite <your-custom-folder-name>
+git clone https://github.com/sinskiy/sinskiy.site <your-custom-folder-name>
 ```
 
 or using SSH

@@ -74,15 +74,9 @@ const { Content } = await render(post)
   .markdown :global(h2),
   .markdown :global(h3),
   .markdown :global(h4) {
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
     line-height: 1.25;
-  }
-
-  .markdown :global(h2),
-  .markdown :global(h3) {
-    border-bottom: 1px solid rgb(var(--outline));
-    padding-bottom: 0.3em;
   }
 
   .markdown :global(h2) {
@@ -129,7 +123,9 @@ const { Content } = await render(post)
     padding: 16px 32px;
   }
 
-  .markdown :global(p code) {
+  .markdown :global(p code),
+  .markdown :global(ol code),
+  .markdown :global(ul code) {
     font-family: var(--monospace);
     padding: 2px 6px;
     margin: 1px -1px;
@@ -137,5 +133,10 @@ const { Content } = await render(post)
     display: inline;
     background-color: rgb(var(--surface-high));
     border-radius: 3px;
+  }
+
+  .markdown :global(li ul),
+  .markdown :global(li ol) {
+    margin-bottom: 0;
   }
 </style>

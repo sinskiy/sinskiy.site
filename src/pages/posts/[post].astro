@@ -61,7 +61,7 @@ const { Content } = await render(post)
   }
 
   section header {
-    margin-bottom: 32px;
+    margin-bottom: 48px;
   }
 
   .markdown {
@@ -80,17 +80,17 @@ const { Content } = await render(post)
   }
 
   .markdown :global(h2) {
-    font-size: 2em;
+    font-size: 1.75rem;
     font-weight: 600;
   }
 
   .markdown :global(h3) {
-    font-size: 1.5em;
+    font-size: 1.5rem;
     font-weight: 600;
   }
 
   .markdown :global(h4) {
-    font-size: 1.25em;
+    font-size: 1.25rem;
     font-weight: 600;
   }
 
@@ -135,8 +135,7 @@ const { Content } = await render(post)
     border-radius: 3px;
   }
 
-  .markdown :global(li ul),
-  .markdown :global(li ol) {
+  .markdown :global(:last-child) {
     margin-bottom: 0;
   }
 </style>

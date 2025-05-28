@@ -5,21 +5,23 @@ import Logo from "./icons/logo.svg";
 const websites = ["www", "multipedia", "words", "chat", "visit-this-please"];
 ---
 
-<div id="logo-wrapper">
-  <input
-    type="checkbox"
-    name="links-checkbox"
-    id="links-checkbox"
-    aria-label="show my websites picker"
-  />
-  <a id="logo" href="/">
-    <Logo />
-    <label for="links-checkbox" id="dropdown-trigger"
-      >www.
-      <Dropdown />
-    </label>
-    <p id="current-website">sinskiy.site</p>
-  </a>
+<div id="full-wrapper">
+  <div id="logo-wrapper">
+    <input
+      type="checkbox"
+      name="links-checkbox"
+      id="links-checkbox"
+      aria-label="show my websites picker"
+    />
+    <a id="logo" href="/">
+      <Logo />
+      <label for="links-checkbox" id="dropdown-trigger"
+        >www.
+        <Dropdown />
+      </label>
+      <p id="current-website">sinskiy.site</p>
+    </a>
+  </div>
   <ul id="websites" role="list">
     {
       websites.map((link, i) => (
@@ -39,8 +41,12 @@ const websites = ["www", "multipedia", "words", "chat", "visit-this-please"];
 </div>
 
 <style>
-  #logo-wrapper {
+  #full-wrapper {
     position: relative;
+  }
+
+  #logo-wrapper {
+    display: flex;
   }
 
   #links-checkbox {

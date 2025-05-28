@@ -1,0 +1,35 @@
+.thoughts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.thought {
+  padding: 1rem 2rem;
+  background-color: rgb(var(--surface));
+  border-radius: var(--rounded-base);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  overflow-wrap: break-word;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+  align-items: end;
+}
+
+.author {
+  color: rgb(var(--foreground-variant));
+  font-style: normal;
+  font-weight: 600;
+  font-family: var(--monospace);
+  word-break: break-all;
+}
+
+.time {
+  color: rgb(var(--foreground-variant) / 0.8);
+  font-size: 0.875rem;
+}

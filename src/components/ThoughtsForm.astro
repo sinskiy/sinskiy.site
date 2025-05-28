@@ -1,13 +1,6 @@
----
-import { actions } from "astro:actions";
-
-const result = Astro.getActionResult(actions.postThought);
-const params = Astro.params;
----
-
-<form method="POST" action={actions.postThought}>
+<form id="thoughts-form">
   <h2>new thought</h2>
-  {result && typeof result.error === "object" && <p>{result.error.message}</p>}
+  <p id="error-container"></p>
   <div class="input-field">
     <label for="username">username</label>
     <input type="text" name="username" id="username" maxlength="100" required />
@@ -75,8 +68,23 @@ const params = Astro.params;
   }
 </style>
 
-<script is:inline define:vars={{ result, params }}>
-  if (result && !result.error) {
-    window.location = params.post ? `/posts/${params.post}` : "/";
-  }
+<script>
+  import { actions } from "astro:actions";
+  import { navigate } from "astro:transitions/client";
+  
+  const form = document.querySelector<HTMLFormElement>("#thoughts-form");
+  const errorContainer = document.querySelector<HTMLParagraphElement>("#error-container");
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    
+    const post = window.location.pathname.split("/")[2]; // ['', 'post-thought', '<blog>']
+    const { error } = await actions.postThought({ username: formData.get("username") as string, message: formData.get("message") as string, post });
+    if (!error) {
+      navigate(post ? `/posts/${post}` : "/");
+    } else if (error && errorContainer) {
+      errorContainer.textContent = error.message;
+    }
+  })
 </script>

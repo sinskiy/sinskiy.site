@@ -3,8 +3,8 @@ import { render } from 'astro:content';
 import { getAllPostsSorted } from '../../posts';
 import Layout from '../../layouts/Layout.astro';
 import Section from '../../components/Section.astro';
-import Thoughts from '../../components/Thoughts.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
+import Thoughts from '../../components/Thoughts';
 
 export const prerender = true;
 
@@ -34,7 +34,7 @@ const { Content } = await render(post)
     </section>
     <Section title="thoughts?" style="--order: 2">
       <a href={`/post-thought/${post.id}`}>add a thought</a>
-      <Thoughts post={post.id} />
+      <Thoughts client:only post={post.id} />
     </Section>
   </div>
 </Layout>

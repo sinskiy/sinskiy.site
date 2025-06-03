@@ -17,9 +17,7 @@ export const server = {
           );
           // TODO: verify
           savedIds = parsedDecodedSavedIds;
-        } catch (error) {
-          console.log(error);
-        }
+        } catch {}
       }
 
       const selector = {
@@ -29,11 +27,18 @@ export const server = {
         isOwner: inArray(Thought.id, savedIds),
         ...(inArray(Thought.id, savedIds) ? { id: Thought.id } : {}),
       };
-      const thoughts = post
-        ? await db.select(selector).from(Thought).where(eq(Thought.post, post))
-        : await db.select(selector).from(Thought).where(isNull(Thought.post));
-      // sort by date
-      return thoughts.reverse();
+      try {
+        const thoughts = post
+          ? await db
+              .select(selector)
+              .from(Thought)
+              .where(eq(Thought.post, post))
+          : await db.select(selector).from(Thought).where(isNull(Thought.post));
+        // sort by date
+        return thoughts.reverse();
+      } catch (error) {
+        throw new Error("couldn't get thoughts. hit me up on Discord");
+      }
     },
   }),
   postThought: defineAction({
@@ -43,38 +48,43 @@ export const server = {
       post: z.string().max(100).optional(),
     }),
     handler: async ({ username, message, post }, context) => {
-      // TODO: handle
-      const thought = await db
-        .insert(Thought)
-        .values({
-          id: randomUUID(),
-          username,
-          message,
-          post,
-        })
-        .returning({ id: Thought.id });
-      let prevCookies: string[] = [];
       try {
-        const savedCookies = JSON.parse(
-          context.cookies.get("created")?.value ?? "[]",
-        );
-        if (
-          Array.isArray(savedCookies) &&
-          savedCookies.every((id) => typeof id === "string")
-        ) {
-          prevCookies = savedCookies;
-        }
-        // TODO: handle
-      } catch {}
-      const newCookies = JSON.stringify(prevCookies.concat(thought[0].id));
-      context.cookies.set("created", newCookies, { path: "/" });
+        const thought = await db
+          .insert(Thought)
+          .values({
+            id: randomUUID(),
+            username,
+            message,
+            post,
+          })
+          .returning({ id: Thought.id });
+        let prevCookies: string[] = [];
+        try {
+          const savedCookies = JSON.parse(
+            context.cookies.get("created")?.value ?? "[]",
+          );
+          if (
+            Array.isArray(savedCookies) &&
+            savedCookies.every((id) => typeof id === "string")
+          ) {
+            prevCookies = savedCookies;
+          }
+        } catch {}
+        const newCookies = JSON.stringify(prevCookies.concat(thought[0].id));
+        context.cookies.set("created", newCookies, { path: "/" });
+      } catch (error) {
+        throw new Error("couldn't insert thought. hit me up on Discord");
+      }
     },
   }),
   deleteThought: defineAction({
     input: z.string(),
     handler: async (id) => {
-      // TODO: handle
-      await db.delete(Thought).where(eq(Thought.id, id));
+      try {
+        await db.delete(Thought).where(eq(Thought.id, id));
+      } catch (error) {
+        throw new Error("couldn't delete thought. hit me up on Discord");
+      }
     },
   }),
   editThought: defineAction({
@@ -84,10 +94,14 @@ export const server = {
       newMessage: z.string().max(1000),
     }),
     handler: async ({ id, newUsername, newMessage }) => {
-      await db
-        .update(Thought)
-        .set({ username: newUsername, message: newMessage })
-        .where(eq(Thought.id, id));
+      try {
+        await db
+          .update(Thought)
+          .set({ username: newUsername, message: newMessage })
+          .where(eq(Thought.id, id));
+      } catch (error) {
+        throw new Error("couldn't edit thought. hit me up on Discord");
+      }
     },
   }),
 };

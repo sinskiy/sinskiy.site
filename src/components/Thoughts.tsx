@@ -13,6 +13,7 @@ interface Props {
 
 export default function Thoughts({ post }: Props) {
   const [thoughts, setThoughts] = useState<null | ThoughtNoPost[]>(null);
+  const [error, setError] = useState("");
 
   function removeThought(id: string) {
     thoughts && setThoughts(thoughts?.filter((thought) => thought.id !== id));
@@ -23,8 +24,15 @@ export default function Thoughts({ post }: Props) {
       if (data) {
         setThoughts(data);
       }
+      if (error) {
+        setError(error.message);
+      }
     });
   }, []);
+
+  if (error) {
+    return <p>{error}</p>;
+  }
 
   if (thoughts === null) {
     return <p>loading thoughts</p>;
@@ -88,31 +96,37 @@ function Header({
     }
   }
   return (
-    <header class={classes.header}>
-      <div class={classes.left}>
-        <span class={classes.author}>{username}</span>
-        <FormattedDate date={date} />
-      </div>
-      {isOwner && (
-        <div class={classes.right}>
-          <button
-            aria-label="delete"
-            onClick={handleDelete}
-            class={classes.activatable}
-          >
-            <TrashIcon />
-          </button>
-          <a
-            href={`/post-thought?id=${id}&old-message=${message}&old-username=${username}`}
-            aria-label="edit"
-            class={classes.activatable}
-          >
-            <EditIcon />
-          </a>
+    <>
+      <header class={classes.header}>
+        <div class={classes.left}>
+          <span class={classes.author}>{username}</span>
+          <FormattedDate date={date} />
         </div>
+        {isOwner && (
+          <div class={classes.right}>
+            <button
+              aria-label="delete"
+              onClick={handleDelete}
+              class={classes.activatable}
+            >
+              <TrashIcon />
+            </button>
+            <a
+              href={`/post-thought?id=${id}&old-message=${message}&old-username=${username}`}
+              aria-label="edit"
+              class={classes.activatable}
+            >
+              <EditIcon />
+            </a>
+          </div>
+        )}
+      </header>
+      {error && (
+        <p aria-live="polite" class={classes["header-error"]}>
+          {error}
+        </p>
       )}
-      {error && <p aria-live="polite">{error}</p>}
-    </header>
+    </>
   );
 }
 

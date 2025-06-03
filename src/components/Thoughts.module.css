@@ -20,6 +20,10 @@
   justify-content: space-between;
 }
 
+.header-error {
+  text-align: end;
+}
+
 .left {
   display: flex;
   gap: 0.5rem;

@@ -18,6 +18,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 4px;
 }
 
 .header-error {
@@ -33,15 +34,12 @@
 
 .author {
   color: rgb(var(--foreground-variant));
-  font-style: normal;
   font-weight: 600;
-  font-family: var(--monospace);
   word-break: break-all;
 }
 
 .time {
   color: rgb(var(--foreground-variant) / 0.8);
-  font-size: 0.875rem;
 }
 
 .activatable {

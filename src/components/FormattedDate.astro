@@ -10,15 +10,14 @@ const formatted = formatRelative(date, new Date())
 ---
 
 <p>
-    <time datetime={date.toISOString()}>
-        {formatted.replace(/ at.*$/g, '')}
-    </time>
+  <time datetime={date.toISOString()}>
+      {formatted.replace(/ at.*$/g, '')}
+  </time>
 </p>
 
 <style>
   time {
     color: rgb(var(--foreground-variant));
-    font-family: var(--monospace);
     font-size: 0.875rem;
   }
 </style>

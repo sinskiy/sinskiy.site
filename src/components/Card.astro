@@ -23,7 +23,7 @@ const { href, title, src } = Astro.props;
   <div class="arrow-wrapper">
     <OutwardArrow />
   </div>
-  <Image src={src} alt="" class="image" />
+  <Image src={src} alt="" class="image" loading="eager" />
   <div class="glow"></div>
 </a>
 

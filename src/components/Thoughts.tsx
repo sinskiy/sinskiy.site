@@ -102,7 +102,7 @@ function Header({
           <span class={classes.author}>{username}</span>
           <FormattedDate date={date} />
         </div>
-        {isOwner && (
+        {isOwner && id && (
           <div class={classes.right}>
             <button
               aria-label="delete"
@@ -112,7 +112,7 @@ function Header({
               <TrashIcon />
             </button>
             <a
-              href={`/post-thought?id=${id}&old-message=${message}&old-username=${username}`}
+              href={`/post-thought?id=${encodeURIComponent(id)}&old-message=${encodeURIComponent(message)}&old-username=${encodeURIComponent(username)}`}
               aria-label="edit"
               class={classes.activatable}
             >

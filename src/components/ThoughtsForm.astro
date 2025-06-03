@@ -73,9 +73,10 @@
   import { navigate } from "astro:transitions/client";
 
   const searchParams = new URLSearchParams(window.location.search);
-  const id = searchParams.get("id")
-  const oldUsername = searchParams.get("old-username")
-  const oldMessage = searchParams.get("old-message")
+  console.log(...searchParams.entries())
+  const id = decodeURIComponent(searchParams.get("id") ?? "")
+  const oldUsername = decodeURIComponent(searchParams.get("old-username") ?? "")
+  const oldMessage = decodeURIComponent(searchParams.get("old-message") ?? "")
   const username = document.querySelector<HTMLInputElement>("input#username")
   const message = document.querySelector<HTMLTextAreaElement>("textarea#message")
   const isEditMode = id && oldUsername && oldMessage

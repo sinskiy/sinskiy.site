@@ -3,7 +3,7 @@ import { actions } from "astro:actions";
 import MarkdownIt from "markdown-it";
 import { useEffect, useState } from "preact/hooks";
 import classes from "./Thoughts.module.css";
-import FormattedDate from "./FormattedDate.astro";
+import { formatRelative } from "date-fns";
 
 const md = new MarkdownIt({ linkify: true });
 
@@ -37,16 +37,7 @@ export default function Thoughts({ post }: Props) {
       {thoughts.map((thought) => (
         <li class={classes.thought}>
           <article>
-            <header class={classes.header}>
-              <div class={classes.left}>
-                <span class={classes.author}>{thought.username}</span>
-                <FormattedDate
-                  date={thought.date}
-                  short={false}
-                  className={classes.time}
-                />
-              </div>
-            </header>
+            <Header username={thought.username} date={thought.date} />
             <div
               class="text"
               dangerouslySetInnerHTML={{
@@ -57,5 +48,30 @@ export default function Thoughts({ post }: Props) {
         </li>
       ))}
     </ul>
+  );
+}
+
+interface HeaderProps {
+  username: string;
+  date: Date;
+}
+
+function Header({ username, date }: HeaderProps) {
+  return (
+    <header class={classes.header}>
+      <div class={classes.left}>
+        <span class={classes.author}>{username}</span>
+        <FormattedDate date={date} />
+      </div>
+    </header>
+  );
+}
+
+function FormattedDate({ date }: { date: Date }) {
+  const formatted = formatRelative(date, new Date());
+  return (
+    <p>
+      <time datetime={date.toISOString()}>{formatted}</time>
+    </p>
   );
 }

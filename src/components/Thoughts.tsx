@@ -1,9 +1,9 @@
 import type { ThoughtNoPost } from "../thoughts";
 import { actions } from "astro:actions";
 import MarkdownIt from "markdown-it";
-import { formatRelative } from "date-fns";
 import { useEffect, useState } from "preact/hooks";
 import classes from "./Thoughts.module.css";
+import FormattedDate from "./FormattedDate.astro";
 
 const md = new MarkdownIt({ linkify: true });
 
@@ -40,14 +40,11 @@ export default function Thoughts({ post }: Props) {
             <header class={classes.header}>
               <div class={classes.left}>
                 <span class={classes.author}>{thought.username}</span>
-                <p>
-                  <time
-                    class={classes.time}
-                    datetime={thought.date.toISOString()}
-                  >
-                    {formatRelative(thought.date, new Date())}
-                  </time>
-                </p>
+                <FormattedDate
+                  date={thought.date}
+                  short={false}
+                  className={classes.time}
+                />
               </div>
             </header>
             <div

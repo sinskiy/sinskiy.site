@@ -2,23 +2,25 @@
 import { formatRelative } from 'date-fns'
 
 interface Props {
-    date: Date
+  date: Date;
+  short?: boolean;
+  className?: string;
 }
 
-const { date } = Astro.props
+const { date, short = true, className } = Astro.props
+const formatted = formatRelative(date, new Date())
 ---
 
 <p>
-    <time class="time" datetime={date.toISOString()}>
-        {formatRelative(date, new Date()).replace(/ at.*$/g, '')}
+    <time class={className ?? "time"} datetime={date.toISOString()}>
+        {short ? formatted.replace(/ at.*$/g, '') : formatted}
     </time>
 </p>
 
 <style>
-  time {
+  .time {
     color: rgb(var(--foreground-variant));
     font-family: var(--monospace);
     font-size: 0.875rem;
-    margin-bottom: 4px;
   }
 </style>

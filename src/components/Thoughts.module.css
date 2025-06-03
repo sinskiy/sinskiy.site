@@ -15,10 +15,13 @@
 }
 
 .header {
-  width: 100%;
+}
+
+.left {
   display: flex;
   gap: 0.5rem;
-  align-items: end;
+  align-items: start;
+  line-height: 0.75;
 }
 
 .author {

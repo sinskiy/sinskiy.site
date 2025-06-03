@@ -36,20 +36,27 @@ export default function Thoughts({ post }: Props) {
     <ul class={classes.thoughts} role="list">
       {thoughts.map((thought) => (
         <li class={classes.thought}>
-          <div class={classes.header}>
-            <address class={classes.author}>{thought.username}</address>
-            <p>
-              <time class={classes.time} datetime={thought.date.toISOString()}>
-                {formatRelative(thought.date, new Date())}
-              </time>
-            </p>
-          </div>
-          <div
-            class="text"
-            dangerouslySetInnerHTML={{
-              __html: md.render(thought.message).replace("<h1>", "<p>"),
-            }}
-          />
+          <article>
+            <header class={classes.header}>
+              <div class={classes.left}>
+                <span class={classes.author}>{thought.username}</span>
+                <p>
+                  <time
+                    class={classes.time}
+                    datetime={thought.date.toISOString()}
+                  >
+                    {formatRelative(thought.date, new Date())}
+                  </time>
+                </p>
+              </div>
+            </header>
+            <div
+              class="text"
+              dangerouslySetInnerHTML={{
+                __html: md.render(thought.message).replace("<h1>", "<p>"),
+              }}
+            />
+          </article>
         </li>
       ))}
     </ul>

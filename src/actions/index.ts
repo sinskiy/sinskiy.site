@@ -2,23 +2,15 @@ import { defineAction } from "astro:actions";
 import { db, eq, inArray, isNull, Thought } from "astro:db";
 import { z } from "astro:schema";
 import { randomUUID } from "node:crypto";
+import { getSavedCookies, getSavedCookiesFromHead } from "./helpers";
 
 export const server = {
   getThoughts: defineAction({
     input: z.object({ post: z.string().optional() }),
     handler: async ({ post }, context) => {
       const cookies = context.request.headers.get("cookie");
-      const savedCookie = cookies ? cookies.split("=")[1] : null;
-      let savedIds = [];
-      if (savedCookie) {
-        try {
-          const parsedDecodedSavedIds = JSON.parse(
-            decodeURI(savedCookie).replaceAll("%2C", ","),
-          );
-          // TODO: verify
-          savedIds = parsedDecodedSavedIds;
-        } catch {}
-      }
+      // TODO: createe a minimal reproduction and open an issue
+      const savedIds = getSavedCookiesFromHead(cookies);
 
       const selector = {
         username: Thought.username,
@@ -58,18 +50,7 @@ export const server = {
             post,
           })
           .returning({ id: Thought.id });
-        let prevCookies: string[] = [];
-        try {
-          const savedCookies = JSON.parse(
-            context.cookies.get("created")?.value ?? "[]",
-          );
-          if (
-            Array.isArray(savedCookies) &&
-            savedCookies.every((id) => typeof id === "string")
-          ) {
-            prevCookies = savedCookies;
-          }
-        } catch {}
+        const prevCookies = getSavedCookies(context.cookies);
         const newCookies = JSON.stringify(prevCookies.concat(thought[0].id));
         context.cookies.set("created", newCookies, { path: "/" });
       } catch (error) {

@@ -2,15 +2,18 @@ import { defineAction } from "astro:actions";
 import { db, eq, inArray, isNull, Thought } from "astro:db";
 import { z } from "astro:schema";
 import { randomUUID } from "node:crypto";
-import { getSavedCookies, getSavedCookiesFromHead } from "./helpers";
+import { getSavedIds, MAX_ALLOWED_AGE } from "./helpers";
 
 export const server = {
   getThoughts: defineAction({
     input: z.object({ post: z.string().optional() }),
     handler: async ({ post }, context) => {
-      const cookies = context.request.headers.get("cookie");
-      // TODO: createe a minimal reproduction and open an issue
-      const savedIds = getSavedCookiesFromHead(cookies);
+      const savedIds = getSavedIds(context.cookies);
+
+      // SQLite requires at least 1 value
+      if (savedIds.length === 0) {
+        savedIds.push("NEVER_HAPPEN");
+      }
 
       const selector = {
         username: Thought.username,
@@ -50,9 +53,15 @@ export const server = {
             post,
           })
           .returning({ id: Thought.id });
-        const prevCookies = getSavedCookies(context.cookies);
+        const prevCookies = getSavedIds(context.cookies);
         const newCookies = JSON.stringify(prevCookies.concat(thought[0].id));
-        context.cookies.set("created", newCookies, { path: "/" });
+        context.cookies.set("created", newCookies, {
+          path: "/",
+          maxAge: MAX_ALLOWED_AGE,
+          httpOnly: true,
+          secure: import.meta.env.PROD,
+          sameSite: "lax",
+        });
       } catch (error) {
         throw new Error("couldn't insert thought. hit me up on Discord");
       }

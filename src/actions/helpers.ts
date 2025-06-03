@@ -1,29 +1,15 @@
 import type { AstroCookies } from "astro";
 
-export function getSavedCookies(cookies: AstroCookies) {
+export const MAX_ALLOWED_AGE = 31536000;
+
+export function getSavedIds(cookies: AstroCookies) {
   let savedIds: string[] = [];
   try {
-    const parsedSavedIds = JSON.parse(cookies.get("created")?.value ?? "[]");
-    if (isArrayOfStrings(parsedSavedIds)) {
-      savedIds = parsedSavedIds;
+    const parsedCookie = JSON.parse(cookies.get("created")?.value ?? "[]");
+    if (isArrayOfStrings(parsedCookie)) {
+      savedIds = parsedCookie;
     }
   } catch {}
-  return savedIds;
-}
-
-export function getSavedCookiesFromHead(cookieHeader: string | null) {
-  const savedCookie = cookieHeader ? cookieHeader.split("=")[1] : null;
-  let savedIds: string[] = [];
-  if (savedCookie) {
-    try {
-      const parsedDecodedSavedIds = JSON.parse(
-        decodeURI(savedCookie).replaceAll("%2C", ","),
-      );
-      if (isArrayOfStrings(parsedDecodedSavedIds)) {
-        savedIds = parsedDecodedSavedIds;
-      }
-    } catch {}
-  }
   return savedIds;
 }
 

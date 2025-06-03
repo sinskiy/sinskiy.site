@@ -1,4 +1,5 @@
 interface Thought {
+  id?: string;
   username: string;
   date: Date;
   message: string;

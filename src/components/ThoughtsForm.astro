@@ -70,7 +70,19 @@
 
 <script>
   import { actions } from "astro:actions";
-import { navigate } from "astro:transitions/client";
+  import { navigate } from "astro:transitions/client";
+
+  const searchParams = new URLSearchParams(window.location.search);
+  const id = searchParams.get("id")
+  const oldUsername = searchParams.get("old-username")
+  const oldMessage = searchParams.get("old-message")
+  const username = document.querySelector<HTMLInputElement>("input#username")
+  const message = document.querySelector<HTMLTextAreaElement>("textarea#message")
+  const isEditMode = id && oldUsername && oldMessage
+  if (isEditMode && username &&message) {
+    username.value = oldUsername;
+    message.value = oldMessage;
+  }
   
   const form = document.querySelector<HTMLFormElement>("#thoughts-form");
   const errorContainer = document.querySelector<HTMLParagraphElement>("#error-container");
@@ -80,7 +92,9 @@ import { navigate } from "astro:transitions/client";
     const formData = new FormData(form);
     
     const post = window.location.pathname.split("/")[2]; // ['', 'post-thought', '<blog>']
-    const { error } = await actions.postThought({ username: formData.get("username") as string, message: formData.get("message") as string, post });
+    const username = formData.get("username") as string
+    const message = formData.get("message") as string
+    const { error } = isEditMode ? await actions.editThought({ id, newUsername: username, newMessage: message}) : await actions.postThought({ username, message, post });
     if (!error) {
       navigate(post ? `/posts/${post}` : "/");
     } else if (error && errorContainer) {

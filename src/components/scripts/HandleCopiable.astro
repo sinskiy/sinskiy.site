@@ -26,7 +26,6 @@
         const rect = tooltip.getBoundingClientRect();
         const xEnd = rect.x + rect.width;
         if (xEnd > window.innerWidth) {
-          console.log(xEnd + 20 - window.innerWidth);
           tooltip.style.right = `${xEnd - window.innerWidth}px`;
         } else if (rect.x < 0) {
           tooltip.style.left = `${rect.x * -1}px`;

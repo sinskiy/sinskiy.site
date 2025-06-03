@@ -15,6 +15,9 @@
 }
 
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .left {
@@ -35,4 +38,12 @@
 .time {
   color: rgb(var(--foreground-variant) / 0.8);
   font-size: 0.875rem;
+}
+
+.activatable {
+  color: rgb(var(--foreground));
+  transition: opacity 100ms;
+}
+.activatable:hover {
+  opacity: 0.5;
 }

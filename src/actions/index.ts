@@ -1,7 +1,6 @@
 import { defineAction } from "astro:actions";
 import { db, eq, inArray, isNull, Thought } from "astro:db";
 import { z } from "astro:schema";
-import type { ThoughtNoPost } from "../thoughts";
 import { randomUUID } from "node:crypto";
 
 export const server = {
@@ -28,6 +27,7 @@ export const server = {
         date: Thought.date,
         message: Thought.message,
         isOwner: inArray(Thought.id, savedIds),
+        ...(inArray(Thought.id, savedIds) ? { id: Thought.id } : {}),
       };
       const thoughts = post
         ? await db.select(selector).from(Thought).where(eq(Thought.post, post))
@@ -43,6 +43,7 @@ export const server = {
       post: z.string().max(100).optional(),
     }),
     handler: async ({ username, message, post }, context) => {
+      // TODO: handle
       const thought = await db
         .insert(Thought)
         .values({
@@ -63,9 +64,30 @@ export const server = {
         ) {
           prevCookies = savedCookies;
         }
+        // TODO: handle
       } catch {}
       const newCookies = JSON.stringify(prevCookies.concat(thought[0].id));
       context.cookies.set("created", newCookies, { path: "/" });
+    },
+  }),
+  deleteThought: defineAction({
+    input: z.string(),
+    handler: async (id) => {
+      // TODO: handle
+      await db.delete(Thought).where(eq(Thought.id, id));
+    },
+  }),
+  editThought: defineAction({
+    input: z.object({
+      id: z.string(),
+      newUsername: z.string().max(100),
+      newMessage: z.string().max(1000),
+    }),
+    handler: async ({ id, newUsername, newMessage }) => {
+      await db
+        .update(Thought)
+        .set({ username: newUsername, message: newMessage })
+        .where(eq(Thought.id, id));
     },
   }),
 };

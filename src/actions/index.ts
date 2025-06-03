@@ -23,7 +23,7 @@ export const server = {
     input: z.object({
       username: z.string().max(100),
       message: z.string().max(1000),
-      post: z.string().max(100),
+      post: z.string().max(100).optional(),
     }),
     handler: async ({ username, message, post }, context) => {
       await db.insert(Thought).values({

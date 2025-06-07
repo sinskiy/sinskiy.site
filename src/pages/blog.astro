@@ -18,6 +18,7 @@ const posts = await getAllPostsSorted();
               <article>
                   <h4>{post.data.title}</h2>
                   {post.data.pubDate && <FormattedDate date={post.data.pubDate} />}
+                  <p>{post.data.description}</p>
               </article>
             </a>
           </li>
@@ -32,8 +33,22 @@ const posts = await getAllPostsSorted();
     text-decoration: none;
   }
 
+  ul {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
   h4 {
-    color: rgb(var(--foreground));
     font-size: 2.25rem;
+  }
+
+  article {
+    color: rgb(var(--foreground));
+  }
+
+  p {
+    margin-top: 4px;
   }
 </style>

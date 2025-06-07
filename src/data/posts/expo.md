@@ -1,6 +1,6 @@
 ---
-title: "experience using Expo the first time"
-description: "a full-stack web developer tries React Native for the first time"
+title: "using Expo for the first time"
+description: "a full-stack web developer tries React Native"
 pubDate: "Jun 07 2025"
 ---
 

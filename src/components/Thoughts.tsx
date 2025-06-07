@@ -52,6 +52,7 @@ export default function Thoughts({ post }: Props) {
             <Header
               {...thought}
               isOwner={thought.isOwner === 1}
+              post={post}
               removeThought={removeThought}
             />
             <div
@@ -73,6 +74,7 @@ interface HeaderProps {
   date: Date;
   isOwner: boolean;
   message: string;
+  post?: string;
   removeThought: (id: string) => void;
 }
 
@@ -81,6 +83,7 @@ function Header({
   username,
   date,
   isOwner,
+  post,
   message,
   removeThought,
 }: HeaderProps) {
@@ -95,6 +98,7 @@ function Header({
       }
     }
   }
+
   return (
     <>
       <header class={classes.header}>
@@ -112,7 +116,7 @@ function Header({
               <TrashIcon />
             </button>
             <a
-              href={`/post-thought?id=${encodeURIComponent(id)}&old-message=${encodeURIComponent(message)}&old-username=${encodeURIComponent(username)}`}
+              href={`/post-thought${post ? `/${post}` : ""}${`?id=${encodeURIComponent(id ?? "")}&old-message=${encodeURIComponent(message)}&old-username=${encodeURIComponent(username)}`}`}
               aria-label="edit"
               class={classes.activatable}
             >

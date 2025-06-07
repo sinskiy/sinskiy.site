@@ -73,7 +73,6 @@
   import { navigate } from "astro:transitions/client";
 
   const searchParams = new URLSearchParams(window.location.search);
-  console.log(...searchParams.entries())
   const id = decodeURIComponent(searchParams.get("id") ?? "")
   const oldUsername = decodeURIComponent(searchParams.get("old-username") ?? "")
   const oldMessage = decodeURIComponent(searchParams.get("old-message") ?? "")
@@ -97,6 +96,7 @@
     const message = formData.get("message") as string
     const { error } = isEditMode ? await actions.editThought({ id, newUsername: username, newMessage: message}) : await actions.postThought({ username, message, post });
     if (!error) {
+      console.log(window.location.pathname)
       navigate(post ? `/posts/${post}` : "/");
     } else if (error && errorContainer) {
       errorContainer.textContent = error.message;

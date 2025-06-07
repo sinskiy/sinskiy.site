@@ -4,7 +4,7 @@ import OutwardArrow from "./icons/outward-arrow.svg";
 
 <hgroup style="--order: 1;">
 <h1>dima sinskiy</h1>
-<h2>full-stack web developer interested in politics, philosophy and books<br />i'm looking for friends and job, <a href="#contacts">dm me on Discord</a></h2>
+<h2 class="text">full-stack web developer interested in politics, philosophy and books<br />i'm looking for friends and job, <a href="#contacts">dm me on Discord</a></h2>
 <nav>
     <a href="/blog">blog</a>
     <a href="https://sinskiy.github.io/resume" target="_blank"
@@ -30,10 +30,14 @@ import OutwardArrow from "./icons/outward-arrow.svg";
   }
 
   h2 {
-    font-size: 1.25rem;
     font-weight: 400;
-    letter-spacing: 0.025rem;
     line-height: 1.4;
+  }
+
+  @media (min-width: 500px) {
+    h2 {
+      font-size: 1.25rem;
+    }
   }
 
   nav > a {

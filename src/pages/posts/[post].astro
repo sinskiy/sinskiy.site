@@ -123,7 +123,10 @@ const { Content } = await render(post)
 
   .markdown :global(p code),
   .markdown :global(ol code),
-  .markdown :global(ul code) {
+  .markdown :global(ul code),
+  .markdown :global(h2 code),
+  .markdown :global(h3 code),
+  .markdown :global(h4 code) {
     font-family: var(--monospace);
     padding: 2px 6px;
     margin: 1px -1px;

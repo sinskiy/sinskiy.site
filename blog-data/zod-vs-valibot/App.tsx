@@ -1,11 +1,9 @@
-import { ValibotForms } from "./ValibotForms";
+import "./zodSignUpValidation";
+import "./zodAddEntryValidation";
+import "./zodAddPersonValidation";
 
 function App() {
-  return (
-    <>
-      <ValibotForms />
-    </>
-  );
+  return <></>;
 }
 
 export default App;

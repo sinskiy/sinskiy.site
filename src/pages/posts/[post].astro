@@ -44,6 +44,7 @@ const { Content } = await render(post)
     margin: auto;
     display: flex;
     flex-direction: column;
+    max-width: 100%;
     gap: 32px;
   }
   
@@ -119,6 +120,13 @@ const { Content } = await render(post)
   .markdown :global(pre) {
     border-radius: var(--rounded-base);
     padding: 16px 32px;
+  }
+
+  @media (min-width: 1000px) {
+    .markdown :global(pre) {
+      width: calc(100% + 128px);
+      margin-left: -64px;
+    }
   }
 
   .markdown :global(p code),

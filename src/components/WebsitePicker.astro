@@ -136,7 +136,7 @@ const websites = ["www", "multipedia", "words", "chat", "visit-this-please"];
 
 <script>
   const linksCheckbox = document.querySelector("#links-checkbox");
-  const logo = document.querySelector("#logo-wrapper");
+  const logo = document.querySelector("#full-wrapper");
   if (
     linksCheckbox instanceof HTMLInputElement &&
     logo instanceof HTMLElement
@@ -144,7 +144,7 @@ const websites = ["www", "multipedia", "words", "chat", "visit-this-please"];
     const linksInput = linksCheckbox as HTMLInputElement;
     linksCheckbox.addEventListener("change", handleChange);
 
-    function handleChange(e: Event) {
+    function handleChange() {
       if (linksInput.checked) {
         document.addEventListener("click", closeIfOutside);
       }

@@ -122,12 +122,13 @@ a:hover {
 
 section[style],
 hgroup[style] {
-  opacity: 0;
+  opacity: 1;
   animation: none;
 }
 @media (prefers-reduced-motion: no-preference) {
   section[style],
   hgroup[style] {
+    opacity: 0;
     animation: 500ms show forwards;
     animation-delay: calc(var(--order) * 200ms);
   }

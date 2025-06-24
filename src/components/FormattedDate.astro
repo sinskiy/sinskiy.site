@@ -1,17 +1,17 @@
 ---
-import { formatRelative } from 'date-fns'
+import { formatDate } from "../date"
 
 interface Props {
   date: Date;
 }
 
 const { date } = Astro.props
-const formatted = formatRelative(date, new Date())
+const formatted = formatDate(date)
 ---
 
 <p>
   <time datetime={date.toISOString()}>
-      {formatted.replace(/ at.*$/g, '')}
+      {formatted}
   </time>
 </p>
 

@@ -4,6 +4,7 @@ import MarkdownIt from "markdown-it";
 import { useEffect, useState } from "preact/hooks";
 import classes from "./Thoughts.module.css";
 import { formatRelative } from "date-fns";
+import { formatDate } from "../date";
 
 const md = new MarkdownIt({ linkify: true });
 
@@ -135,7 +136,7 @@ function Header({
 }
 
 function FormattedDate({ date }: { date: Date }) {
-  const formatted = formatRelative(date, new Date());
+  const formatted = formatDate(date);
   return (
     <p>
       <time class={classes.time} datetime={date.toISOString()}>
